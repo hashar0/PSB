@@ -33,11 +33,12 @@
                                         id="">
                                 </div>
                                 <div class="col-lg-12">
-                                @foreach ($category as  $category)
+
                                     <select name="" class="form-control mt-3" id="">
-                                        <option value="">{{$category->name}}</option>
+                                        <option value="">Animal</option>
+                                        <option value="">Birds</option>
                                     </select>
-                                    @endforeach
+
                                 </div>
 
                                 <div class="col-lg-3 mt-3">

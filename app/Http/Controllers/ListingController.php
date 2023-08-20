@@ -17,7 +17,7 @@ class ListingController extends Controller
        $category=DB::table('categories')->get();
        $sub_categories=DB::table('sub_categories')->get();
        $data['country']=Country::get(['name','id']);
-//
+
 
     $products = Product::select('products.*', 'users.name as user_name','countries.name as country_name', 'states.name as state_name', 'cities.name as city_name', 'streets.name as street_name','categories.name as category_name')
     ->leftJoin('countries', 'products.country_id', '=', 'countries.id')
@@ -102,7 +102,7 @@ class ListingController extends Controller
         ]);
     }
 
- return redirect()->route('profile')->with('message','Product add successfully');
+    return redirect()->route('profile')->with('message','Product add successfully');
 }
 // work
 public function country(){

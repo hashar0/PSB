@@ -11,6 +11,7 @@ use App\Http\Controllers\admin\CountryController;
 use App\Http\Controllers\admin\AddressController;
 use App\Http\Controllers\admin\Sub_CategoryController;
 use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\SliderController ;
 use App\Models\Slider;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -61,7 +62,8 @@ Route::prefix('adminv2')->group(function(){
 
 
 
-   Route::prefix('sub_categories')->group(function(){
+    Route::prefix('sub_categories')->group(function(){
+
         Route::get('/',[Sub_CategoryController::class,'index'])->name('sub_cat.index');
 
         Route::get('GetSubCatAgainstMainCatEdit/{id}',[Sub_CategoryController::class,'GetSubCatAgainstMainCatEdit']);
@@ -82,6 +84,7 @@ Route::prefix('adminv2')->group(function(){
 
 
     Route::prefix('country')->group(function(){
+
         Route::get('/',[CountryController::class,'index'])->name('cout.index');
 
         Route::get('/create',[CountryController::class,'create'])->name('cout.create');
@@ -89,8 +92,6 @@ Route::prefix('adminv2')->group(function(){
         Route::post('/store',[CountryController::class,'store'])->name('cout.store');
 
         Route::get('/edit/{id}',[CountryController::class,'edit'])->name('cout.edit');
-
-
 
         Route::post('/update/{id}',[CountryController::class,'update'])->name('cout.update');
 
@@ -101,6 +102,7 @@ Route::prefix('adminv2')->group(function(){
 
 
     Route::prefix('address')->group(function(){
+
         Route::get('/',[AddressController::class,'index'])->name('address.index');
 
         Route::get('/create',[AddressController::class,'create'])->name('address.create');
@@ -117,6 +119,7 @@ Route::prefix('adminv2')->group(function(){
     });
 
     Route::prefix('product')->group(function(){
+
         Route::get('/',[ProductController::class,'index'])->name('prdct.index');
 
         Route::get('/create',[ProductController::class,'create'])->name('prdct.create');
@@ -133,16 +136,17 @@ Route::prefix('adminv2')->group(function(){
     });
 
     Route::prefix('city')->group(function(){
+
         Route::get('/',[CityController::class,'index'])->name('sta.index');
 
         Route::get('/create',[CityController::class,'create'])->name('sta.create');
 
-
-
         Route::post('/store',[CityController::class,'store'])->name('sta.store');
 
         Route::get('/edit/{id}',[CityController::class,'edit'])->name('sta.edit');
+
         Route::post('/filter-cities', [CityController::class, 'filterCities'])->name('filter-cities');
+
         Route::post('/update/{id}',[CityController::class,'update'])->name('sta.update');
 
         Route::get('/delete/{id}',[CityController::class,'delete'])->name('sta.delete');
@@ -152,6 +156,7 @@ Route::prefix('adminv2')->group(function(){
 
 
     Route::prefix('state')->group(function(){
+
         Route::get('/',[StateController::class,'index'])->name('sa.index');
 
         Route::get('/create',[StateController::class,'create'])->name('sa.create');
@@ -168,6 +173,7 @@ Route::prefix('adminv2')->group(function(){
     });
 
     Route::prefix('street')->group(function(){
+
         Route::get('/',[StreetController::class,'index'])->name('st.index');
 
         Route::get('/create',[StreetController::class,'create'])->name('st.create');
@@ -188,6 +194,7 @@ Route::prefix('adminv2')->group(function(){
 
 
     Route::prefix('slider')->group(function(){
+
         Route::get('/',[SliderController::class,'index'])->name('slider.index');
 
         Route::get('/create',[SliderController::class,'create'])->name('slider.create');
@@ -198,5 +205,18 @@ Route::prefix('adminv2')->group(function(){
 
 
     });
+
+    Route::prefix('header')->group(function(){
+
+        Route::get('/',[HeaderController::class,'index'])->name('head.index');
+
+        Route::get('/create',[HeaderController::class,'create'])->name('head.create');
+
+        Route::post('/store',[HeaderController::class,'store'])->name('head.store');
+
+        Route::get('/delete/{id}',[HeaderController::class,'delete'])->name('head.delete');
+    });
+
+
 
 });

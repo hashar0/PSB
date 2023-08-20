@@ -5,6 +5,7 @@
     method="post" enctype="multipart/form-data">
     @csrf
     <div class="col">
+        <h4>Category Form</h4>
         {{-- image --}}
         <p class="card-description">
             Add Sub-Category Image
@@ -16,7 +17,7 @@
 
         </div>
 
-        <h4>Category Form</h4>
+
         <p class="card-description">
             Add Category
         </p>

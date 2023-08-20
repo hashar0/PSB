@@ -329,72 +329,88 @@
             </div>
             <!-- partial -->
             <!-- partial:partials/_sidebar.html -->
-            <nav class="sidebar " >
-                <ul class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('dashboard')}}">
-                            <i class="icon-grid menu-icon"></i>
-                            <span class="menu-title">Dashboard</span>
-                        </a>
-                    </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route ('cat.index')}}">
-                            <i class="icon-columns menu-icon"></i>
-                            <span class="menu-title">Category</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route ('sub_cat.index')}}">
-                            <i class="icon-grid-2 menu-icon"></i>
-                            <span class="menu-title">sub_Category</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('prdct.index')}}">
-                            <i class="icon-paper menu-icon"></i>
-                            <span class="menu-title">Product</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route ('cout.index')}}">
-                            <i class="icon-bar-graph menu-icon"></i>
-                            <span class="menu-title">Country</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route ('address.index')}}">
-                            <i class="icon-layout menu-icon"></i>
-                            <span class="menu-title">Address</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('sta.index')}}">
-                            <i class="icon-contract menu-icon"></i>
-                            <span class="menu-title">City</span>
-                        </a>
-                    </li>
+            <!-- Sidebar -->
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('sa.index')}}">
-                            <i class="icon-grid menu-icon"></i>
-                            <span class="menu-title">State</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('st.index')}}">
-                            <i class="icon-grid menu-icon"></i>
-                            <span class="menu-title">Street</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route ('slider.index')}}">
-                            <i class="icon-columns menu-icon"></i>
-                            <span class="menu-title">Slider</span>
-                        </a>
-                    </li>
-                </ul>
 
+            <!-- Main Content -->
+
+
+            <nav class=" sidebar ">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{{route('dashboard')}}">
+                                <i class="icon-grid menu-icon"></i>
+                                <span class="menu-title">Dashboard</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route ('cat.index')}}">
+                                <i class="icon-columns menu-icon"></i>
+                                <span class="menu-title">Category</span>
+                            </a>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('sub_cat.index')}}">
+                                <i class="icon-paper menu-icon"></i>
+                                <span class="menu-title">Sub_Category</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('prdct.index')}}">
+                                <i class="icon-paper menu-icon"></i>
+                                <span class="menu-title">Product</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route ('cout.index')}}">
+                                <i class="icon-bar-graph menu-icon"></i>
+                                <span class="menu-title">Country</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route ('address.index')}}">
+                                <i class="icon-layout menu-icon"></i>
+                                <span class="menu-title">Address</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('sta.index')}}">
+                                <i class="icon-contract menu-icon"></i>
+                                <span class="menu-title">City</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('sa.index')}}">
+                                <i class="icon-grid menu-icon"></i>
+                                <span class="menu-title">State</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('st.index')}}">
+                                <i class="icon-grid menu-icon"></i>
+                                <span class="menu-title">Street</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('head.index')}}">
+                                <i class="icon-grid menu-icon"></i>
+                                <span class="menu-title">Header</span>
+                            </a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route ('slider.index')}}">
+                                <i class="icon-columns menu-icon"></i>
+                                <span class="menu-title">Slider</span>
+                            </a>
+                        </li>
+                        </li>
+                    </ul>
+                </div>
             </nav>
             <!-- partial -->
             <div class="main-panel">
@@ -444,7 +460,5 @@
     <div class="alert alert-success">
         {{ session('success') }}
     </div>
-@endif
+    @endif
 </body>
-
-</html>
