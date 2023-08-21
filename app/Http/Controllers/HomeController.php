@@ -53,9 +53,12 @@ class HomeController extends Controller
       ->get();
       $city=DB::table('cities')
       ->select('cities.image as city_image','cities.name as city_name')->get();
+      $header=DB::table('headers')->get();
+      $category = DB::table('categories')
+      ->select('categories.image as category_image','categories.name as category_name')->get();
 
 
-      return view('home.home',compact('sub_category','sliders','products','city'));
+      return view('home.home',compact('sub_category','sliders','products','city','header','category'));
     }
 
 }

@@ -11,11 +11,10 @@
                 <div class="row">
                     <div class="col-lg-6 p-5">
                         <div class="mt-5 ">
-                            <h1>Name Your Need</h1>
-                            <h1 class="font-weight-bold">You Will Get <span class="text-danger">EveryThing </span></h1>
-                            <p class="p-2 fount-size-5">Consectetur adipisicing elit sed dotem eiusmod tempor incune ut
-                                labore
-                                etdolore maigna aliqua enim. </p>
+                            @foreach ($header as $head)
+                            <h1 class="font-weight-bold text-danger p-1">{{$head->heading}}</h1>
+                            <p class="p-2 fount-size-5">{{$head->paragraph}} </p>
+                            @endforeach
                         </div>
                         {{-- Search button --}}
                         <a class="btn btn-danger btn-lg" href="">Get Search</a> &emsp;&emsp;
@@ -35,12 +34,12 @@
                                 <div class="col-lg-12">
 
                                     <select name="" class="form-control mt-3" id="">
-                                        <option value="">Animal</option>
-                                        <option value="">Birds</option>
+                                        <option value="">Select a category</option>
+                                        @foreach ($category as $category)
+                                        <option value="">{{$category->category_name}}</option>
+                                        @endforeach
                                     </select>
-
                                 </div>
-
                                 <div class="col-lg-3 mt-3">
                                     <a class="btn btn-danger" href="">Search </a>
                                 </div>
@@ -57,7 +56,9 @@
 {{-- scroll images --}}
 
 <div class="col-12 col-md-12 ">
+
     <div class=" card container ">
+
         <div class="owl-carousel owl-theme " id="slider1">
 
             @foreach ($sub_category as $sub_category)
@@ -78,7 +79,12 @@
 
 </div>
 <br><br><br><br><br><br>
-{{-- varifield items --}}
+{{-- slider --}}
+
+<div class="container p-2">
+    <h6 class="display-6">Advertising</h6>
+</div>
+
 <div class="col-12 col-md-12 ">
 
     <div class="owl-carousel owl-theme" id="slider10">
@@ -100,10 +106,9 @@
 <div class="container">
 
     <h6 class="display-6">Featured Ads </h6>
-
-    <a href="#"><i>All View</i> </a>
-    <br><br>
-
+    <div class="text-end p-2">
+        <a href="#"><i>All View</i> </a>
+    </div>
 
 
 </div>
@@ -113,20 +118,21 @@
     <div class="owl-carousel owl-theme" id="slider2">
         @foreach ($products as $product)
         <div class="card ">
-
-            <div class="item ">
-
+            <div  class="item ">
                 <img href="#" src="{{$product->image}}" class="card-arrow" alt="Arrow Picture" alt="" height="200px">
-
                 <div class="card-body">
-                    <a href="#">{{$product->name}}</a>
-                    <br>
-                    <span class="text-dark" href="#"><span
-                            class=" text-muted ">Type</span>&nbsp&nbsp&nbsp&nbsp{{$product->age}}</span>
-                    <br>
-                    <span class="text-danger ">{{$product->price}}</span>
-                    <br>
-                    <span class=" text-muted "><i
+                    <a href="{{route('details')}}">{{$product->name}}</a>
+                    <a href="#">
+                        <span class="custom-spacing"></span>
+                        <i class="fa-sharp fa-solid fa-heart" style="color: #e64141; "></i></a>
+
+                    {{-- <i> <span class="text-dark" href="#" class=" text-muted ">Type</span></i><span
+                        class="ml-5">{{$product->age}}</span> --}}
+
+                    {{-- <span class="text-danger ">{{$product->price}}</span> --}}
+
+                        <br>
+                    <span class="text-muted"><i
                             class="fa-solid fa-location-arrow"></i>{{$product->country_name}}</span>
 
                 </div>
@@ -384,21 +390,26 @@
             <div class="container">
                 <div class="card">
                     <div class="custom-card ">
-                        <div class="d-flex px-6 justify-content-start align-items-center col-md-8">
-                            <img class="card"
-                                src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/img-05-1.png"
-                                alt="Animals">
 
+                        {{-- <div class="d-flex px-6 justify-content-start align-items-center col-md-8">
+                            @foreach ($category as $category)
+                            <img class="card" src="{{$category->category_image}}" alt="Animals">
+                            @endforeach
                             <div class="col-md-4 ">
                                 <div class="card-body d-flex">
-                                    <h6><a href="#" class="card-title ">Animal</a></h6>
+
+                                    <h6><a href="#" class="card-title ">name</a></h6>
+
+
                                     <div class=" container d-flex  mx-5 ">
                                         <small class=" mx-3 text-muted">(11&nbspAds)</small>
                                     </div>
                                 </div>
                             </div>
 
-                        </div>
+                        </div> --}}
+
+
                         <div class="d-flex px-6 justify-content-start align-items-center col-md-8">
                             <img class="card"
                                 src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/img-05-1.png"

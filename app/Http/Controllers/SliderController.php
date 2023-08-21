@@ -47,11 +47,11 @@ class SliderController extends Controller
 
 
 
-        return redirect()->route('slider.index');
+        return redirect()->route('slider.index')->with('message','Slider Add Successfully');
 
 
     }
-    public function delete(Request $request,$id){
+    public function delete($id){
 
         $sliders=Slider::find($id);
 

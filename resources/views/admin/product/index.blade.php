@@ -25,9 +25,8 @@
                                     <th>#</th>
                                     <th>Name</th>
                                     <th>Image</th>
-                                    <th>Description</th>
-                                    <th>Price</th>
                                     <th>Age</th>
+                                    <th>Price</th>
                                     <th>Type</th>
                                     <th>User-Name</th>
                                     <th>Category-Name</th>
@@ -36,6 +35,7 @@
                                     <th>State-Name</th>
                                     <th>City-Name</th>
                                     <th>Street-Name</th>
+                                    <th>Description</th>
                                     {{-- <th>Action<th> --}}
 
                                 </tr>
@@ -46,10 +46,10 @@
                                     <td>{{ ++$key}}</td>
                                     <td>{{ $product->name}}</td>
                                     <td><img src="{{$product->image}}" alt="image"></td>
-                                    <td>{{$product->description}}</td>
-                                    <td>{{$product->price}}</td>
+
+
                                     <td>{{$product->age}}</td>
-                                    <td>{{$product->type}}</td>
+
                                     <td>{{$product->user_name }}</td>
                                     <td>{{$product->category_name}}</td>
                                     <td>{{$product->sub_category_name}}</td>
@@ -57,6 +57,7 @@
                                     <td>{{$product->state_name}}</td>
                                     <td>{{$product->city_name}}</td>
                                     <td>{{$product->street_name}}</td>
+                                    <td>{{$product->description}}</td>
 
                                     <td>
                                     {{-- <a class="btn btn-info" href="{{route('prdct.edit',$product->id)}}">Edit </a> --}}

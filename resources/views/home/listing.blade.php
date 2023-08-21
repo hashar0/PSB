@@ -36,7 +36,7 @@
     </p>
     <div>
         <div class="form-group">
-            <input class="form-control" type="file" name="images[]" multiple   required>
+            <input class="form-control" type="file" name="images[]" multiple required>
         </div>
 
     </div>
@@ -45,41 +45,52 @@
     </p>
     <div>
         <div class="form-group">
-            <input class="form-control" type="number" id="age" name="age" value="{{ old('age') }}" required>
+            <input class="form-control" type="number" id="age" name="age" value="{{ old('age') }}" placeholder="Enter the Age" required>
         </div>
     </div>
-    <p class="card-description">
-        Add Price
-    </p>
-    <div>
-        <div class="form-group">
-            <input class="form-control" type="number" id="price" name="price" value="{{ old('price') }}" required>
-        </div>
+    <div class="form-group">
+        <label for="">Choose Price</label>
+        <select name="price" id="" class="form-control @error('price') is-invalid @enderror" required>
+            <option value="">Select Price</option>
+            {{-- @foreach ($category as $category )
+
+            <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endforeach --}}
+
+        </select>
+
+        @error('price')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
 
     </div>
-    <p class="card-description">
-        Add type
-    </p>
-    <div>
-        <div class="form-group">
-            <input class="form-control" type="text" id="type" name="type" value="{{ old('type') }}" required>
-        </div>
+
+    <div class="form-group">
+        <label for="">Choose Type</label>
+        <select name="type" id="" class="form-control @error('type') is-invalid @enderror" required>
+            <option value="">Select Type</option>
+            {{-- @foreach ($category as $category )
+
+            <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endforeach --}}
+
+        </select>
+
+        @error('type')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
 
     </div>
-    <p class="card-description">
-        Add Description
-    </p>
-    <div>
-        <div class="form-group">
-            <textarea class="form-control" id="description" name="description"
-                required>{{ old('description') }}</textarea>
-        </div>
 
-    </div>
     {{-- category and sub_category --}}
     <div class="form-group">
         <label for="">Choose Category</label>
-        <select name="category" id="sub_category_name" class="form-control @error('category') is-invalid @enderror" required>
+        <select name="category" id="sub_category_name" class="form-control @error('category') is-invalid @enderror"
+            required>
             <option value="">select Category</option>
             @foreach ($category as $category )
 
@@ -98,7 +109,8 @@
 
     <div class="form-group">
         <label for="">Choose Sub-Category</label>
-        <select name="subcategory" id="sub_category" class="form-control @error('subcategory') is-invalid @enderror" required>
+        <select name="subcategory" id="sub_category" class="form-control @error('subcategory') is-invalid @enderror"
+            required>
             <option value="">select</option>
         </select>
 
@@ -131,7 +143,7 @@
     </p>
 
     <div class="form-group">
-        <select id="state" name="state" required  class="form-control">
+        <select id="state" name="state" required class="form-control">
             <option value="" selected>Choose State</option>
 
         </select>
@@ -141,7 +153,7 @@
         Add City
     </p>
     <div class="form-group">
-        <select id="city" name="city" required  class="form-control">
+        <select id="city" name="city" required class="form-control">
             <option value="" selected>Choose City</option>
 
         </select>
@@ -151,13 +163,25 @@
         Add Street
     </p>
     <div class="form-group">
-        <select id="street" required  name="street" class="form-control">
+        <select id="street" required name="street" class="form-control">
             <option value="" selected>Choose Street</option>
 
         </select>
     </div>
 
     <br>
+    <p class="card-description">
+        Add Description
+    </p>
+    <div>
+        <div class="form-group">
+            <textarea class="form-control" id="description" name="description"
+                required>{{ old('description') }}</textarea>
+        </div>
+
+    </div>
+
+
     <div><button type="submit" class="btn btn-primary mr-2">save</button></div>
     <br>
 </form>
@@ -265,11 +289,11 @@
                     $('#sub_category').empty();
                     $('#sub_category').append(
                         `<option value="0" disabled selected>Select Sub Category*</option>`
-                        );
+                    );
                     response.forEach(element => {
                         $('#sub_category').append(
                             `<option value="${element['id']}">${element['name']}</option>`
-                            );
+                        );
                     });
                 }
             });

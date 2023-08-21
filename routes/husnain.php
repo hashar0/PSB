@@ -27,41 +27,37 @@ Route::get('/', function () {
 
 
 
-
-
-
-
-
-
-
-
-
-
 //auth
  Auth::routes();
 
  Route::get('/home',[HomeController::class,'index'])->name('/home');
 
  //home page frontend
-  Route::prefix('/')->group(function(){
+Route::prefix('/')->group(function(){
 
     Route::get('/',[FrontController::class,'index'])->name('/');
     Route::get('/contant',[FrontController::class,'contant'])->name('contant');
     Route::get('/about',[FrontController::class,'about'])->name('about');
     // profile
 
-    Route::post('/profile.update',[ProfileController::class,'update'])->name('profile.update');
+   // Route::post('/profile.update',[ProfileController::class,'update'])->name('profile.update');
 
    // Route::get('/task',[FrontController::class,'task'])->name('/task');
 });
 
 Route::middleware(['auth'])->group(function (){
+
     Route::prefix('/profile')->group(function(){
+
         Route::get('/add_listing',[ListingController::class,'add_listing'])->name('add_listing');
+
         Route::post('/store',[ListingController::class,'store'])->name('listing.store');
-        Route::get('/',[ProfileController::class,'profile'])->name('profile');
+
         Route::get('/detail',[ListingController::class,'detail'])->name('details');
-       // Route::get('/redirect', [ListingController::class, 'redirect'])->name('redirect');
+
+        Route::get('/',[ProfileController::class,'profile'])->name('profile');
+
+        Route::post('/update',[ProfileController::class,'update'])->name('profile.update');
 
 
 

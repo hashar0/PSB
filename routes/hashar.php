@@ -13,6 +13,8 @@ use App\Http\Controllers\admin\Sub_CategoryController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\SliderController ;
+use App\Http\Controllers\PriceController ;
+use App\Http\Controllers\TypeController ;
 use App\Models\Slider;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -190,7 +192,7 @@ Route::prefix('adminv2')->group(function(){
     });
 
 
-   // slider
+   // slider data
 
 
     Route::prefix('slider')->group(function(){
@@ -206,6 +208,8 @@ Route::prefix('adminv2')->group(function(){
 
     });
 
+    //header data
+
     Route::prefix('header')->group(function(){
 
         Route::get('/',[HeaderController::class,'index'])->name('head.index');
@@ -217,6 +221,30 @@ Route::prefix('adminv2')->group(function(){
         Route::get('/delete/{id}',[HeaderController::class,'delete'])->name('head.delete');
     });
 
+    //price
+    Route::prefix('price')->group(function(){
+
+        Route::get('/',[PriceController::class,'index'])->name('price.index');
+
+        Route::get('/create',[PriceController::class,'create'])->name('price.create');
+
+        Route::post('/store',[PriceController::class,'store'])->name('price.store');
+
+        Route::get('/delete/{id}',[PriceController::class,'delete'])->name('price.delete');
+    });
+//type
+    Route::prefix('type')->group(function(){
+
+        Route::get('/',[TypeController::class,'index'])->name('type.index');
+
+        Route::get('/create',[TypeController::class,'create'])->name('type.create');
+
+        Route::post('/store',[TypeController::class,'store'])->name('type.store');
+
+        Route::get('/delete/{id}',[TypeController::class,'delete'])->name('type.delete');
+    });
+
+    //whislists
 
 
 });

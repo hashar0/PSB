@@ -33,6 +33,12 @@
     {{-- country --}}
     <meta name="_token" content="{{ csrf_token() }}">
 
+    {{-- icon --}}
+    <style>
+        .custom-spacing {
+          margin-left: 140px; /* You can adjust this value as needed */
+        }
+      </style>
 </head>
 <title>Pets Stock Bazaar</title>
 </head>
