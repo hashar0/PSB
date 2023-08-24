@@ -50,16 +50,16 @@
     </div>
     <div class="form-group">
         <label for="">Choose Price</label>
-        <select name="price" id="" class="form-control @error('price') is-invalid @enderror" required>
+        <select name="price" id="price_name" class="form-control @error('price') is-invalid @enderror" required>
             <option value="">Select Price</option>
-            {{-- @foreach ($category as $category )
+            @foreach ($price as $pri )
 
-            <option value="{{ $category->id }}">{{ $category->name }}</option>
-            @endforeach --}}
+            <option value="{{ $pri->id }}">{{ $pri->price }}</option>
+            @endforeach
 
         </select>
 
-        @error('price')
+        @error('pri')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </span>
@@ -69,12 +69,12 @@
 
     <div class="form-group">
         <label for="">Choose Type</label>
-        <select name="type" id="" class="form-control @error('type') is-invalid @enderror" required>
+        <select name="type" id="type_id" class="form-control @error('type') is-invalid @enderror" required>
             <option value="">Select Type</option>
-            {{-- @foreach ($category as $category )
+            @foreach ($types as $type )
 
-            <option value="{{ $category->id }}">{{ $category->name }}</option>
-            @endforeach --}}
+            <option value="{{ $type->id }}">{{ $type->types }}</option>
+            @endforeach
 
         </select>
 

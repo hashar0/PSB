@@ -26,8 +26,8 @@
                                     <th>Name</th>
                                     <th>Image</th>
                                     <th>Age</th>
-                                    <th>Price</th>
-                                    <th>Type</th>
+
+                                    {{-- <th>Type</th> --}}
                                     <th>User-Name</th>
                                     <th>Category-Name</th>
                                     <th>Sub-Category_Name</th>
@@ -36,7 +36,9 @@
                                     <th>City-Name</th>
                                     <th>Street-Name</th>
                                     <th>Description</th>
-                                    {{-- <th>Action<th> --}}
+                                    <th>Price</th>
+                                    <th>Type</th>
+                                    <th>Action<th>
 
                                 </tr>
                             </thead>
@@ -58,6 +60,8 @@
                                     <td>{{$product->city_name}}</td>
                                     <td>{{$product->street_name}}</td>
                                     <td>{{$product->description}}</td>
+                                    <td>{{$product->price_name}}</td>
+                                    <td>{{$product->types_name}}</td>
 
                                     <td>
                                     {{-- <a class="btn btn-info" href="{{route('prdct.edit',$product->id)}}">Edit </a> --}}

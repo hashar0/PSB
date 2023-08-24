@@ -8,6 +8,7 @@ use App\Models\Product;
 class FrontController extends Controller
 {
 
+// home page data upload
 
     public function index()
     {
@@ -41,7 +42,7 @@ class FrontController extends Controller
       ->select('categories.image as category_image','categories.name as category_name')->get();
       return view('home.home',compact('sub_category','sliders','products','city','header','category'));
 
- return "$category";
+      // return "$category";
     }
     public function contant()
     {

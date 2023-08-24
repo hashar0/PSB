@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 
 class ListingController extends Controller
 {
+
+   // add listing
     public function add_listing()
     {
 
@@ -17,9 +19,10 @@ class ListingController extends Controller
        $category=DB::table('categories')->get();
        $sub_categories=DB::table('sub_categories')->get();
        $data['country']=Country::get(['name','id']);
+       $price=DB::table('prices')->get();
+       $types=DB::table('types')->get();
 
-
-    $products = Product::select('products.*', 'users.name as user_name','countries.name as country_name', 'states.name as state_name', 'cities.name as city_name', 'streets.name as street_name','categories.name as category_name')
+    $products = Product::select('products.*', 'users.name as user_name','countries.name as country_name', 'states.name as state_name', 'cities.name as city_name', 'streets.name as street_name','categories.name as category_name','prices.price as price_name')
     ->leftJoin('countries', 'products.country_id', '=', 'countries.id')
     ->leftJoin('states', 'products.state_id', '=', 'states.id')
     ->leftJoin('cities', 'products.city_id', '=', 'cities.id')
@@ -27,12 +30,14 @@ class ListingController extends Controller
     ->leftJoin('users', 'products.user_id', '=', 'users.id')
     ->leftJoin('categories','products.cat_id','=','categories.id')
     ->leftJoin('sub_categories','products.subcat_id','=','sub_categories.id')
+     ->leftJoin('prices','products.price_id','=','prices.id')
+    ->leftJoin('types','products.type_id','=','types.id')
     ->get();
 
     //   $jsonData = $products->toJson();
     //      return "$jsonData";
-
-        return view('home.listing',compact('data','category','country','state','city','category','sub_categories'));
+   // return $products;
+        return view('home.listing',compact('data','category','country','state','city','category','sub_categories','price','types'));
     }
 
     // detail listing
@@ -44,6 +49,9 @@ class ListingController extends Controller
        $category=DB::table('categories')->get();
        $sub_categories=DB::table('sub_categories')->get();
        $data['country']=Country::get(['name','id']);
+       $data['country']=Country::get(['name','id']);
+
+
 
 
     $products = Product::select('products.*', 'users.name as user_name','countries.name as country_name', 'states.name as state_name', 'cities.name as city_name', 'streets.name as street_name','categories.name as category_name')
@@ -54,8 +62,10 @@ class ListingController extends Controller
     ->leftJoin('users', 'products.user_id', '=', 'users.id')
     ->leftJoin('categories','products.cat_id','=','categories.id')
     ->leftJoin('sub_categories','products.subcat_id','=','sub_categories.id')
-    ->get();
 
+
+    ->get();
+       // return $products;
         return view('home.detail',compact('products','data','category','country','state','city','category','sub_categories'));
     }
 
@@ -84,6 +94,8 @@ class ListingController extends Controller
             'state_id'=> $request->state,
             'city_id'=> $request->city,
             'street_id'=> $request->street,
+            'price_id' => $request->price,
+            'type_id'=> $request->type,
             'cat_id'=>$request->category,
             'subcat_id'=>$request->subcategory,
             // user id import in auth
