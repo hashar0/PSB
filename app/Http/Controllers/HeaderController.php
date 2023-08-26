@@ -17,7 +17,6 @@ class HeaderController extends Controller
 
     Public function create(){
 
-
         return view('home.header.create');
     }
 

@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ProductImage;
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+
 
 class ProductController extends Controller
 {
@@ -23,7 +23,7 @@ class ProductController extends Controller
         ->leftjoin('sub_categories as sub','products.subcat_id','=','sub.id')
         ->leftjoin('prices','products.price_id','=','prices.id')
         ->leftjoin('types','products.type_id','=','types.id')
-        ->select('products.*', 'types.types as types_name','prices.price as price_name','countries.name as country_name', 'states.name as state_name', 'cities.name as city_name', 'streets.name as street_name','users.name as user_name'
+        ->select('products.*','types.types as types_name','prices.price as price_name','countries.name as country_name', 'states.name as state_name', 'cities.name as city_name', 'streets.name as street_name','users.name as user_name'
         ,'categories.name as category_name',
         'sub.name as sub_category_name')
         ->get();

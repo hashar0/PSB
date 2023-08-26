@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\CitylistingController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\FrontController;
@@ -38,8 +38,8 @@ Route::prefix('/')->group(function(){
     Route::get('/',[FrontController::class,'index'])->name('/');
     Route::get('/contant',[FrontController::class,'contant'])->name('contant');
     Route::get('/about',[FrontController::class,'about'])->name('about');
-    // profile
-
+    // city_listing
+    Route::post('/city_listing',[CitylistingController::class,'city_listing'])->name('city_lis');
    // Route::post('/profile.update',[ProfileController::class,'update'])->name('profile.update');
 
    // Route::get('/task',[FrontController::class,'task'])->name('/task');

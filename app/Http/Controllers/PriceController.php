@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Price;
-use App\Models\Type;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -27,7 +26,8 @@ class PriceController extends Controller
     }
 
     public function delete($id){
-        $price=Type::find($id);
+        $price=Price::find($id);
+
         $price->delete();
         return redirect()->route('price.index');
     }

@@ -56,11 +56,8 @@
 {{-- scroll images --}}
 
 <div class="col-12 col-md-12 ">
-
-    <div class=" card container ">
-
+    <div class=" card container shadow ">
         <div class="owl-carousel owl-theme " id="slider1">
-
             @foreach ($sub_category as $sub_category)
             <div class="card container" style="height: 9.3rem">
                 <div class="item">
@@ -90,11 +87,7 @@
     <div class="owl-carousel owl-theme" id="slider10">
         @foreach ($sliders as $slider)
         <div class="item">
-
             <img src="{{$slider->image}}" height="350px" width="350px">
-
-
-
         </div>
         @endforeach
 
@@ -115,10 +108,10 @@
 
 <div class="container">
 
-    <div class="owl-carousel owl-theme" id="slider2">
+    <div class="owl-carousel owl-theme " id="slider2">
         @foreach ($products as $product)
-        <div class="card ">
-            <div  class="item ">
+        <div class="card shadow">
+            <div class="item  ">
                 <img href="#" src="{{$product->image}}" class="card-arrow" alt="Arrow Picture" alt="" height="200px">
                 <div class="card-body">
                     <a href="{{route('details')}}">{{$product->name}}</a>
@@ -126,14 +119,15 @@
                         <span class="custom-spacing"></span>
                         <i class="fa-sharp fa-solid fa-heart" style="color: #e64141; "></i></a>
 
-                    {{-- <i> <span class="text-dark" href="#" class=" text-muted ">Type</span></i><span
-                        class="ml-5">{{$product->age}}</span> --}}
+                    <i> <span class="text-dark" href="#" class=" text-muted ">Age</span></i><span
+                        class="ml-5">{{$product->age}}month</span>
+                    <br>
+                    <span class="text-danger">
+                        <td>{{$product->price_name}}</td>
+                    </span>
 
-                    {{-- <span class="text-danger ">{{$product->price}}</span> --}}
-
-                        <br>
-                    <span class="text-muted"><i
-                            class="fa-solid fa-location-arrow"></i>{{$product->country_name}}</span>
+                    <br>
+                    <span class="text-muted"><i class="fa-solid fa-location-arrow"></i>{{$product->country_name}}</span>
 
                 </div>
                 <div class="card-footer">
@@ -141,347 +135,165 @@
 
                     </small>
                 </div>
-
-
             </div>
-
-
         </div>
         @endforeach
     </div>
-
 </div>
-
-
-
-
 <br><br>
+
+
+
+
+
+
 {{-- RECent add --}}
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="container">
                 <h5 class="display-6">Recent Add</h5>
+                <hr class="hr-light">
             </div>
+        </div>
+    </div>
+    <div class="row ">
 
+        @foreach($products as $product)
+        <div class="col-lg-6 ">
+            <a href="{{route('details')}}" class="nav-link">
+                <div class="card flex-row flex-wrap  mt-4 shadow ">
+
+                    <div class="col-lg-4 ">
+                        <img src="{{$product->image}}" height="130px" width="130px" alt="">
+                    </div>
+                    <div class="card-block px-1 col-md-8 ">
+                        <h6 class="text-dark">{{$product->name}}<h5>
+                                <h6 class="text-danger">{{$product->price_name}}</h6>
+                                <p class="text-dark">{{$product->description}} </p>
+                    </div>
+
+
+
+                </div>
+            </a>
+        </div>
+        @endforeach
+
+
+        <br><br>
+    </div>
+    <br>
+    {{-- add by location --}}
+    <div class="row">
+        <div class="col-md-8">
+            <div class="container">
+                <h5 class="display-6">Add By Location</h5>
+            </div>
             <hr class="hr-light">
-            <div class="card flex-row flex-wrap col-md-12">
-                <div class="owl-carousel owl-theme col-md-4" id="slider3">
-                    <div class="card border-0">
-                        <img src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/camera1-255x200.jpg"
-                            alt="" />
-                    </div>
-                    <div class="card border-0 ">
-                        <img src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/camera1-255x200.jpg"
-                            alt="" />
-                    </div>
-                    <div class="card border-0 ">
-                        <img src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/camera1-255x200.jpg"
-                            alt="" />
-                    </div>
-                    <div class="card border-0 ">
-                        <img src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/camera1-255x200.jpg"
-                            alt="" />
-                    </div>
-                    <div class="card border-0 ">
-                        <img src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/camera1-255x200.jpg"
-                            alt="" />
-                    </div>
-                </div>
 
-                <div class="card-block px-1 col-md-8">
-                    <h5><a href="#" class="card-title">Hen</a></h5>
-                    <h6>Price Of hen</h6>
-                    <p class="card-text">The hen has two slender legs two eyes and a strong beak. It has a red
-                        crest
-                        on its
-                        head, which looks
-                        very beautiful </p>
-                </div>
-
-            </div>
-            <br><br>
-            {{-- slider4 --}}
-            <div class="card flex-row flex-wrap col-md-12 shadow-card">
-                <div class="owl-carousel owl-theme col-md-4" id="slider4" onmouseover="addShadow(this)"
-                    onmouseout="removeShadow(this)">
-                    <div class="card border-0">
-                        <img src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/camera1-255x200.jpg"
-                            alt="" />
-                    </div>
-                    <div class="card border-0 ">
-                        <img src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/camera1-255x200.jpg"
-                            alt="" />
-                    </div>
-                    <div class="card border-0 ">
-                        <img src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/camera1-255x200.jpg"
-                            alt="" />
-                    </div>
-                    <div class="card border-0 ">
-                        <img src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/camera1-255x200.jpg"
-                            alt="" />
-                    </div>
-                    <div class="card border-0 ">
-                        <img src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/camera1-255x200.jpg"
-                            alt="" />
-                    </div>
-                </div>
-
-                <div class="card-block px-1 col-md-8">
-                    <h5><a href="#" class="card-title">Hen</a></h5>
-                    <h6>Price Of hen</h6>
-                    <p class="card-text">The hen has two slender legs two eyes and a strong beak. It has a red
-                        crest
-                        on its
-                        head, which looks
-                        very beautiful </p>
-                </div>
-
-            </div>
-            <br><br><br>
-            {{-- top caegories --}}
-            <div class="container d-flex ">
-                <h4 class="display-6">Add By Location</h4>
-                <hr>
-            </div>
-            <br><br>
-            <div class="container ">
-
-                <div class="row">
-
-                    @foreach ($city as $category)
-
-                    <div class=" col-md-4 mb-4">
-
-                        <div class="card">
-
+            <div class="row">
+                @foreach ($city as $category)
+                <div class="col-lg-4">
+                    {{-- <a href="{{route('city_list')}}" class="nav-link"> --}}
+                    <form action="{{route('city_lis')}}" method="post">
+                        @csrf
+                        <div class="card shadow mb-4">
                             <img src="{{$category->city_image}}" class="card-img-center" alt="country image"
                                 height="180px">
                             <div class="card-body">
-                                <h6 class="card-title text-center">{{$category->city_name}}</h6>
+                                <h6 class="card-title text-center text-dark">{{$category->city_name}}</h6>
                                 <div class="text-center">
-                                    <small class="text-muted text-center">(11&nbspAds)</small>
+                                    <small class="text-muted text-center">({{$product->city_id}}&nbspAds)</small>
                                 </div>
-
                             </div>
-
-
-
-
-
+                            <input type="submit" value="view" class="btn btn-primary btn-sm">
                         </div>
+                        <input type="hidden" name="city_id" value="{{$category->city_id}}">
+                    </form>
+                    {{-- </a> --}}
 
-                    </div>
-
-                    @endforeach
                 </div>
-
+                @endforeach
             </div>
-            <br><br>
-
-            <br><br>
-
         </div>
 
-
-
-
-
-        {{-- Staff Pick --}}
-        <div class="col-md-4 ">
-            <h5 class="display-6">Staff pick</h5>
-            <hr class="hr-light">
-            <div class="card flex-row flex-wrap custom-card">
-                <div class="container d-flex justify-content-center align-items-center">
-                    <img src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/car1-100x100.jpg" alt=""
-                        height="70px" width="70px" alt="" />
-
-                    <div class="  px-3 col-md-10">
-                        <h6><a href="#" class="card-title">Hen</a></h6>
-                        <p class="card-text">The hen has two slender</p>
-                        <h5 class="text-danger">Price Of hen</h5>
-
-                    </div>
-                </div>
-
-            </div>
-            <div class="card flex-row flex-wrap custom-card">
-                <div class="container d-flex justify-content-center align-items-center">
-                    <img src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/car1-100x100.jpg" alt=""
-                        height="70px" width="70px" alt="" />
-
-                    <div class="  px-3 col-md-10">
-                        <h6><a href="#" class="card-title">Hen</a></h6>
-                        <p class="card-text">The hen has two slender</p>
-                        <h5 class="text-danger">Price Of hen</h5>
-
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="card flex-row flex-wrap custom-card">
-                <div class="container d-flex justify-content-center align-items-center">
-                    <img src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/car1-100x100.jpg" alt=""
-                        height="70px" width="70px" alt="" />
-
-                    <div class="  px-3 col-md-10">
-                        <h6><a href="#" class="card-title">Hen</a></h6>
-                        <p class="card-text">The hen has two slender</p>
-                        <h5 class="text-danger">Price Of hen</h5>
-
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="card flex-row flex-wrap custom-card">
-                <div class="container d-flex justify-content-center align-items-center">
-                    <img src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/car1-100x100.jpg" alt=""
-                        height="70px" width="70px" alt="" />
-
-                    <div class="  px-3 col-md-10">
-                        <h6><a href="#" class="card-title">Hen</a></h6>
-                        <p class="card-text">The hen has two slender</p>
-                        <h5 class="text-danger">Price Of hen</h5>
-
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="card flex-row flex-wrap custom-card">
-                <div class="container d-flex justify-content-center align-items-center">
-                    <img src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/car1-100x100.jpg" alt=""
-                        height="70px" width="70px" alt="" />
-
-                    <div class="  px-3 col-md-10">
-                        <h6><a href="#" class="card-title">Hen</a></h6>
-                        <p class="card-text">The hen has two slender</p>
-                        <h5 class="text-danger">Price Of hen</h5>
-
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="card flex-row flex-wrap custom-card">
-                <div class="container d-flex justify-content-center align-items-center">
-                    <img src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/car1-100x100.jpg" alt=""
-                        height="70px" width="70px" alt="" />
-
-                    <div class=" px-3 col-md-10">
-                        <h6><a href="#" class="card-title">Hen</a></h6>
-                        <p class="card-text">The hen has two slender</p>
-                        <h5 class="text-danger">Price Of hen</h5>
-
-                    </div>
-                </div>
-
-            </div>
-
-            <br>
-            {{-- Top Categories --}}
-
-            <h4 class="display-6">Top Categories</h4>
-
-
-            <hr class="hr-light">
+        {{-- Top Categories --}}
+        <div class="col-md-4">
             <div class="container">
+                <h5 class="display-6">Top Categories</h5>
+            </div>
+            <div class="container">
+                <hr class="hr-light">
                 <div class="card">
-                    <div class="custom-card ">
+                    <div class="d-flex px-6 justify-content-start align-items-center col-md-8">
+                        <img class="card"
+                            src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/img-05-1.png"
+                            alt="Animals">
 
-                        {{-- <div class="d-flex px-6 justify-content-start align-items-center col-md-8">
-                            @foreach ($category as $category)
-                            <img class="card" src="{{$category->category_image}}" alt="Animals">
-                            @endforeach
-                            <div class="col-md-4 ">
-                                <div class="card-body d-flex">
-
-                                    <h6><a href="#" class="card-title ">name</a></h6>
-
-
-                                    <div class=" container d-flex  mx-5 ">
-                                        <small class=" mx-3 text-muted">(11&nbspAds)</small>
-                                    </div>
+                        <div class="col-md-4 ">
+                            <div class="card-body d-flex">
+                                <h6><a href="#" class="card-title ">Animal</a></h6>
+                                <div class=" container d-flex  mx-5 ">
+                                    <small class=" mx-3 text-muted">(11&nbspAds)</small>
                                 </div>
                             </div>
-
-                        </div> --}}
-
-
-                        <div class="d-flex px-6 justify-content-start align-items-center col-md-8">
-                            <img class="card"
-                                src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/img-05-1.png"
-                                alt="Animals">
-
-                            <div class="col-md-4 ">
-                                <div class="card-body d-flex">
-                                    <h6><a href="#" class="card-title ">Animal</a></h6>
-                                    <div class=" container d-flex  mx-5 ">
-                                        <small class=" mx-3 text-muted">(11&nbspAds)</small>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
-                        <div class="d-flex px-6 justify-content-start align-items-center col-md-8">
-                            <img class="card"
-                                src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/img-05-1.png"
-                                alt="Animals">
-
-                            <div class="col-md-4 ">
-                                <div class="card-body d-flex">
-                                    <h6><a href="#" class="card-title ">Animal</a></h6>
-                                    <div class=" container d-flex  mx-5 ">
-                                        <small class=" mx-3 text-muted">(11&nbspAds)</small>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="d-flex px-6 justify-content-start align-items-center col-md-8">
-                            <img class="card"
-                                src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/img-05-1.png"
-                                alt="Animals">
-
-                            <div class="col-md-4 ">
-                                <div class="card-body d-flex">
-                                    <h6><a href="#" class="card-title ">Animal</a></h6>
-                                    <div class=" container d-flex  mx-5 ">
-                                        <small class=" mx-3  text-muted">(11&nbspAds)</small>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="d-flex px-6 justify-content-start align-items-center col-md-8">
-                            <img class="card"
-                                src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/img-05-1.png"
-                                alt="Animals">
-
-                            <div class="col-md-4 ">
-                                <div class="card-body d-flex">
-                                    <h6><a href="#" class="card-title ">Animal</a></h6>
-                                    <div class=" container d-flex  mx-5 ">
-                                        <small class=" mx-3  text-muted">(11&nbspAds)</small>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-
 
                     </div>
+                    <div class="d-flex px-6 justify-content-start align-items-center col-md-8">
+                        <img class="card"
+                            src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/img-05-1.png"
+                            alt="Animals">
+
+                        <div class="col-md-4 ">
+                            <div class="card-body d-flex">
+                                <h6><a href="#" class="card-title ">Animal</a></h6>
+                                <div class=" container d-flex  mx-5 ">
+                                    <small class=" mx-3 text-muted">(11&nbspAds)</small>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="d-flex px-6 justify-content-start align-items-center col-md-8">
+                        <img class="card"
+                            src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/img-05-1.png"
+                            alt="Animals">
+
+                        <div class="col-md-4 ">
+                            <div class="card-body d-flex">
+                                <h6><a href="#" class="card-title ">Animal</a></h6>
+                                <div class=" container d-flex  mx-5 ">
+                                    <small class=" mx-3  text-muted">(11&nbspAds)</small>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="d-flex px-6 justify-content-start align-items-center col-md-8">
+                        <img class="card"
+                            src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/img-05-1.png"
+                            alt="Animals">
+
+                        <div class="col-md-4 ">
+                            <div class="card-body d-flex">
+                                <h6><a href="#" class="card-title ">Animal</a></h6>
+                                <div class=" container d-flex  mx-5 ">
+                                    <small class=" mx-3  text-muted">(11&nbspAds)</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
+
         </div>
-
-
     </div>
 </div>
+
+
 
 
 
@@ -509,25 +321,6 @@
                 }
             }
         });
-        // $('#slider1').owlCarousel({
-        //     items: 4,
-        //     loop: true,
-        //     dots: false,
-
-        //     margin: 0,
-
-        //     nav: true,
-        //     responsive: {
-        //         0: {
-        //             items: 1
-        //         },
-        //         600: {
-        //             items: 3
-        //         },
-        //         1000: {
-        //             items: 5
-        //         }
-        //     }
 
     })
 
@@ -557,26 +350,7 @@
 
     })
 
-    $(document).ready(function () {
-        $('#slider3').owlCarousel({
-            items: 1,
-            dots: true,
-            loop: true,
-            autoplay: true,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 1
-                },
-                1000: {
-                    items: 1
-                }
-            }
-        });
 
-    })
 
     $(document).ready(function () {
         $('#slider4').owlCarousel({
