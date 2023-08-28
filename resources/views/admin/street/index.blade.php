@@ -33,16 +33,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($categories as $key=> $category)
+                                @foreach ($streets as $key=> $street)
                                 <tr>
                                     <td>{{ ++$key}}</td>
 
-                                    <td>{{ $category->name}}</td>
-                                    <td>{{ $category->city_id}}</td>
-                                    <td><a class="btn btn-info"
-                                            href="{{route('st.edit',$category->id)}}">Edit </a>
+                                    <td>{{ $street->name}}</td>
+                                    <td>{{ $street->city_name}}</td>
+                                    {{-- <td><a class="btn btn-info"
+                                            href="{{route('st.edit',$street->id)}}">Edit </a>
                                         <a class="btn btn-danger"
-                                            href="{{route('st.delete',$category->id)}}">Delete </a></td>
+                                            href="{{route('st.delete',$street->id)}}">Delete </a></td> --}}
                                 </tr>
 
                                 @endforeach

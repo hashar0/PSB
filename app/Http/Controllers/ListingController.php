@@ -34,6 +34,7 @@ class ListingController extends Controller
     ->leftJoin('types','products.type_id','=','types.id')
     ->get();
 
+
     //   $jsonData = $products->toJson();
     //      return "$jsonData";
    // return $products;

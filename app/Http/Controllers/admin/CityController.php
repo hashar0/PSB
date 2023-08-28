@@ -12,15 +12,21 @@ class CityController extends Controller
 {
     public function index(Request $request )
 {
-    $city=DB::table('cities')->get();
+    $cities=DB::table('cities')
+    ->join('states', 'cities.state_id', '=', 'states.id')
+    ->select('states.name as state_name','cities.name as name','image as image')
+
+
+    ->get();
     $country=DB::table('countries')->get();
     $state=DB::table('states')->get();
-    return view('admin..city.index',compact('city','country','state'));
+   // return $cities;
+    return view('admin..city.index',compact('cities','country','state'));
 }
 public function create()
 {
-
-    return view('admin..city.create');
+    $state=DB::table('states')->get();
+    return view('admin..city.create',compact('state'));
 }
 public function store(Request $request)
 {
@@ -61,17 +67,17 @@ return redirect()->route('sta.index');
 
 public function edit($id)
 {
-$Category=City::find($id);
-$cities=new City;
+    $cities=City::find($id);
+    $cities=new City;
 return view('admin..city.create',compact('Category'));
 }
 public function update(Request $request,$id){
 
-$Category=City::find($id);
+    $cities=City::find($id);
 
-$data=$request->all();
-$Category->update($data);
-return redirect()->route('sta.index');
+    $data=$request->all();
+    $cities->update($data);
+    return redirect()->route('sta.index');
 
 
 
@@ -86,15 +92,15 @@ $Category->delete();
 return redirect()->route('sta.index');
 
 }
-public function add_city(Request $request )
-{
-    $categories=City::get();
-    return view('home.add_city',compact('categories'));
-}
+// public function add_city(Request $request )
+// {
+//     $categories=City::get();
+//     return view('home.add_city',compact('categories'));
+// }
 
-public function listing()  {
-return view('home.listing');
+// public function listing()  {
+// return view('home.listing');
 
-}
+// }
 
 }

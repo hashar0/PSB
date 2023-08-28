@@ -14,8 +14,15 @@
         <input class="form-control" type="text" value="{{isset($Category)?$Category->name:''}}" name="name"
             placeholder="Enter the name">
         <br>
-        <input class="form-control" type="text" value="{{isset($Category)?$Category->country_id:''}}" name="country_id"
-            placeholder="Enter the country_id">
+
+        <select name="country_id" id="country_id" class="form-control @error('type') is-invalid @enderror" required>
+            <option value="">Select Country</option>
+            @foreach ($country as $category)
+            <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endforeach
+
+        </select>
+
     </div>
     <br>
     <button type="submit" class="btn btn-primary mr-2">save</button>
@@ -25,3 +32,12 @@
 
 
 @endsection
+{{-- <select class="form-control" name="category_id" class="form-select" id="inlineFormSelectPref">
+                @foreach ($category as $category )
+
+                <option {{$sub_categories->category_id==$category->id?'selected':''}} value="{{$category->id}}">
+{{$category->name}}</option>
+
+@endforeach
+
+</select> --}}

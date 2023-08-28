@@ -3,8 +3,9 @@
 <div class="container">
     <div class="container">
         <div class="row">
-            @foreach ($products as $product)
-            <div class="col-lg-3 mt-3">
+
+            @foreach ($listing as $product)
+            <div class="col-lg-3 mt-3 nav-link">
                 <div class="card shadow">
                     <div class="item ">
                         <img href="#" src="{{$product->image}}" width="253px" height="253px" class="card-arrow"

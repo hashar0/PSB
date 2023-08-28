@@ -59,17 +59,12 @@ class CategoryController extends Controller {
         return view('admin..category.create', compact('Category'));
     }
     public function update(Request $request, $id) {
-
         $Category = Category::find($id);
-
         $data = $request -> all();
         $Category -> update($data);
         return redirect() -> route('cat.index');
-
-
-
     }
-    public function delete(Request $request,$id){
+    public function delete($id){
 
         $Category=Category::find($id);
 

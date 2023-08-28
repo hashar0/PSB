@@ -18,7 +18,7 @@
                         </div>
                         {{-- Search button --}}
                         <a class="btn btn-danger btn-lg" href="">Get Search</a> &emsp;&emsp;
-                        <a class="text-white  btn-lg btn btn-outline-danger border border-white" href="">Get Search </a>
+
                     </div>
                     {{-- card  --}}
                     <div class="col-lg-6 ">
@@ -27,10 +27,15 @@
                                     class="text-dark font-weight-bold ">
                                     From</span><span class="text-danger font-weight-bold"> Categories Items</span></h3>
                             <div class="row">
+
                                 <div class="col-lg-12">
-                                    <input type="search" class="form-control" placeholder="SEARCH HERE...." name=""
-                                        id="">
+                                    <form action="">
+                                        <input type="search" name="search" class="form-control"
+                                            placeholder="SEARCH HERE...." name="" id="">
+                                    </form>
                                 </div>
+
+
                                 <div class="col-lg-12">
 
                                     <select name="" class="form-control mt-3" id="">
@@ -204,10 +209,11 @@
                             <div class="card-body">
                                 <h6 class="card-title text-center text-dark">{{$category->city_name}}</h6>
                                 <div class="text-center">
-                                    <small class="text-muted text-center">({{$product->city_id}}&nbspAds)</small>
+                                    <small class="text-muted text-center">(11&nbspAds)</small>
                                 </div>
                             </div>
-                            <input type="submit" value="view" class="btn btn-primary btn-sm">
+                            <input type="submit" value="view"
+                                class="btn-sm text-dark  btn-lg btn btn-outline-primary border border-primary">
                         </div>
                         <input type="hidden" name="city_id" value="{{$category->city_id}}">
                     </form>
@@ -226,6 +232,7 @@
             <div class="container">
                 <hr class="hr-light">
                 <div class="card">
+
                     <div class="d-flex px-6 justify-content-start align-items-center col-md-8">
                         <img class="card"
                             src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/img-05-1.png"
@@ -233,7 +240,9 @@
 
                         <div class="col-md-4 ">
                             <div class="card-body d-flex">
-                                <h6><a href="#" class="card-title ">Animal</a></h6>
+
+                                <h6><a href="#" class="card-title ">animal</a></h6>
+
                                 <div class=" container d-flex  mx-5 ">
                                     <small class=" mx-3 text-muted">(11&nbspAds)</small>
                                 </div>
@@ -327,11 +336,11 @@
 
     $(document).ready(function () {
         $('#slider2').owlCarousel({
+            nav: true,
             items: 4,
             dots: true,
             margin: 30,
             loop: true,
-
             autoplay: true,
 
             responsive: {
@@ -393,6 +402,9 @@
                 }
             }
         })
+
+
+
     })
 
 </script>

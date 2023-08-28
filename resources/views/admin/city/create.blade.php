@@ -12,8 +12,14 @@
         <input class="form-control" type="text" value="{{isset($Category)?$Category->name:''}}" name="name"
             placeholder="Enter the name">
         <br>
-        <input class="form-control" type="text" name="state_id" value="{{isset($Category)?$Category->state_id:''}}"
-            placeholder="Enter the state_id">
+
+        <select name="state_id" id="state_id" class="form-control @error('type') is-invalid @enderror" required>
+            <option value="">Select State</option>
+            @foreach ($state as $state)
+            <option value="{{ $state->id }}">{{ $state->name }}</option>
+            @endforeach
+
+        </select>
         <br>
     </div>
     <p class="card-description">

@@ -346,7 +346,18 @@
                                 <span class="menu-title">Dashboard</span>
                             </a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('head.index')}}">
+                                <i class="icon-grid menu-icon"></i>
+                                <span class="menu-title">Header</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route ('slider.index')}}">
+                                <i class="icon-columns menu-icon"></i>
+                                <span class="menu-title">Slider</span>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route ('cat.index')}}">
                                 <i class="icon-columns menu-icon"></i>
@@ -372,9 +383,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route ('address.index')}}">
-                                <i class="icon-layout menu-icon"></i>
-                                <span class="menu-title">Address</span>
+                            <a class="nav-link" href="{{route('sa.index')}}">
+                                <i class="icon-grid menu-icon"></i>
+                                <span class="menu-title">State</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -383,30 +394,10 @@
                                 <span class="menu-title">City</span>
                             </a>
                         </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('sa.index')}}">
-                                <i class="icon-grid menu-icon"></i>
-                                <span class="menu-title">State</span>
-                            </a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('st.index')}}">
                                 <i class="icon-grid menu-icon"></i>
                                 <span class="menu-title">Street</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('head.index')}}">
-                                <i class="icon-grid menu-icon"></i>
-                                <span class="menu-title">Header</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route ('slider.index')}}">
-                                <i class="icon-columns menu-icon"></i>
-                                <span class="menu-title">Slider</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -421,6 +412,13 @@
                                 <span class="menu-title">Type</span>
                             </a>
                         </li>
+                        {{-- <li class="nav-item">
+                            <a class="nav-link" href="{{route ('address.index')}}">
+                        <i class="icon-layout menu-icon"></i>
+                        <span class="menu-title">Address</span>
+                        </a>
+                        </li> --}}
+
 
                     </ul>
                 </div>

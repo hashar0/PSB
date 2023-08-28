@@ -72,7 +72,6 @@
         <select name="type" id="type_id" class="form-control @error('type') is-invalid @enderror" required>
             <option value="">Select Type</option>
             @foreach ($types as $type )
-
             <option value="{{ $type->id }}">{{ $type->types }}</option>
             @endforeach
 

@@ -13,8 +13,15 @@
         <input class="form-control" type="text" value="{{isset($Category)?$Category->name:''}}" name="name"
             placeholder="Enter the name">
         <br>
-        <input class="form-control" type="text" value="{{isset($Category)?$Category->city_id:''}}" name="city_id"
-            placeholder="Enter the city_id">
+        <select name="city_id" id="city_id" class="form-control @error('type') is-invalid @enderror" required>
+            <option value="">Select City</option>
+            @foreach ($cities as $city)
+            <option value="{{$city->id }}">{{ $city->name }}</option>
+            @endforeach
+
+        </select>
+        {{-- <input class="form-control" type="text" value="{{isset($Category)?$Category->city_id:''}}" name="city_id"
+            placeholder="Enter the city_id"> --}}
     </div>
     <br>
     <button type="submit" class="btn btn-primary mr-2">save</button>

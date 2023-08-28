@@ -28,23 +28,23 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Name</th>
-                                    <th>state_id</th>
+                                    <th>state_Name</th>
                                     <th>Image</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($city as $key=> $category)
+                                @foreach ($cities as $key=> $city)
                                 <tr>
                                     <td>{{ ++$key}}</td>
 
-                                    <td>{{ $category->name}}</td>
-                                    <td>{{ $category->state_id}}</td>
-                                    <td><img src="{{$category->image}}"></td>
-                                    <td><a class="btn btn-info"
-                                            href="{{route('sta.edit',$category->id)}}">Edit </a>
+                                    <td>{{ $city->name}}</td>
+                                    <td>{{ $city->state_name}}</td>
+                                    <td><img src="{{$city->image}}"></td>
+                                    {{-- <td><a class="btn btn-info"
+                                            href="{{route('sta.edit',$city->id)}}">Edit </a>
                                         <a class="btn btn-danger"
-                                            href="{{route('sta.delete',$category->id)}}">Delete </a></td>
+                                            href="{{route('sta.delete',$city->id)}}">Delete </a></td> --}}
                                 </tr>
 
                                 @endforeach

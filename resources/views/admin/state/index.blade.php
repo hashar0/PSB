@@ -1,13 +1,5 @@
 @extends('adminv2.adminv2master')
 @section('content')
-
-
-
-
-
-
-
-
 <div class="container-fluid py-4">
     <div class="row">
         <div class="col-12">
@@ -33,16 +25,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($state as $key=> $category)
+                                @foreach ($state as $key=> $state)
                                 <tr>
                                     <td>{{ ++$key}}</td>
 
-                                    <td>{{ $category->name}}</td>
-                                    <td>{{ $category->country_id}}</td>
-                                    <td><a class="btn btn-info"
-                                            href="{{route('sa.edit',$category->id)}}">Edit </a>
+                                    <td>{{ $state->name}}</td>
+                                    <td>{{ $state->country_name}}</td>
+                                    {{-- <td><a class="btn btn-info"
+                                            href="{{route('sa.edit',$state->id)}}">Edit </a>
                                         <a class="btn btn-danger"
-                                            href="{{route('sa.delete',$category->id)}}">Delete </a></td>
+                                            href="{{route('sa.delete',$state->id)}}">Delete </a></td> --}}
                                 </tr>
 
                                 @endforeach

@@ -46,9 +46,10 @@ public function index()
  $header=DB::table('headers')->get();
   $category = DB::table('categories')
   ->select('categories.image as category_image','categories.name as category_name')->get();
-
+//   $product = Product::with('ads')->get();
 
    //return $products;
+
 
   return view('home.home',compact('sub_category','sliders','products','header','category','city'));
 }

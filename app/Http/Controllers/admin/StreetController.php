@@ -4,18 +4,24 @@ namespace App\Http\Controllers\admin;
 use App\Models\Street;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StreetController extends Controller
 {
     public function index(Request $request )
     {
-        $categories=Street::get();
-        return view('admin..street.index',compact('categories'));
+        $streets=DB::table('streets')
+        ->join('cities', 'streets.city_id', '=', 'cities.id')
+        ->select('cities.name as city_name','streets.name as name')
+
+        ->get();
+       // return $streets;
+        return view('admin..street.index',compact('streets'));
     }
     public function create()
     {
-
-        return view('admin..street.create');
+        $cities=DB::table('cities')->get();
+        return view('admin..street.create',compact('cities'));
     }
     public function store(Request $request)
     {
@@ -28,28 +34,26 @@ class StreetController extends Controller
 
     public function edit($id)
     {
-    $Category=Street::find($id);
+        $streets=Street::find($id);
     $streets=new Street;
-    return view('admin..street.create',compact('Category'));
+    return view('admin..street.create',compact('streets'));
     }
     public function update(Request $request,$id){
 
-    $Category=Street::find($id);
+    $$streets=Street::find($id);
 
     $data=$request->all();
-    $Category->update($data);
+    $$streets->update($data);
     return redirect()->route('st.index');
-
-
 
     }
 
     public function delete(Request $request,$id){
 
-    $Category=Street::find($id);
+    $$streets=Street::find($id);
 
     //$data=$request->all();
-    $Category->delete();
+    $streets->delete();
     return redirect()->route('st.index');
 
     }

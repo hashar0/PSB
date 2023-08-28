@@ -214,11 +214,15 @@ Route::prefix('adminv2')->group(function(){
 
         Route::get('/',[HeaderController::class,'index'])->name('head.index');
 
-        Route::get('/create',[HeaderController::class,'create'])->name('head.create');
+        // Route::get('/create',[HeaderController::class,'create'])->name('head.create');
 
         Route::post('/store',[HeaderController::class,'store'])->name('head.store');
 
-        Route::get('/delete/{id}',[HeaderController::class,'delete'])->name('head.delete');
+        Route::get('/edit/{id}',[HeaderController::class,'edit'])->name('head.edit');
+
+        Route::post('/update/{id}',[HeaderController::class,'update'])->name('head.update');
+
+        // Route::get('/delete/{id}',[HeaderController::class,'delete'])->name('head.delete');
     });
 
     //price

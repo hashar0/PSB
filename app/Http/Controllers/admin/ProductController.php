@@ -17,6 +17,7 @@ class ProductController extends Controller
     $products = Product::join('countries', 'products.country_id', '=', 'countries.id')
         ->join('states', 'products.state_id', '=', 'states.id')
         ->join('cities', 'products.city_id', '=', 'cities.id')
+
         ->join('streets', 'products.street_id', '=', 'streets.id')
         ->join('users','products.user_id','=','users.id')
         ->join('categories','products.cat_id','=','categories.id')
@@ -27,7 +28,7 @@ class ProductController extends Controller
         ,'categories.name as category_name',
         'sub.name as sub_category_name')
         ->get();
-       // return $products;
+      // return $products;
 
     return view ('admin..product.index',compact('products'));
 }

@@ -16,37 +16,34 @@
                 <div class="card-body px-0 pb-2">
                     <div class="table-responsive p-0">
                         <table class="table align-items-center mb-0">
-                            <div class="container">
+                            {{-- <div class="container">
                                 <a class="btn btn-primary" href="{{route('head.create')}}">Create</a>
 
-                            </div>
+                            </div> --}}
                             <thead>
                                 <tr>
                                     <th>#</th>
                                     <th>Heading</th>
                                     <th>Paragraph</th>
-
                                     <th>Action</th>
-
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($header as $key=> $head)
+
                                 <tr>
+                                    @foreach ($header as $key=> $head)
                                     <td>{{ ++$key}}</td>
                                     <td>{{$head->heading}}
                                     <td>
                                     <td>{{$head->paragraph}}</td>
-
                                     <td>
-                                        {{-- <a class="btn btn-info" href="{{route('prdct.edit',$product->id)}}">Edit
-                                        </a> --}}
-
-                                        <a class="btn btn-danger" href="{{route('head.delete',$head->id)}}">Delete</a>
+                                        <a class="btn btn-info" href="{{route('head.edit',$head->id)}}">Edit
+                                        </a>
+                                        {{-- <a class="btn btn-danger" href="{{route('head.delete',$head->id)}}">Delete</a> --}}
                                     </td>
+                                    @endforeach
                                 </tr>
 
-                                @endforeach
                             </tbody>
                         </table>
                     </div>

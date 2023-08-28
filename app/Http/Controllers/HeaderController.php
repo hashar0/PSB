@@ -15,10 +15,10 @@ class HeaderController extends Controller
       return view('home.header.index',compact('header'));
     }
 
-    Public function create(){
+    // Public function create(){
 
-        return view('home.header.create');
-    }
+    //     return view('home.header.create');
+    // }
 
     public function store(Request $request)
     {
@@ -33,12 +33,30 @@ class HeaderController extends Controller
         return redirect()->route('head.index')->with('message','Product add successfully');
     }
 
-    public function delete($id){
-        $header=Header::find($id);
-        $header->delete();
-        return redirect()->route('head.index');
 
+    public function edit($id) {
+
+        $header = Header::find($id);
+
+        // $head = new Header;
+         return view('home.header.create',compact('header'));
     }
+
+    public function update(Request $request,$id) {
+
+        $header = Header::find($id);
+
+        $data= $request -> all();
+        $header -> update($data);
+        return redirect() -> route('head.index');
+    }
+
+    // public function delete($id){
+    //     $header=Header::find($id);
+    //     $header->delete();
+    //     return redirect()->route('head.index');
+
+    // }
 
 
 }
