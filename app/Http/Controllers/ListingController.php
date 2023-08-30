@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
-use App\Models\{Country,Product,ProductImage};
+use App\Models\{Category, Country,Product,ProductImage};
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class ListingController extends Controller
 {
-
    // add listing
     public function add_listing()
     {
-
        $country=DB::table('countries')->get();
        $state=DB::table('states')->get();
        $city=DB::table('cities')->get();
@@ -33,41 +31,35 @@ class ListingController extends Controller
      ->leftJoin('prices','products.price_id','=','prices.id')
     ->leftJoin('types','products.type_id','=','types.id')
     ->get();
-
-
-    //   $jsonData = $products->toJson();
-    //      return "$jsonData";
    // return $products;
         return view('home.listing',compact('data','category','country','state','city','category','sub_categories','price','types'));
     }
-
     // detail listing
-    public function detail()
+    public function detail($id)
     {
-       $country=DB::table('countries')->get();
-       $state=DB::table('states')->get();
-       $city=DB::table('cities')->get();
-       $category=DB::table('categories')->get();
-       $sub_categories=DB::table('sub_categories')->get();
-       $data['country']=Country::get(['name','id']);
-       $data['country']=Country::get(['name','id']);
 
+        //$products = Product::find($id);
+        $products = Product::join('countries', 'products.country_id', '=', 'countries.id')
+        // ->join('users','products.user_id','=','user.id')
+       // ->where('products.user_id',Auth::id())
+       //->where('product_images','image_path')
+         ->join('states', 'products.state_id', '=', 'states.id')
+        ->join('cities', 'products.city_id', '=', 'cities.id')
+         ->join('streets', 'products.street_id', '=', 'streets.id')
+         ->join('users','products.user_id','=','users.id')
+         ->join('categories','products.cat_id','=','categories.id')
+        ->leftjoin('sub_categories as sub','products.subcat_id','=','sub.id')
+         ->leftjoin('prices','products.price_id','=','prices.id')
+         ->leftjoin('types','products.type_id','=','types.id')
+        ->select('products.*','types.types as types_name','prices.price as price_name','countries.name as country_name', 'states.name as state_name', 'cities.name as city_name', 'streets.name as street_name','users.name as user_name','users.profile_image as user_image'
+        ,'categories.name as category_name',
+        'sub.name as sub_category_name')
+        ->where('products.id', $id)
+        ->get();
+        // $product = Category::where('$category')->get();
 
-
-
-    $products = Product::select('products.*', 'users.name as user_name','countries.name as country_name', 'states.name as state_name', 'cities.name as city_name', 'streets.name as street_name','categories.name as category_name')
-    ->leftJoin('countries', 'products.country_id', '=', 'countries.id')
-    ->leftJoin('states', 'products.state_id', '=', 'states.id')
-    ->leftJoin('cities', 'products.city_id', '=', 'cities.id')
-    ->leftJoin('streets', 'products.street_id', '=', 'streets.id')
-    ->leftJoin('users', 'products.user_id', '=', 'users.id')
-    ->leftJoin('categories','products.cat_id','=','categories.id')
-    ->leftJoin('sub_categories','products.subcat_id','=','sub_categories.id')
-
-
-    ->get();
        // return $products;
-        return view('home.detail',compact('products','data','category','country','state','city','category','sub_categories'));
+         return view('home.detail',compact('products'));
     }
 
 

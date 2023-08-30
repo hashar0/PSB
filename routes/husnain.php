@@ -37,22 +37,23 @@ Route::prefix('/')->group(function(){
     Route::get('/contant',[FrontController::class,'contant'])->name('contant');
     Route::get('/about',[FrontController::class,'about'])->name('about');
     // city_listing
-    Route::prefix('/city')->group(function(){
 
+   // Route::get('/city_listing',[CitylistingController::class,'city_listing'])->name('city_lis');
+    Route::get('/city_listing/{id}', [CitylistingController::class,'city_listing']);
+
+    Route::get('/details/{id}',[ListingController::class,'detail']);
    // Route::post('/profile.update',[ProfileController::class,'update'])->name('profile.update');
-});
+
    // Route::get('/task',[FrontController::class,'task'])->name('/task');
 });
 
 Route::middleware(['auth'])->group(function (){
-    Route::post('/city_listing',[CitylistingController::class,'city_listing'])->name('city_lis');
+
     Route::prefix('/profile')->group(function(){
 
         Route::get('/add_listing',[ListingController::class,'add_listing'])->name('add_listing');
 
         Route::post('/store',[ListingController::class,'store'])->name('listing.store');
-
-        Route::get('/detail',[ListingController::class,'detail'])->name('details');
 
         Route::get('/',[ProfileController::class,'profile'])->name('profile');
 

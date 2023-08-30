@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Category;
 use Illuminate\Support\Facades\DB;
 use App\Models\Product;
 
@@ -41,18 +43,18 @@ public function index()
 //   ->join('products','product_images.product_id','=','products.id')
 //   ->select('product_images.product_id as  ')
 //   ->get();
-  $city=DB::table('cities')
-  ->select('cities.image as city_image','cities.name as city_name','cities.id as city_id')->limit(6)->get();
- $header=DB::table('headers')->get();
-  $category = DB::table('categories')
-  ->select('categories.image as category_image','categories.name as category_name')->get();
-//   $product = Product::with('ads')->get();
+   $city=DB::table('cities')
+   ->select('cities.image as city_image','cities.name as city_name','cities.id as city_id')->limit(6)->get();
+   $header=DB::table('headers')->get();
 
-   //return $products;
+   $categories = DB::table('categories')
+   ->select('categories.image as category_image','categories.name as category_name')
+   ->get();
 
-
-  return view('home.home',compact('sub_category','sliders','products','header','category','city'));
+//return $products;
+  return view('home.home',compact('sub_category','sliders','products','header','categories','city'));
 }
+
     public function contant()
     {
         return view('home.contant');

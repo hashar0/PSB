@@ -17,7 +17,6 @@ class ProductController extends Controller
     $products = Product::join('countries', 'products.country_id', '=', 'countries.id')
         ->join('states', 'products.state_id', '=', 'states.id')
         ->join('cities', 'products.city_id', '=', 'cities.id')
-
         ->join('streets', 'products.street_id', '=', 'streets.id')
         ->join('users','products.user_id','=','users.id')
         ->join('categories','products.cat_id','=','categories.id')

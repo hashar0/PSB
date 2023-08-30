@@ -135,7 +135,7 @@
                         <div>
                             <strong>
                                 <a href="#">
-                                    <img src="rgbpics\logo.jpg" height="30" width="30" alt="RGB">
+                                    <img src="" height="30" width="30" alt="PSB">
                                 </a>
                             </strong>
 
@@ -167,13 +167,13 @@
                             </div>
                             <div class="menu-footer-top-container">
                                 <ul id="menu-footer-top">
-                                    <a href="#"><i class="fa-solid fa-house"></i><label>Home</label></a>
+                                    <a href="{{route('/')}}"><i class="fa-solid fa-house"></i><label>Home</label></a>
                                     <br>
-                                    <a href="#"><i class="fa-sharp fa-solid fa-code"></i><label>About Us</label></a>
+                                    <a href="{{route('about')}}"><i class="fa-sharp fa-solid fa-code"></i><label>About Us</label></a>
                                     <br>
-                                    <a href="#"><i class="fa-solid fa-phone-volume"></i><label>Contact Us</label></a>
+                                    <a href="{{route('contant')}}"><i class="fa-solid fa-phone-volume"></i><label>Contact Us</label></a>
                                     <br>
-                                    <a href="#"><i class="fa-sharp fa-solid fa-eye"></i><label>Show all</label></a>
+                                    <a href="{{route('login')}}"><i class="fa-sharp fa-solid fa-eye"></i><label>Show all</label></a>
                                 </ul>
                             </div>
                         </div>

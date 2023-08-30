@@ -30,12 +30,7 @@ class ProfileController extends Controller
         ->get();
        // $products=DB::table('products')->get();
         return view('home.profile',compact('products'));
-
-
-
   }
-
-
 
   //profile user data
 

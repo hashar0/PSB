@@ -40,7 +40,7 @@
 
                                     <select name="" class="form-control mt-3" id="">
                                         <option value="">Select a category</option>
-                                        @foreach ($category as $category)
+                                        @foreach ($categories as $category)
                                         <option value="">{{$category->category_name}}</option>
                                         @endforeach
                                     </select>
@@ -61,13 +61,13 @@
 {{-- scroll images --}}
 
 <div class="col-12 col-md-12 ">
-    <div class=" card container shadow ">
+    <div class=" card container shadow">
         <div class="owl-carousel owl-theme " id="slider1">
             @foreach ($sub_category as $sub_category)
             <div class="card container" style="height: 9.3rem">
                 <div class="item">
                     <img src="{{ $sub_category->image}}" height="120px" width="120px">
-                    <span class="text-center ml-5 p-5">{{$sub_category->name}}</span>
+                    <span class="text-center ml-5 p-5 ">{{$sub_category->name}}</span>
                 </div>
                 <div class="card-footer">
 
@@ -103,10 +103,10 @@
 {{-- featuer add --}}
 <div class="container">
 
-    <h6 class="display-6">Featured Ads </h6>
-    <div class="text-end p-2">
+    <h6 class="display-6 p-3">Featured Ads </h6>
+    {{-- <div class="text-end p-2">
         <a href="#"><i>All View</i> </a>
-    </div>
+    </div> --}}
 
 
 </div>
@@ -117,41 +117,39 @@
         @foreach ($products as $product)
         <div class="card shadow">
             <div class="item  ">
-                <img href="#" src="{{$product->image}}" class="card-arrow" alt="Arrow Picture" alt="" height="200px">
-                <div class="card-body">
-                    <a href="{{route('details')}}">{{$product->name}}</a>
-                    <a href="#">
-                        <span class="custom-spacing"></span>
-                        <i class="fa-sharp fa-solid fa-heart" style="color: #e64141; "></i></a>
+                <a href="{{url('details'.'/'.$product->id)}}" >
+                    <img href="#" src="{{$product->image}}" class="card-arrow" alt="Arrow Picture" alt=""
+                        height="200px">
+                    <div class="card-body">
+                        <a>{{$product->name}}</a>
+                        <a href="#">
+                            <span class="custom-spacing"></span>
+                            <i class="fa-sharp fa-solid fa-heart" style="color: #e64141; "></i></a>
 
-                    <i> <span class="text-dark" href="#" class=" text-muted ">Age</span></i><span
-                        class="ml-5">{{$product->age}}month</span>
-                    <br>
-                    <span class="text-danger">
-                        <td>{{$product->price_name}}</td>
-                    </span>
+                        <i> <span class="text-dark" href="#" class=" text-muted ">Age</span></i><span
+                            class="ml-5">{{$product->age}}month</span>
+                        <br>
+                        <span class="text-danger">
+                            <td>{{$product->price_name}}</td>
+                        </span>
 
-                    <br>
-                    <span class="text-muted"><i class="fa-solid fa-location-arrow"></i>{{$product->country_name}}</span>
+                        <br>
+                        <span class="text-muted"><i
+                                class="fa-solid fa-location-arrow"></i>{{$product->country_name}}</span>
 
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">
 
-                    </small>
-                </div>
+                        </small>
+                    </div>
+                </a>
             </div>
         </div>
         @endforeach
     </div>
 </div>
 <br><br>
-
-
-
-
-
-
 {{-- RECent add --}}
 <div class="container">
     <div class="row">
@@ -166,7 +164,7 @@
 
         @foreach($products as $product)
         <div class="col-lg-6 ">
-            <a href="{{route('details')}}" class="nav-link">
+            <a href="{{url('details'.'/'.$product->id)}}" class="nav-link">
                 <div class="card flex-row flex-wrap  mt-4 shadow ">
 
                     <div class="col-lg-4 ">
@@ -176,6 +174,7 @@
                         <h6 class="text-dark">{{$product->name}}<h5>
                                 <h6 class="text-danger">{{$product->price_name}}</h6>
                                 <p class="text-dark">{{$product->description}} </p>
+
                     </div>
 
 
@@ -184,8 +183,6 @@
             </a>
         </div>
         @endforeach
-
-
         <br><br>
     </div>
     <br>
@@ -200,24 +197,20 @@
             <div class="row">
                 @foreach ($city as $category)
                 <div class="col-lg-4">
-                    {{-- <a href="{{route('city_list')}}" class="nav-link"> --}}
-                    <form action="{{route('city_lis')}}" method="post">
-                        @csrf
-                        <div class="card shadow mb-4">
+                    <a href="{{url('/city_listing'.'/'.$category->city_id)}}" class="nav-link">
+                        <div class="card shadow mb-3" >
                             <img src="{{$category->city_image}}" class="card-img-center" alt="country image"
                                 height="180px">
                             <div class="card-body">
-                                <h6 class="card-title text-center text-dark">{{$category->city_name}}</h6>
+                                <h6 class="card-title text-center text-dark ">{{$category->city_name}}</h6>
                                 <div class="text-center">
-                                    <small class="text-muted text-center">(11&nbspAds)</small>
+
+                                    <small class="text-muted text-center">(&nbspAds)</small>
                                 </div>
                             </div>
-                            <input type="submit" value="view"
-                                class="btn-sm text-dark  btn-lg btn btn-outline-primary border border-primary">
+
                         </div>
-                        <input type="hidden" name="city_id" value="{{$category->city_id}}">
-                    </form>
-                    {{-- </a> --}}
+                    </a>
 
                 </div>
                 @endforeach
@@ -225,79 +218,37 @@
         </div>
 
         {{-- Top Categories --}}
-        <div class="col-md-4">
+
+
+
+        <div class="col-lg-4">
             <div class="container">
                 <h5 class="display-6">Top Categories</h5>
             </div>
             <div class="container">
                 <hr class="hr-light">
                 <div class="card">
-
-                    <div class="d-flex px-6 justify-content-start align-items-center col-md-8">
-                        <img class="card"
-                            src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/img-05-1.png"
-                            alt="Animals">
+                    @foreach ($categories as $key => $category )
+                    <div class="d-flex px-4 justify-content-start align-items-center shadow">
+                        <img class="card" src="{{$category->category_image}}" height="50px" width="50px"
+                            alt="category_image">
 
                         <div class="col-md-4 ">
-                            <div class="card-body d-flex">
+                            <div class="card-body d-flex ">
 
-                                <h6><a href="#" class="card-title ">animal</a></h6>
+                                <i> <span><a href="#"
+                                            class="text-dark px-2 nav-link">{{$category->category_name}}</a></span></i>
 
-                                <div class=" container d-flex  mx-5 ">
-                                    <small class=" mx-3 text-muted">(11&nbspAds)</small>
+                                <div class="p-2 ">
+                                    <small class="text-muted  px-5">(11&nbspAds)</small>
                                 </div>
                             </div>
                         </div>
 
                     </div>
-                    <div class="d-flex px-6 justify-content-start align-items-center col-md-8">
-                        <img class="card"
-                            src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/img-05-1.png"
-                            alt="Animals">
-
-                        <div class="col-md-4 ">
-                            <div class="card-body d-flex">
-                                <h6><a href="#" class="card-title ">Animal</a></h6>
-                                <div class=" container d-flex  mx-5 ">
-                                    <small class=" mx-3 text-muted">(11&nbspAds)</small>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="d-flex px-6 justify-content-start align-items-center col-md-8">
-                        <img class="card"
-                            src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/img-05-1.png"
-                            alt="Animals">
-
-                        <div class="col-md-4 ">
-                            <div class="card-body d-flex">
-                                <h6><a href="#" class="card-title ">Animal</a></h6>
-                                <div class=" container d-flex  mx-5 ">
-                                    <small class=" mx-3  text-muted">(11&nbspAds)</small>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="d-flex px-6 justify-content-start align-items-center col-md-8">
-                        <img class="card"
-                            src="https://classipro.theme-zilla.com/wp-content/uploads/2020/12/img-05-1.png"
-                            alt="Animals">
-
-                        <div class="col-md-4 ">
-                            <div class="card-body d-flex">
-                                <h6><a href="#" class="card-title ">Animal</a></h6>
-                                <div class=" container d-flex  mx-5 ">
-                                    <small class=" mx-3  text-muted">(11&nbspAds)</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
-
             </div>
-
         </div>
     </div>
 </div>

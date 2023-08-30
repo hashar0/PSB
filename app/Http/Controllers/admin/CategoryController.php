@@ -11,14 +11,10 @@ class CategoryController extends Controller {
 
     public function index(Request $request,Category $category) {
 
-        // $subcategories = SubCategory::where('category_id', $category->id)->get();
 
-        // return response()->json(['subcategories' => $subcategories]);
+        $categories= DB::table('categories')->get();
 
-        $category = DB::table('categories')->get();
-
-
-        return view('admin..category.index', compact('category'));
+        return view('admin..category.index', compact('categories'));
     }
     public function create() {
 
@@ -54,22 +50,22 @@ class CategoryController extends Controller {
     }
 
     public function edit($id) {
-        $Category = Category::find($id);
-        $category = new Category;
-        return view('admin..category.create', compact('Category'));
+        $categories = Category::find($id);
+        $categories = new Category;
+        return view('admin..category.create', compact('categories'));
     }
     public function update(Request $request, $id) {
-        $Category = Category::find($id);
+        $categories = Category::find($id);
         $data = $request -> all();
-        $Category -> update($data);
+        $categories -> update($data);
         return redirect() -> route('cat.index');
     }
     public function delete($id){
 
-        $Category=Category::find($id);
+        $categories=Category::find($id);
 
         //$data=$request->all();
-        $Category->delete();
+        $categories->delete();
         return redirect()->route('cat.index');
 
     }
