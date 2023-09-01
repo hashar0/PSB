@@ -37,13 +37,17 @@ Route::get('/', function () {
 
 
 //
-
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    // Admin-only routes
+});
 
 
 Route::prefix('adminv2')->group(function(){
 
 
     Route::get('/dashboard',[AdminController::class,'index'])->name('dashboard');
+
+    Route::get('/user',[AdminController::class,'user'])->name('users');
 
     Route::prefix('categories')->group(function(){
         Route::get('/',[CategoryController::class,'index'])->name('cat.index');

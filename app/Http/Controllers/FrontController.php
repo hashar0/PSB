@@ -36,23 +36,28 @@ public function index()
   ,'countries.name as country_name', 'states.name as state_name', 'cities.name as city_name'
   , 'streets.name as street_name'
   ,'categories.name as category_name',
-  'sub.name as sub_category_name')
+  'sub.name as sub_category_name')->limit(4)
   ->get();
+
 //   multiimages
 //   $multi_image=DB::table('product_images')
 //   ->join('products','product_images.product_id','=','products.id')
 //   ->select('product_images.product_id as  ')
 //   ->get();
    $city=DB::table('cities')
-   ->select('cities.image as city_image','cities.name as city_name','cities.id as city_id')->limit(6)->get();
+   ->leftJoin('products', 'cities.id', '=', 'products.city_id')
+   ->select('cities.image as city_image','cities.name as city_name','cities.id as city_id',DB::raw('COUNT(products.id) as product_count'))
+   ->groupBy('cities.id', 'cities.name')
+   ->limit(6)->get();
    $header=DB::table('headers')->get();
 
    $categories = DB::table('categories')
    ->select('categories.image as category_image','categories.name as category_name')
    ->get();
 
-//return $products;
+//return $categories;
   return view('home.home',compact('sub_category','sliders','products','header','categories','city'));
+
 }
 
     public function contant()

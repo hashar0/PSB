@@ -412,12 +412,12 @@
                                 <span class="menu-title">Type</span>
                             </a>
                         </li>
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="{{route ('address.index')}}">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('users')}}">
                         <i class="icon-layout menu-icon"></i>
-                        <span class="menu-title">Address</span>
+                        <span class="menu-title">User</span>
                         </a>
-                        </li> --}}
+                        </li>
 
 
                     </ul>

@@ -113,10 +113,10 @@
 
 <div class="container">
 
-    <div class="owl-carousel owl-theme " id="slider2">
+    <div class="owl-carousel owl-theme p-4" id="slider2">
         @foreach ($products as $product)
         <div class="card shadow">
-            <div class="item  ">
+            <div class="item ">
                 <a href="{{url('details'.'/'.$product->id)}}" >
                     <img href="#" src="{{$product->image}}" class="card-arrow" alt="Arrow Picture" alt=""
                         height="200px">
@@ -205,7 +205,7 @@
                                 <h6 class="card-title text-center text-dark ">{{$category->city_name}}</h6>
                                 <div class="text-center">
 
-                                    <small class="text-muted text-center">(&nbspAds)</small>
+                                    <small class="text-muted text-center">({{$category->product_count}}&nbspAds)</small>
                                 </div>
                             </div>
 
@@ -289,9 +289,9 @@
         $('#slider2').owlCarousel({
             nav: true,
             items: 4,
-            dots: true,
             margin: 30,
             loop: true,
+            dots: true,
             autoplay: true,
 
             responsive: {

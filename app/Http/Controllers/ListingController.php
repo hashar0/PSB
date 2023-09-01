@@ -38,8 +38,10 @@ class ListingController extends Controller
     public function detail($id)
     {
 
-        //$products = Product::find($id);
-        $products = Product::join('countries', 'products.country_id', '=', 'countries.id')
+
+
+       //$products = Product::find($id);
+        $product = Product::join('countries', 'products.country_id', '=', 'countries.id')
         // ->join('users','products.user_id','=','user.id')
        // ->where('products.user_id',Auth::id())
        //->where('product_images','image_path')
@@ -55,11 +57,28 @@ class ListingController extends Controller
         ,'categories.name as category_name',
         'sub.name as sub_category_name')
         ->where('products.id', $id)
-        ->get();
-        // $product = Category::where('$category')->get();
+        ->first();
 
-       // return $products;
-         return view('home.detail',compact('products'));
+      $related =  Product::join('countries', 'products.country_id', '=', 'countries.id')
+      // ->join('users','products.user_id','=','user.id')
+     // ->where('products.user_id',Auth::id())
+     //->where('product_images','image_path')
+       ->join('states', 'products.state_id', '=', 'states.id')
+       ->join('cities', 'products.city_id', '=', 'cities.id')
+       ->join('streets', 'products.street_id', '=', 'streets.id')
+       ->join('users','products.user_id','=','users.id')
+       ->join('categories','products.cat_id','=','categories.id')
+       ->leftjoin('sub_categories as sub','products.subcat_id','=','sub.id')
+       ->leftjoin('prices','products.price_id','=','prices.id')
+       ->leftjoin('types','products.type_id','=','types.id')
+       ->select('products.*','types.types as types_name','prices.price as price_name','countries.name as country_name', 'states.name as state_name', 'cities.name as city_name', 'streets.name as street_name','users.name as user_name','users.profile_image as user_image'
+       ,'categories.name as category_name',
+       'sub.name as sub_category_name',)
+       ->where('products.subcat_id', $product->subcat_id)
+       ->where('products.id','!=',$id)
+       ->get();
+       // return $related;
+         return view('home.detail',compact('product','related'));
     }
 
 

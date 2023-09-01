@@ -11,11 +11,9 @@
         <div class="col-lg-8 ">
             <div id="image-slider" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    @foreach($products as $key => $product)
-                    <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
+                    <div class="carousel-item active">
                         <img src="{{$product->image}}" class="d-block w-100 h-90" alt="">
                     </div>
-                    @endforeach
                 </div>
                 <a class="carousel-control-prev" href="#image-slider" role="button" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -106,7 +104,7 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-3 col-6 col-md-6 col-sm-6">
+            <div class="col-lg-12 col-6 col-md-6 col-sm-6">
                 <h5 class="mt-3">LOCATION:</h5>
                 <h6 class="text-black-50">
                     {{$product->description}}
@@ -114,9 +112,11 @@
             </div>
         </div>
     </div>
+
 </div>
+
 {{-- related --}}
-<div class="col-lg-8 p-4">
+<div class="col-lg-12 p-4">
     <div class="card  p-4 shadow">
         <div class="row">
             <div class="col-lg-3 col-4">
@@ -124,19 +124,76 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-lg-3 col-6 col-md-6 col-sm-6">
-                {{-- @foreach ($category as $product)
-                <div>
-                    <h2>{{ $product->name }}</h2>
-                <p>Price: {{ $product->price_name }}</p>
-                <!-- Other product details you want to display -->
+
+        <div class="owl-carousel owl-theme " id="slider2">
+            @foreach ($related as $product)
+            <div class="col-lg-12">
+
+                <div class="card shadow">
+                    <div class="item  ">
+
+                        <a href="">
+                            <img href="#" src="{{$product->image}}" class="card-arrow" alt="Arrow Picture" alt=""
+                                height="200px">
+                            <div class="card-body">
+                                <a>{{$product->name}}</a>
+                                <a href="#">
+                                    <span class="custom-spacing"></span>
+                                    <i class="fa-sharp fa-solid fa-heart" style="color: #e64141; "></i></a>
+
+                                <i> <span class="text-dark" href="#" class=" text-muted ">Age</span></i><span
+                                    class="ml-5">{{$product->age}}month</span>
+                                <br>
+                                <span class="text-danger">
+                                    <td>{{$product->price_name}}</td>
+                                </span>
+
+                                <br>
+                                <span class="text-muted"><i
+                                        class="fa-solid fa-location-arrow"></i>{{$product->country_name}}</span>
+
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">
+
+                                </small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
             </div>
-            @endforeach --}}
+            @endforeach
         </div>
+
     </div>
 </div>
-</div>
+<script>
+    $(document).ready(function () {
+        $('#slider2').owlCarousel({
+            nav: true,
+            items: 4,
+            dots: true,
+            margin: 0,
+            // loop: true,
+            autoplay: true,
 
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 3
+                },
+                1000: {
+                    items: 4
+                }
+            }
+
+        });
+
+    })
+
+</script>
 <br>
 @endsection

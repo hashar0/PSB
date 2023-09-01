@@ -27,6 +27,7 @@ class User extends Authenticatable
         'address',
         'profile_image',
         'date_of_birth',
+        'role',
     ];
 
     /**
