@@ -12,51 +12,48 @@
                 </div>
                 <div class="card-body px-0 pb-2">
                     <div class="table-responsive p-0">
-                        <table class="table align-items-center mb-0">
-                            {{-- <div class="container">
-                                <a class="btn btn-primary" href="{{route('sub_cat.create')}}">Create</a>
+                        <table class="table align-items-center mb-0 table table-bordered">
 
-                    </div> --}}
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            {{-- <th>Profile_Image</th> --}}
-                            <th>Name</th>
-                            <th>Last_Name</th>
-                            <th>E-Mail</th>
-                            <th>Date_of_Birth</th>
-                            <th>Gender</th>
-                            <th>Phone Number</th>
-                            <th>Address</th>
-                            <th>Role</th>
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    {{-- <th>Profile_Image</th> --}}
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Last_Name</th>
+                                    <th scope="col">E-Mail</th>
+                                    <th scope="col">Date_of_Birth</th>
+                                    <th scope="col">Gender</th>
+                                    <th scope="col">Phone Number</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Role</th>
 
 
-                        </tr>
-                    </thead>
-                    <tbody>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                        @foreach ($users as $key=> $user)
-                        <tr>
-                            <td>{{ ++$key}}</td>
-                            {{-- <td><img src="{{$user->profile_image}}" alt=""></td> --}}
-                            <td>{{ $user->name}}</td>
-                            <td>{{$user->last_name}}</td>
-                            <td>{{$user->email}}</td>
-                            <td>{{$user->date_of_birth}}</td>
-                            <td>{{$user->gender}}</td>
-                            <td>{{$user->phone}}</td>
-                            <td>{{$user->address}}</td>
-                            <td><button type="submit" class="btn btn-primary">Demote to User</button></td>
-                        </tr>
+                                @foreach ($users as $key=> $user)
+                                <tr>
+                                    <td>{{ ++$key}}</td>
+                                    {{-- <td><img src="{{$user->profile_image}}" alt=""></td> --}}
+                                    <td>{{ $user->name}}</td>
+                                    <td>{{$user->last_name}}</td>
+                                    <td>{{$user->email}}</td>
+                                    <td>{{$user->date_of_birth}}</td>
+                                    <td>{{$user->gender}}</td>
+                                    <td>{{$user->phone}}</td>
+                                    <td>{{$user->address}}</td>
+                                    <td><button type="submit" class="btn btn-primary">Demote to User</button></td>
+                                </tr>
 
-                        @endforeach
+                                @endforeach
 
                         </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
 

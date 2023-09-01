@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-md-12 bg-dark p-2">
                 <div class="text-white text-center">
-                    <h4>Change Profile</h4>
+                    <h4>Profile Update</h4>
                 </div>
             </div>
 
@@ -31,7 +31,6 @@
         <div class="row">
             <div class="col-md-5 p-4">
                 <div class="form-group">
-
                     <div class="p-3 container">
                         {{-- profile image --}}
                         @if (Auth::user()->profile_image)
@@ -46,9 +45,6 @@
                     <input type="file" name="profile_image" id="profile_image" class="form-control">
                 </div>
             </div>
-
-
-
             <div class="col-md-7 p-4">
                 <div class="card bg-light">
                     <div class="card-body">
@@ -64,17 +60,10 @@
 
                         </div>
                         {{-- phone number --}}
-                        <div class="form-group ">
-                            <label for="phone">Phone Number</label>
-                            <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror"
-                                name="phone" value="{{ old('phone') }}">
-
-                            @error('phone')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-
+                        <div class="form-group">
+                            <label for="phone">Phone Number:</label>
+                            <input type="number" name="phone" id="phone" class="form-control"
+                                value="{{ Auth::user()->phone }}" required>
                         </div>
 
                     </div>
@@ -102,42 +91,102 @@
 
 <div class="container">
     <div class="row">
+        @foreach ($products as $product)
+        <div class="col-lg-3 mt-3  m-2 card shadow">
+
+            <a class="nav-link" href="{{url('details'.'/'.$product->id)}}">
+                {{-- <span class="badge bg-warning image-text text-black">Featured</span> --}}
+                <img href="#" src="{{$product->image}}" width="253px" height="253px" class="card-arrow"
+                    alt="Arrow Picture" alt="" height="200px">
+                <div class="row">
+                    <div class="col-lg-10 col-sm-9 col-md-10 col-10 mt-1">
+                        <h5 class="fw-bold" data-toggle="tooltip" data-placement="right" title="Name">
+                            {{$product->name}}</h5>
+
+                    </div>
+                    <div class="col-lg-2 col-sm-3 col-md-2 col-2">
+                        <form action="" method="POST">
+                            <input type="hidden" name="_token" value="HKyQhvtxEHWiqQ7X1tWj0Rhi37gi5tHu6Wkb0n2W">
+                            <button type="submit" data-toggle="tooltip" data-placement="right" title="Add To Favourites"
+                                class="mt-1 float-end btn btn-sm btn-white"><i class="fa fa-heart"
+                                    style="font-size:18px; color: red;"></i></button>
+
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-10 col-sm-6 col-6">
+                        <h6 data-toggle="tooltip" data-placement="right" title="" class="text-dark">
+                            {{$product->price_name}}</h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-sm-9 col-md-10 col-10 ">
+                        <h5 class="" data-toggle="tooltip" data-placement="right" title="Name">
+                            Age</h5>
+
+                    </div>
+                    <div class="col-lg-6 ">
+                        <h6 data-toggle="tooltip" data-placement="right" title="" class="text-dark">
+                            {{$product->age}}month</h6>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-10 col-12 col-md-12 col-sm-12">
+                        <p data-toggle="tooltip" data-placement="right" title="location">
+                            {{$product->country_name}},{{$product->state_name}},{{$product->city_name}}</p>
+                    </div>
+                </div>
+
+            </a>
+
+        </div>
+        @endforeach
+    </div>
+
+
+</div>
+
+{{-- <div class="row">
         @foreach ($products as $product )
         <div class="col-sm-3  ">
             <div class="card">
 
-                <a href="/profile/detail"><img src="{{$product->image}}" class="card-arrow" alt="Arrow Picture" alt="" height="200px"
-                        width="260px"></a>
+                <a href="/profile/detail"><img src="{{$product->image}}" class="card-arrow" alt="Arrow Picture" alt=""
+height="200px"
+width="260px"></a>
 
-                <div class="card-body">
-                    <a href="#">
-                        <h5>{{$product->name}}</h5>
-                    </a>
-                 <span class="text-dark" >{{$product->category_name}}</span>
-                    <br>
-                    <span class="text-danger ">Price On call</span>
-                    <br>
-                    <span class=" text-muted "><i class="fa-solid fa-location-arrow"></i>&nbsp{{$product->country_name}}</span>
-                    <br>
-                    <span class="text-muted"><i class="fa-solid fa-calendar-days"></i>&nbsp{{$product->type}}</span>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">
-
-                    </small>
-                </div>
-
-
-
-            </div>
-        </div>
-
-
-
-
-        @endforeach
-    </div>
+<div class="card-body">
+    <a href="#">
+        <h5>{{$product->name}}</h5>
+    </a>
+    <span class="text-dark">{{$product->category_name}}</span>
+    <br>
+    <span class="text-danger ">Price On call</span>
+    <br>
+    <span class=" text-muted "><i class="fa-solid fa-location-arrow"></i>&nbsp{{$product->country_name}}</span>
+    <br>
+    <span class="text-muted"><i class="fa-solid fa-calendar-days"></i>&nbsp{{$product->type}}</span>
 </div>
+<div class="card-footer">
+    <small class="text-muted">
+
+    </small>
+</div>
+
+
+
+</div>
+</div>
+
+
+
+
+@endforeach
+</div> --}}
+
 <br>
 
 @endsection

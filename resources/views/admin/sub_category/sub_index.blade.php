@@ -12,7 +12,7 @@
                 </div>
                 <div class="card-body px-0 pb-2">
                     <div class="table-responsive p-0">
-                        <table class="table align-items-center mb-0">
+                        <table class="table align-items-center mb-0 table-bordered">
                             <div class="container">
                                 <a class="btn btn-primary" href="{{route('sub_cat.create')}}">Create</a>
 

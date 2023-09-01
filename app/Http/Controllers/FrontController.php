@@ -36,7 +36,7 @@ public function index()
   ,'countries.name as country_name', 'states.name as state_name', 'cities.name as city_name'
   , 'streets.name as street_name'
   ,'categories.name as category_name',
-  'sub.name as sub_category_name')->limit(4)
+  'sub.name as sub_category_name')->limit(6)
   ->get();
 
 //   multiimages

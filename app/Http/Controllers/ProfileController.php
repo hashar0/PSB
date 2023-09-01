@@ -40,10 +40,10 @@ class ProfileController extends Controller
       $user = User ::find($user_id);
       $user ->name = $req->input('name');
       $user ->last_name = $req->input('last_name');
-      $user ->gender = $req->input('gender');
+    //   $user ->gender = $req->input('gender');
       $user ->phone = $req->input('phone');
-      $user ->address = $req->input('address');
-      $user ->date_of_birth = $req->input('date_of_birth');
+    //   $user ->address = $req->input('address');
+    //   $user ->date_of_birth = $req->input('date_of_birth');
 
 
       if($req->hasFile('profile_image'))

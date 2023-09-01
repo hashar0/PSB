@@ -15,11 +15,8 @@
                 </div>
                 <div class="card-body px-0 pb-2">
                     <div class="table-responsive p-0">
-                        <table class="table align-items-center mb-0">
-                            {{-- <div class="container">
-                                <a class="btn btn-primary" href="{{route('prdct.create')}}">Create</a>
+                        <table class="table align-items-center mb-0 table table-bordered">
 
-                            </div> --}}
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -38,7 +35,8 @@
                                     <th>Description</th>
                                     <th>Price</th>
                                     <th>Type</th>
-                                    <th>Action<th>
+                                    <th>Action
+                                    <th>
 
                                 </tr>
                             </thead>
@@ -64,9 +62,11 @@
                                     <td>{{$product->types_name}}</td>
 
                                     <td>
-                                    {{-- <a class="btn btn-info" href="{{route('prdct.edit',$product->id)}}">Edit </a> --}}
+                                        {{-- <a class="btn btn-info" href="{{route('prdct.edit',$product->id)}}">Edit
+                                        </a> --}}
 
-                                    <a class="btn btn-danger" href="{{route('prdct.delete',$product->id)}}">Delete</a>
+                                        <a class="btn btn-danger"
+                                            href="{{route('prdct.delete',$product->id)}}">Delete</a>
                                     </td>
                                 </tr>
 
