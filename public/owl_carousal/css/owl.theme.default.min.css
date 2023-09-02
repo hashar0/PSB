@@ -11,7 +11,7 @@
 
 .owl-theme .owl-nav [class*=owl-] {
     color: #FFF;
-    font-size: 20px;
+    font-size: 40px;
     margin: 20px;
     padding: 4px 7px;
     background: #D6D6D6;
@@ -26,6 +26,27 @@
 
     text-decoration: none
 }
+
+
+/* slider 2 color  */
+
+.owl-height .owl-nav [class*=owl-]:hover {
+    /* background: #c70c35; */
+    color: #121010;
+    height : 300px;
+    text-decoration: none
+}
+.owl-height .owl-nav [class*=owl-] {
+    color: #FFF;
+    font-size: 30px;
+    margin: 20px;
+    padding: 4px 7px;
+    background: #D6D6D6;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 6px
+}
+
 
 .owl-theme .owl-nav .disabled {
     opacity: .5;

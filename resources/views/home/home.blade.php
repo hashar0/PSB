@@ -109,58 +109,58 @@
 </div>
 
 <div class="container">
-    <div class="owl-carousel owl-theme" id="slider2">
+    <div class="owl-carousel owl-height" id="slider2">
         @foreach ($products as $product)
-        <div class="col-lg-12 card shadow">
-            <div class="">
-                <a class="nav-link" href="{{url('details'.'/'.$product->id)}}">
-                    {{-- <span class="badge bg-warning image-text text-black">Featured</span> --}}
-                    <img href="#" src="{{$product->image}}" class="badge bg-dark image-text text-black"
-                        alt="Arrow Picture" alt="" height="200px">
-                    <div class="row">
-                        <div class="col-lg-10 col-sm-9 col-md-10 col-10 mt-1">
-                            <h5 class="fw-bold" data-toggle="tooltip" data-placement="right" title="Name">
-                                {{$product->name}}</h5>
+        <div class="col-lg-12 card shadow" style="height: 350px">
 
-                        </div>
-                        <div class="col-lg-2 col-sm-3 col-md-2 col-2">
-                            <form action="" method="POST">
-                                <input type="hidden" name="_token" value="HKyQhvtxEHWiqQ7X1tWj0Rhi37gi5tHu6Wkb0n2W">
-                                <button type="submit" data-toggle="tooltip" data-placement="right"
-                                    title="Add To Favourites" class="mt-1 float-end btn btn-sm btn-white"><i
-                                        class="fa fa-heart" style="font-size:18px; color: red;"></i></button>
+            <a class="nav-link" href="{{url('details'.'/'.$product->id)}}">
+                {{-- <span class="badge bg-warning image-text text-black">Featured</span> --}}
+                <img href="#" src="{{$product->image}}" class="badge bg-dark image-text text-black card-img-top"
+                    alt="Arrow Picture" alt="" height="200px" width="300px">
+                <div class="row">
+                    <div class="col-lg-10 col-sm-9 col-md-10 col-10 mt-1">
+                        <h5 class="fw-bold" data-toggle="tooltip" data-placement="right" title="Name">
+                            {{$product->name}}</h5>
 
-                            </form>
-                        </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-10 col-sm-6 col-6">
-                            <h6 data-toggle="tooltip" data-placement="right" title="" class="text-dark">
-                                {{$product->price_name}}</h6>
-                        </div>
+                    <div class="col-lg-2 col-sm-3 col-md-2 col-2">
+                        <form action="" method="POST">
+                            <input type="hidden" name="_token" value="HKyQhvtxEHWiqQ7X1tWj0Rhi37gi5tHu6Wkb0n2W">
+                            <button type="submit" data-toggle="tooltip" data-placement="right" title="Add To Favourites"
+                                class="mt-1 float-end btn btn-sm btn-white"><i class="fa fa-heart"
+                                    style="font-size:18px; color: red;"></i></button>
+
+                        </form>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-6 col-sm-9 col-md-10 col-10 ">
-                            <h5 class="" data-toggle="tooltip" data-placement="right" title="Name">
-                                Age</h5>
-
-                        </div>
-                        <div class="col-lg-6 ">
-                            <h6 data-toggle="tooltip" data-placement="right" title="" class="text-dark">
-                                {{$product->age}}month</h6>
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-10 col-sm-6 col-6">
+                        <h6 data-toggle="tooltip" data-placement="right" title="" class="text-dark">
+                            {{$product->price_name}}</h6>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-sm-9 col-md-10 col-10 ">
+                        <h5 class="" data-toggle="tooltip" data-placement="right" title="Name">
+                            Age</h5>
 
-                    <div class="row">
-
-                        <div class="col-lg-10 col-12 col-md-12 col-sm-12">
-                            <p data-toggle="tooltip" data-placement="right" title="location">
-                                {{$product->country_name}},{{$product->state_name}},{{$product->city_name}}</p>
-                        </div>
                     </div>
+                    <div class="col-lg-6 ">
+                        <h6 data-toggle="tooltip" data-placement="right" title="" class="text-dark">
+                            {{$product->age}}month</h6>
+                    </div>
+                </div>
 
-                </a>
-            </div>
+                <div class="row">
+
+                    <div class="col-lg-10 col-12 col-md-12 col-sm-12">
+                        <p data-toggle="tooltip" data-placement="right" title="location">
+                            {{$product->country_name}},{{$product->state_name}},{{$product->city_name}}</p>
+                    </div>
+                </div>
+
+            </a>
+
         </div>
         @endforeach
     </div>
@@ -207,7 +207,6 @@
                 <h5 class="display-6">Add By Location</h5>
             </div>
             <hr class="hr-light">
-
             <div class="row">
                 @foreach ($city as $category)
                 <div class="col-lg-4">
@@ -303,10 +302,11 @@
     $(document).ready(function () {
         $('#slider2').owlCarousel({
             nav: true,
-            items: 4,
+            items: 3,
             margin: 30,
             loop: true,
-            dots: false,
+            dots: true,
+
             autoplay: true,
 
             responsive: {
@@ -314,10 +314,10 @@
                     items: 1
                 },
                 600: {
-                    items: 3
+                    items: 2
                 },
                 1000: {
-                    items: 4
+                    items: 3
                 }
             }
 
