@@ -58,7 +58,6 @@ class ListingController extends Controller
         'sub.name as sub_category_name')
         ->where('products.id', $id)
         ->first();
-
       $related =  Product::join('countries', 'products.country_id', '=', 'countries.id')
       // ->join('users','products.user_id','=','user.id')
      // ->where('products.user_id',Auth::id())

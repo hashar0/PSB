@@ -46,11 +46,9 @@
                                     </select>
                                 </div>
                                 <div class="col-lg-3 mt-3">
-                                    <a class="btn btn-danger" href="">Search </a>
+                                    <a class="btn btn-danger"  type="search" href="">Search </a>
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
                 </div>

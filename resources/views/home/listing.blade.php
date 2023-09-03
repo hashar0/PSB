@@ -45,9 +45,17 @@
     </p>
     <div>
         <div class="form-group">
-            <input class="form-control" type="number" id="age" name="age" value="{{ old('age') }}" placeholder="Enter the Age" required>
+            <input class="form-control" type="number" id="age" name="age" value="{{ old('age') }}"
+                placeholder="Enter the Age" required>
         </div>
     </div>
+    {{-- <p class="card-description">
+        Add Price
+    </p>
+    <div class="form-group">
+        <input class="form-control"  type="number" name="price" id="price" value="{{old('price')}}" placeholder="Enter
+    the Price">
+    </div> --}}
     <div class="form-group">
         <label for="">Choose Price</label>
         <select name="price" id="price_name" class="form-control @error('price') is-invalid @enderror" required>

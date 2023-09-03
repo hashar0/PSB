@@ -15,6 +15,8 @@ use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\SliderController ;
 use App\Http\Controllers\PriceController ;
 use App\Http\Controllers\TypeController ;
+use App\Http\Controllers\AboutController ;
+use App\Models\About;
 use App\Models\Slider;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -252,7 +254,22 @@ Route::prefix('adminv2')->group(function(){
         Route::get('/delete/{id}',[TypeController::class,'delete'])->name('type.delete');
     });
 
-    //whislists
+    //about us
+    Route::prefix('about')->group(function(){
 
+        Route::get('/',[AboutController::class,'index'])->name('about.index');
+
+        Route::get('/create',[AboutController::class,'create'])->name('about.create');
+
+        Route::post('/store',[AboutController::class,'store'])->name('about.store');
+
+       // Route::get('/edit/{id}',[AboutController::class,'edit'])->name('about.edit');
+
+       // Route::post('/update/{id}',[AboutController::class,'update'])->name('about.update');
+
+         Route::get('/delete/{id}',[AboutController::class,'delete'])->name('about.delete');
+    });
+
+//contact us
 
 });

@@ -37,14 +37,13 @@ Route::prefix('/')->group(function(){
     Route::get('/contant',[FrontController::class,'contant'])->name('contant');
     Route::get('/about',[FrontController::class,'about'])->name('about');
     // city_listing
-
-   // Route::get('/city_listing',[CitylistingController::class,'city_listing'])->name('city_lis');
     Route::get('/city_listing/{id}', [CitylistingController::class,'city_listing']);
-
+// detail page
     Route::get('/details/{id}',[ListingController::class,'detail']);
    // Route::post('/profile.update',[ProfileController::class,'update'])->name('profile.update');
 
-   // Route::get('/task',[FrontController::class,'task'])->name('/task');
+
+// Route::get('/task',[FrontController::class,'task'])->name('/task');
 });
 
 Route::middleware(['auth'])->group(function (){

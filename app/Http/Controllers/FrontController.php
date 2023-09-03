@@ -27,7 +27,6 @@ public function index()
   ->join('types','products.type_id','=','types.id')
   ->join('streets', 'products.street_id', '=', 'streets.id')
   ->join('users','products.user_id','=','users.id')
-
   //where used then data based login in user id
   //->where('products.user_id',Auth::id())
   ->join('categories','products.cat_id','=','categories.id')
@@ -36,9 +35,8 @@ public function index()
   ,'countries.name as country_name', 'states.name as state_name', 'cities.name as city_name'
   , 'streets.name as street_name'
   ,'categories.name as category_name',
-  'sub.name as sub_category_name')->limit(4)
+  'sub.name as sub_category_name')->limit(6)
   ->get();
-
 //   multiimages
 //   $multi_image=DB::table('product_images')
 //   ->join('products','product_images.product_id','=','products.id')
@@ -50,11 +48,9 @@ public function index()
    ->groupBy('cities.id', 'cities.name')
    ->limit(6)->get();
    $header=DB::table('headers')->get();
-
    $categories = DB::table('categories')
    ->select('categories.image as category_image','categories.name as category_name')
    ->get();
-
 //return $categories;
   return view('home.home',compact('sub_category','sliders','products','header','categories','city'));
 
@@ -66,6 +62,7 @@ public function index()
     }
     public function about()
     {
+
         return view('home.about');
     }
     // public function profile()
