@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
+//gate import in role base
 use Illuminate\Contracts\Auth\Access\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -25,12 +26,13 @@ class AuthServiceProvider extends ServiceProvider
     public function boot(Gate $gate)
     {
         $this->registerPolicies($gate);
-        $gate->define('is admin',function($user){
+
+        $gate->define('is_admin',function($user){
         return $user->role=='admin';
         });
-        $gate->define('is user',function($user){
+        $gate->define('is_user',function($user){
             return $user->role=='user';
-            });
+        });
 
     }
 }

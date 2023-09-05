@@ -1,6 +1,5 @@
 @extends('adminv2.adminv2master')
 @section('content')
-
 <div class="container-fluid py-4">
     <div class="row">
         <div class="col-12">
@@ -13,7 +12,6 @@
                 <div class="card-body px-0 pb-2">
                     <div class="table-responsive p-0">
                         <table class="table align-items-center mb-0 table table-bordered">
-
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col">#</th>
@@ -26,12 +24,9 @@
                                     <th scope="col">Phone Number</th>
                                     <th scope="col">Address</th>
                                     <th scope="col">Role</th>
-
-
                                 </tr>
                             </thead>
                             <tbody>
-
                                 @foreach ($users as $key=> $user)
                                 <tr>
                                     <td>{{ ++$key}}</td>
@@ -43,19 +38,19 @@
                                     <td>{{$user->gender}}</td>
                                     <td>{{$user->phone}}</td>
                                     <td>{{$user->address}}</td>
-                                    <td><button type="submit" class="btn btn-primary">Demote to User</button></td>
+                                    <td>@if (auth()->user()->isAdmin())
+                                        <a href="">Admin Dashboard</a>
+                                        @else
+                                        <a href="">User Dashboard</a>
+                                        @endif</td>
                                 </tr>
-
                                 @endforeach
-
+                            </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-
 </div>
 @endsection

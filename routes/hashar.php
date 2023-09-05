@@ -35,18 +35,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
+Route::get('/admin',[AdminController::class,'admin_panel']);
 
 //
-Route::middleware(['auth', 'role:admin'])->group(function () {
+
+
     // Admin-only routes
-});
 
-
-Route::prefix('adminv2')->group(function(){
-
-
+    Route::middleware(['auth'])->group(function () {
+  //
+  Route::prefix('adminv2')->group(function(){
     Route::get('/dashboard',[AdminController::class,'index'])->name('dashboard');
 
     Route::get('/user',[AdminController::class,'user'])->name('users');
@@ -271,5 +269,7 @@ Route::prefix('adminv2')->group(function(){
     });
 
 //contact us
+
+});
 
 });

@@ -5,17 +5,34 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
+
 class AdminController extends Controller
 {
     public function index(){
-        return view('adminv2.dashboard');
 
+        return view('adminv2.dashboard');
     }
+
     public function user(){
         $users = DB::table('users')->get();
       // return $users;
         return view('admin.user.index',compact('users'));
     }
+
+    public function admin_panel() {
+
+        if(Gate::allows('is_admin'))
+        return view('adminv2.adminpanel');
+        else{
+            return
+            abort(401);
+        }
+
+
+
+    }
+
 
 //     public function store(Request $request) {
 
