@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Pets Stock Bazaar</title>
     <!-- plugins:css -->
-
     <link rel="stylesheet" href="/adminv2/vendors/feather/feather.css">
     <link rel="stylesheet" href="/adminv2/vendors/ti-icons/css/themify-icons.css">
     <link rel="stylesheet" href="/adminv2/vendors/css/vendor.bundle.base.css">
@@ -21,7 +20,6 @@
     <link rel="stylesheet" href="/adminv2/css/vertical-layout-light/style.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="/adminv2/images/favicon.png" />
-
     {{-- country --}}
     <meta name="_token" content="{{ csrf_token() }}">
 </head>
@@ -32,7 +30,7 @@
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
                 {{--work on  logo design --}}
-                <a class="navbar-brand brand-logo mr-5 " href="index">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pets Stock
+                <a class="navbar-brand brand-logo mr-5 m-5" href="index">Pets Stock
                     Bazaar
                     {{-- <img src="" class="mr-2"
                         alt="logo" />--}}
@@ -59,7 +57,7 @@
                     </li>
                 </ul>
 
-                {{-- <ul class="navbar-nav navbar-nav-right nav-link">
+                {{-- <ul class="navbar-nav navbar-nav-right nav-link dropdown">
                     <li>
                         @if (Auth::user()->profile_image)
                         <img src="{{asset('uploads/profile/'.Auth::user()->profile_image)}}"
@@ -378,7 +376,7 @@
                 <footer class="footer">
                     <div class="d-sm-flex justify-content-center justify-content-sm-between">
                         <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.
-                            Premium <a href="http://127.0.0.1:8000/adminv2/index" target="_blank">Pets Stock Bazaar
+                            Premium <a href="{{route('dashboard')}}" target="_blank">Pets Stock Bazaar
                             </a> from BootstrapDash. All rights reserved.</span>
 
                     </div>
@@ -416,4 +414,5 @@
         {{ session('success') }}
     </div>
     @endif
+
 </body>

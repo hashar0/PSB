@@ -61,12 +61,11 @@ Route::middleware(['auth'])->group(function (){
         Route::post('/update',[ProfileController::class,'update'])->name('profile.update');
 
     });
-
-});
-
-
-// countries
+    // countries
 Route::get('/create',[ListingController::class,'country']);
 Route::post('/fetch-states/{id}',[ListingController::class,'fetchStates']);
 Route::post('/fetch-cities/{id}',[ListingController::class,'fetchCities']);
 Route::post('/fetch-streets/{id}',[ListingController::class,'fetchStreets']);
+
+
+});

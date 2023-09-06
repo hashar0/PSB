@@ -28,7 +28,7 @@ class ListingController extends Controller
     ->leftJoin('users', 'products.user_id', '=', 'users.id')
     ->leftJoin('categories','products.cat_id','=','categories.id')
     ->leftJoin('sub_categories','products.subcat_id','=','sub_categories.id')
-     ->leftJoin('prices','products.price_id','=','prices.id')
+    ->leftJoin('prices','products.price_id','=','prices.id')
     ->leftJoin('types','products.type_id','=','types.id')
     ->get();
    // return $products;

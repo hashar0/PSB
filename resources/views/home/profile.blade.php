@@ -10,8 +10,8 @@
     </div>
 </div>
 <br>
-<div class="container">
-    <form action="{{ route('profile.update') }}" method="POST" id="profile_setup_frm" enctype="multipart/form-data">
+<div class="container ">
+    <form action="{{ route('profile.update') }}" method="POST" id="profile_setup_form" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-md-12 bg-dark p-2">
@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div class="col-md-7 p-4">
-                <div class="card bg-light">
+                <div class=" shadow card bg-light">
                     <div class="card-body">
                         <div class="form-group">
                             <label for="name">Name:</label>
@@ -65,29 +65,27 @@
                             <input type="number" name="phone" id="phone" class="form-control"
                                 value="{{ Auth::user()->phone }}" required>
                         </div>
-
+                        {{-- Address --}}
+                        {{-- <div class="form-group">
+                            <label for="text">Address:</label>
+                            <textarea type="address" name="address" id="address" class="form-control"
+                                value="{{ Auth::user()->address }}" cols="3" rows="5" required
+                                placeholder="Enter the Address"></textarea>
+                        </div> --}}
                     </div>
-
-
                     <div class="m-4">
                         <button type="submit" id="btn" class="btn btn-primary">Save</button>
                     </div>
                 </div>
             </div>
         </div>
-
-
     </form>
 </div>
 
-
-
-
-{{-- data --}}
+{{-- listing list --}}
 
 
 <h2 class="text-center"><b>Your Listing List</h2>
-
 
 <div class="container">
     <div class="row">
@@ -145,48 +143,6 @@
         </div>
         @endforeach
     </div>
-
-
 </div>
-
-{{-- <div class="row">
-        @foreach ($products as $product )
-        <div class="col-sm-3  ">
-            <div class="card">
-
-                <a href="/profile/detail"><img src="{{$product->image}}" class="card-arrow" alt="Arrow Picture" alt=""
-height="200px"
-width="260px"></a>
-
-<div class="card-body">
-    <a href="#">
-        <h5>{{$product->name}}</h5>
-    </a>
-    <span class="text-dark">{{$product->category_name}}</span>
-    <br>
-    <span class="text-danger ">Price On call</span>
-    <br>
-    <span class=" text-muted "><i class="fa-solid fa-location-arrow"></i>&nbsp{{$product->country_name}}</span>
-    <br>
-    <span class="text-muted"><i class="fa-solid fa-calendar-days"></i>&nbsp{{$product->type}}</span>
-</div>
-<div class="card-footer">
-    <small class="text-muted">
-
-    </small>
-</div>
-
-
-
-</div>
-</div>
-
-
-
-
-@endforeach
-</div> --}}
-
 <br>
-
 @endsection

@@ -19,7 +19,6 @@ class ProfileController extends Controller
         ->join('cities', 'products.city_id', '=', 'cities.id')
         ->join('streets', 'products.street_id', '=', 'streets.id')
         ->join('users','products.user_id','=','users.id')
-
         //where used then data based login in user id
         ->where('products.user_id',Auth::id())
         ->join('categories','products.cat_id','=','categories.id')
@@ -40,10 +39,10 @@ class ProfileController extends Controller
       $user = User ::find($user_id);
       $user ->name = $req->input('name');
       $user ->last_name = $req->input('last_name');
-    //   $user ->gender = $req->input('gender');
+    //$user ->gender = $req->input('gender');
       $user ->phone = $req->input('phone');
-    //   $user ->address = $req->input('address');
-    //   $user ->date_of_birth = $req->input('date_of_birth');
+      $user->address=$req->input('address');
+    //$user ->date_of_birth = $req->input('date_of_birth');
 
 
       if($req->hasFile('profile_image'))

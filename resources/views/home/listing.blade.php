@@ -58,7 +58,7 @@
     </div> --}}
     <div class="form-group">
         <label for="">Choose Price</label>
-        <select name="price" id="price_name" class="form-control @error('price') is-invalid @enderror" required>
+        <select name="price" id="price" class="form-control @error('price') is-invalid @enderror" required>
             <option value="">Select Price</option>
             @foreach ($price as $pri )
 

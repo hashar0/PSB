@@ -38,10 +38,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
-
-
 Route::middleware(['auth'])->group(function (){
 Route::get('/admin',[AdminController::class,'admin_panel']);
   Route::prefix('admin')->group(function(){
