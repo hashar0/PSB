@@ -16,6 +16,9 @@ use App\Http\Controllers\SliderController ;
 use App\Http\Controllers\PriceController ;
 use App\Http\Controllers\TypeController ;
 use App\Http\Controllers\AboutController ;
+use App\Http\Controllers\ListingController;
+use App\Http\Controllers\ProfileController;
+
 use App\Models\About;
 use App\Models\Slider;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -35,16 +38,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
+
+
+Route::middleware(['auth'])->group(function (){
 Route::get('/admin',[AdminController::class,'admin_panel']);
-
-//
-
-
-    // Admin-only routes
-
-    Route::middleware(['auth'])->group(function () {
-  //
-  Route::prefix('adminv2')->group(function(){
+  Route::prefix('admin')->group(function(){
     Route::get('/dashboard',[AdminController::class,'index'])->name('dashboard');
 
     Route::get('/user',[AdminController::class,'user'])->name('users');
@@ -65,9 +65,6 @@ Route::get('/admin',[AdminController::class,'admin_panel']);
 
     });
 
-
-
-
     Route::prefix('sub_categories')->group(function(){
 
         Route::get('/',[Sub_CategoryController::class,'index'])->name('sub_cat.index');
@@ -86,9 +83,6 @@ Route::get('/admin',[AdminController::class,'admin_panel']);
 
 
     });
-
-
-
     Route::prefix('country')->group(function(){
 
         Route::get('/',[CountryController::class,'index'])->name('cout.index');
@@ -103,9 +97,7 @@ Route::get('/admin',[AdminController::class,'admin_panel']);
 
         Route::get('/delete/{id}',[CountryController::class,'delete'])->name('cout.delete');
 
-
     });
-
 
     Route::prefix('address')->group(function(){
 
@@ -271,5 +263,6 @@ Route::get('/admin',[AdminController::class,'admin_panel']);
 //contact us
 
 });
+
 
 });

@@ -4,10 +4,11 @@ use App\Http\Controllers\CitylistingController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\FrontController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ListingController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\HomeController;
 
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\admin\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +49,7 @@ Route::prefix('/')->group(function(){
 
 Route::middleware(['auth'])->group(function (){
 
+
     Route::prefix('/profile')->group(function(){
 
         Route::get('/add_listing',[ListingController::class,'add_listing'])->name('add_listing');
@@ -58,13 +60,9 @@ Route::middleware(['auth'])->group(function (){
 
         Route::post('/update',[ProfileController::class,'update'])->name('profile.update');
 
-
-
-
     });
 
 });
-
 
 
 // countries
