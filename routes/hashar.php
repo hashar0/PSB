@@ -16,7 +16,8 @@ use App\Http\Controllers\SliderController ;
 use App\Http\Controllers\PriceController ;
 use App\Http\Controllers\TypeController ;
 use App\Http\Controllers\AboutController ;
-use App\Http\Controllers\ListingController;
+
+use App\Http\Controllers\ContantController;
 use App\Http\Controllers\ProfileController;
 
 use App\Models\About;
@@ -249,14 +250,28 @@ Route::get('/admin',[AdminController::class,'admin_panel']);
 
         Route::post('/store',[AboutController::class,'store'])->name('about.store');
 
-       // Route::get('/edit/{id}',[AboutController::class,'edit'])->name('about.edit');
+        Route::get('/edit/{id}',[AboutController::class,'edit'])->name('about.edit');
 
-       // Route::post('/update/{id}',[AboutController::class,'update'])->name('about.update');
+        Route::post('/update/{id}',[AboutController::class,'update'])->name('about.update');
 
          Route::get('/delete/{id}',[AboutController::class,'delete'])->name('about.delete');
     });
 
 //contact us
+Route::prefix('contact')->group(function(){
+
+    Route::get('/',[ContantController::class,'index'])->name('contant.index');
+
+    Route::get('/create',[ContantController::class,'create'])->name('contant.create');
+
+    Route::post('/store',[ContantController::class,'store'])->name('contant.store');
+
+    Route::get('/edit/{id}',[ContantController::class,'edit'])->name('contant.edit');
+
+     Route::post('/update/{id}',[ContantController::class,'update'])->name('contant.update');
+
+     Route::get('/delete/{id}',[ContantController::class,'delete'])->name('contant.delete');
+});
 
 });
 

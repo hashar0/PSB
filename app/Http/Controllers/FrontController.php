@@ -62,9 +62,13 @@ public function index()
     }
     public function about()
     {
-
-        return view('home.about');
+    $about =DB::table('abouts')->get();
+        return view('home.about',compact('about'));
     }
+
+
+
+
     // public function profile()
     // {
     //     return view('home.profile');

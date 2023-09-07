@@ -18,10 +18,8 @@ class TypeController extends Controller
     public function store(Request $request){
 
         $types = Type::create([
-
             'types' => $request->types,
         ]);
-
        $types;
         return redirect()->route('type.index')->with('message','Add Type Successfully');
 

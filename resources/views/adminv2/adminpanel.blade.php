@@ -6,18 +6,18 @@
             <div class="card">
                 <div class="card-header">{{('dashboard') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('Hello Admin!') }}
-                </div>
-            </div>
-        </div>
+<div class="card-body">
+    @if (session('status'))
+    <div class="alert alert-success" role="alert">
+        {{ session('status') }}
     </div>
+    @endif
+
+    {{ __('Hello Admin!') }}
+</div>
+</div>
+</div>
+</div>
 </div>
 @endsection --}}
 @extends('adminv2.adminv2master')
@@ -746,38 +746,8 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <p class="card-title">Advanced Table</p>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="table-responsive">
-                                <table id="example" class="display expandable-table" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th>Quote#</th>
-                                            <th>Product</th>
-                                            <th>Business type</th>
-                                            <th>Policy holder</th>
-                                            <th>Premium</th>
-                                            <th>Status</th>
-                                            <th>Updated at</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
 
-        </div>
-    </div>
 </div>
 
 @endsection
-

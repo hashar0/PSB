@@ -9,12 +9,9 @@ class AboutController extends Controller
 {
     public function index()
     {
-
         $about = DB::table('abouts')->get();
         return view('home.about.index',compact('about'));
     }
-
-
       public function create()
       {
        return view('home.about.create');
@@ -22,16 +19,11 @@ class AboutController extends Controller
 
     public function store(Request $request)
     {
-
-
-
-
-        $about = About::create([
-            'name' => $request->name,
-            'paragraph' => $request->paragraph,
-             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust validation rules as needed
+        $data = $request->validate([
+            'name' => 'required',
+            'paragraph' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust validation rules as needed
         ]);
-
 
         if($request->has('image')){
             $file_name = time();      //return timespan
@@ -47,11 +39,11 @@ class AboutController extends Controller
                 $image_path = '/uploads/about/'.$file_name;
             $data['image'] = $image_path;
             }
+        About::create($data);
 
-          $about;
-        // About::create($data);
-      //return $request;
-        return redirect()->route('about.index')->with('message','About add successfully');
+
+        //return $request;
+       return redirect()->route('about.index')->with('message','About add successfully');
     }
 
 
@@ -63,5 +55,21 @@ class AboutController extends Controller
         $about->delete();
         return redirect()->route('about.index');
 
+    }
+    public function edit($id) {
+
+        $about = About::find($id);
+
+        // $about= new About;
+         return view('home.about.create',compact('about'));
+    }
+
+    public function update(Request $request,$id) {
+
+        $about = About::find($id);
+
+        $data= $request -> all();
+        $about -> update($data);
+        return redirect() -> route('about.index');
     }
 }

@@ -45,7 +45,7 @@ class SliderController extends Controller
             }
         Slider::create($data);
 
-
+         //return $request;
 
         return redirect()->route('slider.index')->with('message','Slider Add Successfully');
 

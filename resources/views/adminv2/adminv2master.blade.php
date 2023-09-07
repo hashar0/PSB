@@ -61,18 +61,18 @@
                     <li>
                         @if (Auth::user()->profile_image)
                         <img src="{{asset('uploads/profile/'.Auth::user()->profile_image)}}"
-                            class="rounded-circle shadow-6-strong" width="40px" height="40px" alt="Image">
-                        @else
-                        <img src="{{asset("uploads/profile/admin.png")}}" class="rounded-circle shadow-4-strong"
-                            width="40px" height="40px" id="image_preview_container" alt="Image">
-                        @endif
-                    </li>
-                    <h5> <a class="nav-link ml-2 pr-1 text-dark " href="#" role="button" aria-haspopup="true"
-                            aria-expanded="false" v-pre><b>
-                                {{ Auth::user()->name }}
+                class="rounded-circle shadow-6-strong" width="40px" height="40px" alt="Image">
+                @else
+                <img src="{{asset("uploads/profile/admin.png")}}" class="rounded-circle shadow-4-strong" width="40px"
+                    height="40px" id="image_preview_container" alt="Image">
+                @endif
+                </li>
+                <h5> <a class="nav-link ml-2 pr-1 text-dark " href="#" role="button" aria-haspopup="true"
+                        aria-expanded="false" v-pre><b>
+                            {{ Auth::user()->name }}
 
-                        </a>
-                    </h5>
+                    </a>
+                </h5>
                 </ul> --}}
             </div>
         </nav>
@@ -294,12 +294,9 @@
                                 <span class="menu-title">Slider</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('about.index')}}">
-                                <i class="icon-layout menu-icon"></i>
-                                <span class="menu-title">About us </span>
-                            </a>
-                        </li>
+
+
+
                         <li class="nav-item">
                             <a class="nav-link" href="{{route ('cat.index')}}">
                                 <i class="icon-columns menu-icon"></i>
@@ -361,6 +358,27 @@
                             </a>
                         </li>
 
+                        <div class="dropdown ">
+                            <button class="btn  dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false"><i class="icon-layout menu-icon"></i>
+                                Sitting
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('about.index')}}">
+                                        <i class="icon-layout menu-icon"></i>
+                                        <span class="menu-title">About us </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('contant.index')}}">
+                                        <i class="icon-layout menu-icon"></i>
+                                        <span class="menu-title">Contant us </span>
+                                    </a>
+                                </li>
+
+                            </div>
+                        </div>
 
                     </ul>
                 </div>
