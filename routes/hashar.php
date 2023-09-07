@@ -18,7 +18,7 @@ use App\Http\Controllers\TypeController ;
 use App\Http\Controllers\AboutController ;
 
 use App\Http\Controllers\ContantController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FooterController;
 
 use App\Models\About;
 use App\Models\Slider;
@@ -40,12 +40,12 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth'])->group(function (){
-Route::get('/admin',[AdminController::class,'admin_panel']);
-  Route::prefix('admin')->group(function(){
+    Route::get('/admin',[AdminController::class,'admin_panel']);
+    Route::prefix('admin')->group(function(){
     Route::get('/dashboard',[AdminController::class,'index'])->name('dashboard');
 
     Route::get('/user',[AdminController::class,'user'])->name('users');
-
+//categories
     Route::prefix('categories')->group(function(){
         Route::get('/',[CategoryController::class,'index'])->name('cat.index');
 
@@ -61,7 +61,7 @@ Route::get('/admin',[AdminController::class,'admin_panel']);
 
 
     });
-
+//sub_categories
     Route::prefix('sub_categories')->group(function(){
 
         Route::get('/',[Sub_CategoryController::class,'index'])->name('sub_cat.index');
@@ -80,6 +80,7 @@ Route::get('/admin',[AdminController::class,'admin_panel']);
 
 
     });
+//country
     Route::prefix('country')->group(function(){
 
         Route::get('/',[CountryController::class,'index'])->name('cout.index');
@@ -95,7 +96,7 @@ Route::get('/admin',[AdminController::class,'admin_panel']);
         Route::get('/delete/{id}',[CountryController::class,'delete'])->name('cout.delete');
 
     });
-
+//address
     Route::prefix('address')->group(function(){
 
         Route::get('/',[AddressController::class,'index'])->name('address.index');
@@ -112,7 +113,7 @@ Route::get('/admin',[AdminController::class,'admin_panel']);
 
 
     });
-
+// product
     Route::prefix('product')->group(function(){
 
         Route::get('/',[ProductController::class,'index'])->name('prdct.index');
@@ -129,7 +130,7 @@ Route::get('/admin',[AdminController::class,'admin_panel']);
 
 
     });
-
+// city
     Route::prefix('city')->group(function(){
 
         Route::get('/',[CityController::class,'index'])->name('sta.index');
@@ -149,7 +150,7 @@ Route::get('/admin',[AdminController::class,'admin_panel']);
 
     });
 
-
+// state
     Route::prefix('state')->group(function(){
 
         Route::get('/',[StateController::class,'index'])->name('sa.index');
@@ -166,7 +167,7 @@ Route::get('/admin',[AdminController::class,'admin_panel']);
 
 
     });
-
+// street
     Route::prefix('street')->group(function(){
 
         Route::get('/',[StreetController::class,'index'])->name('st.index');
@@ -185,7 +186,7 @@ Route::get('/admin',[AdminController::class,'admin_panel']);
     });
 
 
-   // slider data
+// slider data
 
 
     Route::prefix('slider')->group(function(){
@@ -241,7 +242,7 @@ Route::get('/admin',[AdminController::class,'admin_panel']);
         Route::get('/delete/{id}',[TypeController::class,'delete'])->name('type.delete');
     });
 
-    //about us
+//about us
     Route::prefix('about')->group(function(){
 
         Route::get('/',[AboutController::class,'index'])->name('about.index');
@@ -257,8 +258,9 @@ Route::get('/admin',[AdminController::class,'admin_panel']);
          Route::get('/delete/{id}',[AboutController::class,'delete'])->name('about.delete');
     });
 
+
 //contact us
-Route::prefix('contact')->group(function(){
+ Route::prefix('contact')->group(function(){
 
     Route::get('/',[ContantController::class,'index'])->name('contant.index');
 
@@ -271,6 +273,23 @@ Route::prefix('contact')->group(function(){
      Route::post('/update/{id}',[ContantController::class,'update'])->name('contant.update');
 
      Route::get('/delete/{id}',[ContantController::class,'delete'])->name('contant.delete');
+
+});
+//footer
+ Route::prefix('footer')->group(function(){
+
+    Route::get('/',[FooterController::class,'index'])->name('footer.index');
+
+    Route::get('/create',[FooterController::class,'create'])->name('footer.create');
+
+    Route::post('/store',[FooterController::class,'store'])->name('footer.store');
+
+    Route::get('/edit/{id}',[FooterController::class,'edit'])->name('footer.edit');
+
+     Route::post('/update/{id}',[FooterController::class,'update'])->name('footer.update');
+
+     Route::get('/delete/{id}',[FooterController::class,'delete'])->name('footer.delete');
+
 });
 
 });

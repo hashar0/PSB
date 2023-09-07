@@ -31,7 +31,7 @@
                                                 style="width: 300px ; height:200px"></td>
                                     </div>
                                    <td>
-                                    <a class="btn btn-danger" href="{{route('slider.delete',$slider->id)}}">Delete </a></td>
+                                    <a class="btn btn-danger" href="{{route('slider.delete',$slider->id)}}"><i class="fa fa-trash-o" aria-hidden="true"></i> </a></td>
 
                                 </tr>
                                 @endforeach

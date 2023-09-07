@@ -37,7 +37,7 @@
 
 
                                     <td><a class="btn btn-info"
-                                            href="{{route('cout.edit',$category->id)}}">Edit </a>
+                                            href="{{route('cout.edit',$category->id)}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                         <a class="btn btn-danger"
                                             href="{{route('cout.delete',$category->id)}}">Delete </a></td>
                                 </tr>

@@ -32,9 +32,9 @@
                                     <td>{{ $state->name}}</td>
                                     <td>{{ $state->country_name}}</td>
                                     {{-- <td><a class="btn btn-info"
-                                            href="{{route('sa.edit',$state->id)}}">Edit </a>
+                                            href="{{route('sa.edit',$state->id)}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                         <a class="btn btn-danger"
-                                            href="{{route('sa.delete',$state->id)}}">Delete </a></td> --}}
+                                            href="{{route('sa.delete',$state->id)}}"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td> --}}
                                 </tr>
 
                                 @endforeach

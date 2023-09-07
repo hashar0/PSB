@@ -18,10 +18,10 @@ class PriceController extends Controller
     public function store(Request $request){
 
         $price = Price::create([
-         'price'=>$request->price,
+         'price'=>'$request->price',
         ]);
 
-        $price;
+        $price->save();
         return redirect()->route('price.index')->with('message','Add Price Successfully');
     }
 

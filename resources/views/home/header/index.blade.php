@@ -37,9 +37,9 @@
                                     <td>
                                     <td>{{$head->paragraph}}</td>
                                     <td>
-                                        <a class="btn btn-info" href="{{route('head.edit',$head->id)}}">Edit
+                                        <a class="btn btn-info" href="{{route('head.edit',$head->id)}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                         </a>
-                                        {{-- <a class="btn btn-danger" href="{{route('head.delete',$head->id)}}">Delete</a> --}}
+                                        {{-- <a class="btn btn-danger" href="{{route('head.delete',$head->id)}}"><i class="fa fa-trash-o" aria-hidden="true"></i></a> --}}
                                     </td>
                                     @endforeach
                                 </tr>

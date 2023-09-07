@@ -40,9 +40,9 @@
                                     <td>{{ $street->name}}</td>
                                     <td>{{ $street->city_name}}</td>
                                     {{-- <td><a class="btn btn-info"
-                                            href="{{route('st.edit',$street->id)}}">Edit </a>
+                                            href="{{route('st.edit',$street->id)}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                         <a class="btn btn-danger"
-                                            href="{{route('st.delete',$street->id)}}">Delete </a></td> --}}
+                                            href="{{route('st.delete',$street->id)}}"><i class="fa fa-trash-o" aria-hidden="true"></i> </a></td> --}}
                                 </tr>
 
                                 @endforeach

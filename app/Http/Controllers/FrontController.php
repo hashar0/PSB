@@ -58,7 +58,8 @@ public function index()
 
     public function contant()
     {
-        return view('home.contant');
+        $contants = DB::table('contants')->get();
+        return view('home.contant',compact('contants'));
     }
     public function about()
     {

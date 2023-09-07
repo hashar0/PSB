@@ -33,9 +33,8 @@
                                     <td>{{ ++$key}}</td>
                                     <td>{{ $category->name}}</td>
                                     <td><img src="{{$category->image}}"></td>
-                                    <td><a class="btn btn-info" href="{{route('cat.edit',$category->id)}}">Edit</a>
-                                        <a class="btn btn-danger" href="{{route('cat.delete',$category->id)}}">Delete
-                                        </a></td>
+                                    <td><a class="btn btn-info" href="{{route('cat.edit',$category->id)}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                        <a class="btn btn-danger" href="{{route('cat.delete',$category->id)}}"><i class="fa fa-trash-o" aria-hidden="true"></i>
                                 </tr>
 
                                 @endforeach

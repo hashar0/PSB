@@ -44,7 +44,7 @@
                                     {{-- <td><a class="btn btn-info"
                                             href="{{route('sta.edit',$city->id)}}">Edit </a>
                                         <a class="btn btn-danger"
-                                            href="{{route('sta.delete',$city->id)}}">Delete </a></td> --}}
+                                            href="{{route('sta.delete',$city->id)}}"><i class="fa fa-trash-o" aria-hidden="true"></i> </a></td> --}}
                                 </tr>
 
                                 @endforeach

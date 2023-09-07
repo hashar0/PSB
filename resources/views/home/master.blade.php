@@ -133,12 +133,8 @@
                 <div>
                     <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-6 float-left">
                         <div>
-                            <strong>
-                                <a href="#">
-                                    <img src="" height="30" width="30" alt="PSB">
-                                </a>
-                            </strong>
 
+                            <label class="text-primary"><b>Pets Stock Bazaar</label>
 
                             <div class="p-2">
                                 <p>Pottery is a fascinating art form that has captivated humanity for thousands of

@@ -37,9 +37,9 @@
                                     <td>{{ $sub_category->category_name}}</td>
                                     <td><img src="{{$sub_category->image}}"></td>
                                     <td><a class="btn btn-info"
-                                            href="{{route('sub_cat.edit',$sub_category->id)}}">Edit </a>
+                                            href="{{route('sub_cat.edit',$sub_category->id)}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a>
                                         <a class="btn btn-danger"
-                                            href="{{route('sub_cat.delete',$sub_category->id)}}">Delete </a></td>
+                                            href="{{route('sub_cat.delete',$sub_category->id)}}"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
                                 </tr>
 
                                 @endforeach

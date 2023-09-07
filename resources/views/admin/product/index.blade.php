@@ -62,11 +62,11 @@
                                     <td>{{$product->types_name}}</td>
 
                                     <td>
-                                        {{-- <a class="btn btn-info" href="{{route('prdct.edit',$product->id)}}">Edit
+                                        {{-- <a class="btn btn-info" href="{{route('prdct.edit',$product->id)}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                         </a> --}}
 
                                         <a class="btn btn-danger"
-                                            href="{{route('prdct.delete',$product->id)}}">Delete</a>
+                                            href="{{route('prdct.delete',$product->id)}}"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                     </td>
                                 </tr>
 

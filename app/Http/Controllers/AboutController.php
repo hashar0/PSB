@@ -43,7 +43,7 @@ class AboutController extends Controller
 
 
         //return $request;
-       return redirect()->route('about.index')->with('message','About add successfully');
+       return redirect()->route('about.index')->with('message','About information saved successfully');
     }
 
 

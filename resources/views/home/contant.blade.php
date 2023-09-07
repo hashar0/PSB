@@ -19,18 +19,20 @@
         </div>
         <div class="col-md-6 ">
             <div class="container  ">
-                <div class="card m-5  bg-light">
+                <div class="card m-5  shadow bg-light">
+
                     <div class="bg-dark ">
                         <h4 class="mx-3 text-white">ADDRESS</h4>
                     </div>
+                    @foreach ($contants as $contant )
                     <div class="m-3">
-                        <p class="mx-2">123 Street, City, Country</p>
-                        <p class="mx-2">Qila Didar Singh</p>
-                        <p class="mx-2">Gujranwala</p>
-                        <p class="mx-2">E.mail : support@gmail.com</p>
-                        <p class="mx-2">Call/SMS/WhatsApp. +92 304 4545452</p>
+                        <p class="mx-2">{{$contant->location}}</p>
+                        <p class="mx-2">{{$contant->city}}</p>
+                        <p class="mx-2">{{$contant->district}}</p>
+                        <p class="mx-2">E.mail : {{$contant->email}}</p>
+                        <p class="mx-2">Call/SMS/WhatsApp.{{$contant->phone}}</p>
                     </div>
-
+                    @endforeach
                 </div>
 
 

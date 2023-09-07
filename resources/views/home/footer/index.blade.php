@@ -17,37 +17,19 @@
                     <div class="table-responsive p-0">
                         <table class="table align-items-center mb-0 table table-bordered">
                             <div class="container">
-                                <a class="btn btn-primary" href="{{route('about.create')}}">Create</a>
+                                <a class="btn btn-primary" href="{{route('footer.create')}}">Create</a>
 
                     </div>
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Image</th>
 
-                            <th>Heading</th>
-                            <th>Paragraph</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
 
 
-                        @foreach ($about as $key=> $us)
-                        <tr>
-                            <td>{{ ++$key}}</td>
-                            <td><img src="{{$us->image}}" alt="About Image" class="rounded float-left"
-                                    style="width: 100px ; height:100px"></td>
-                            <td>{{$us->name}}
-                            <td>
-                                {{$us->paragraph}}
-                            <td>
-                                <a class="btn btn-info" href="{{route('about.edit',$us->id)}}" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                </a>
-                                <a class="btn btn-danger" href="{{route('about.delete',$us->id)}}"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                            </td>
-                        </tr>
-                        @endforeach
+
 
                     </tbody>
                     </table>

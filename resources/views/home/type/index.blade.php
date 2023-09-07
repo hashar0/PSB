@@ -38,7 +38,7 @@
                                     <td>
 
 
-                                        <a class="btn btn-danger" href="{{route('type.delete',$type->id)}}">Delete</a>
+                                        <a class="btn btn-danger" href="{{route('type.delete',$type->id)}}"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                     </td>
                                 </tr>
 

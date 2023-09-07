@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="/adminv2/css/vertical-layout-light/style.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="/adminv2/images/favicon.png" />
+    {{-- icon --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     {{-- country --}}
     <meta name="_token" content="{{ csrf_token() }}">
 </head>
@@ -357,28 +359,25 @@
                                 <span class="menu-title">User</span>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('about.index')}}">
+                                <i class="icon-layout menu-icon"></i>
+                                <span class="menu-title">About us </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('contant.index')}}">
+                                <i class="icon-layout menu-icon"></i>
+                                <span class="menu-title">Contant us </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('footer.index')}}">
+                                <i class="icon-layout menu-icon"></i>
+                                <span class="menu-title">Footer</span>
+                            </a>
+                        </li>
 
-                        <div class="dropdown ">
-                            <button class="btn  dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false"><i class="icon-layout menu-icon"></i>
-                                Sitting
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{route('about.index')}}">
-                                        <i class="icon-layout menu-icon"></i>
-                                        <span class="menu-title">About us </span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{route('contant.index')}}">
-                                        <i class="icon-layout menu-icon"></i>
-                                        <span class="menu-title">Contant us </span>
-                                    </a>
-                                </li>
-
-                            </div>
-                        </div>
 
                     </ul>
                 </div>
