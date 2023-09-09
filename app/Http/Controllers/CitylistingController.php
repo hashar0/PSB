@@ -17,10 +17,13 @@ class CitylistingController extends Controller
 
        ->where('city_id',$id)
        ->get();
+       $about=DB::table('abouts')->get();
+        $contants=DB::table('contants')->get();
+        $footers=DB::table('footers')->get();
 
 
       // return $listings;
-        return view('home.city_listing',compact('listings'));
+        return view('home.city_listing',compact('listings','about','contants','footers'));
 
     }
 

@@ -10,8 +10,6 @@ use App\Models\Product;
 class FrontController extends Controller
 {
 // home page data upload
-
-
 public function index()
 {
   $sub_category=DB::table('sub_categories')
@@ -48,23 +46,32 @@ public function index()
    ->groupBy('cities.id', 'cities.name')
    ->limit(6)->get();
    $header=DB::table('headers')->get();
+   $contants = DB::table('contants')->get();
+   $footers=DB::table('footers')->get();
+   $about = DB::table('abouts')->get();
    $categories = DB::table('categories')
    ->select('categories.image as category_image','categories.name as category_name')
    ->get();
-//return $categories;
-  return view('home.home',compact('sub_category','sliders','products','header','categories','city'));
+ //return $contants;
+  return view('home.home',compact('sub_category','sliders','products','header','categories','city','about','contants','footers'));
 
 }
 
+
+
     public function contant()
     {
+        $about =DB::table('abouts')->get();
+        $footers = DB::table('footers')->get();
         $contants = DB::table('contants')->get();
-        return view('home.contant',compact('contants'));
+        return view('home.contant',compact('contants','footers','about'));
     }
     public function about()
     {
+        $contants= DB::table('contants')->get();
     $about =DB::table('abouts')->get();
-        return view('home.about',compact('about'));
+    $footers = DB::table('footers')->get();
+        return view('home.about',compact('about','contants','footers'));
     }
 
 

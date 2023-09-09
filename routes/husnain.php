@@ -8,7 +8,7 @@ use App\Http\Controllers\ListingController;
 use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +33,7 @@ Route::get('/', function () {
 
  //home page frontend
 Route::prefix('/')->group(function(){
-
+    Route::get('/register',[RegisterController::class,'showRegisterForm'])->name('register');
     Route::get('/',[FrontController::class,'index'])->name('/');
     Route::get('/contant',[FrontController::class,'contant'])->name('contant');
     Route::get('/about',[FrontController::class,'about'])->name('about');

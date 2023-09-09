@@ -36,9 +36,11 @@
     {{-- icon --}}
     <style>
         .custom-spacing {
-          margin-left: 140px; /* You can adjust this value as needed */
+            margin-left: 140px;
+            /* You can adjust this value as needed */
         }
-      </style>
+
+    </style>
 </head>
 <title>Pets Stock Bazaar</title>
 </head>
@@ -82,30 +84,31 @@
                     @endif
                     @else
                     <li class="nav-item dropdown">
-                        <li>
-                            @if (Auth::user()->profile_image)
-                            <img src="{{asset('uploads/profile/'.Auth::user()->profile_image)}}" class="rounded-circle shadow-6-strong"
-                                width="40px" height="40px" alt="Image">
-                            @else
-                            <img src="{{asset("uploads/profile/admin.png")}}" class="rounded-circle shadow-4-strong" width="40px"
-                                height="40px" id="image_preview_container" alt="Image">
-                            @endif
-                        </li>
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
+                    <li>
+                        @if (Auth::user()->profile_image)
+                        <img src="{{asset('uploads/profile/'.Auth::user()->profile_image)}}"
+                            class="rounded-circle shadow-6-strong" width="40px" height="40px" alt="Image">
+                        @else
+                        <img src="{{asset("uploads/profile/admin.png")}}" class="rounded-circle shadow-4-strong"
+                            width="40px" height="40px" id="image_preview_container" alt="Image">
+                        @endif
+                    </li>
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }}
 
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{route('profile')}}">My Profile</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();"><i
+                                class="ti-power-off text-primary"></i>
+                            {{ __('Logout') }}
                         </a>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{route('profile')}}">My Profile</a>
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();"><i class="ti-power-off text-primary"></i>
-                                {{ __('Logout') }}
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
                     </li>
                     @endguest
 
@@ -132,32 +135,30 @@
             <div class="row">
                 <div>
                     <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-6 float-left">
-                        <div>
-
-                            <label class="text-primary"><b>Pets Stock Bazaar</label>
-
-                            <div class="p-2">
-                                <p>Pottery is a fascinating art form that has captivated humanity for thousands of
-                                    years. The art of creating ceramic objects from clay has a rich history that spans
-                                    across various cultures and civilizations. From ancient civilizations like the
-                                    Egyptians and Greeks to modern-day pottery studios, the craft has evolved and
-                                    adapted over time. </p>
-                            </div>
-                            <ul>
-
-                                <span><i class="fa-solid fa-location-dot"></i> location </span>
-                                <br>
-                                <span><i class="fa-solid fa-phone-volume"></i> mobile number </span>
-                                <br>
-                                <span><a href="#"><i class="fa-sharp fa-solid fa-envelopes-bulk"></i>
-                                        info@gmail.com</a></span>
 
 
-                            </ul>
+
+                        <div class="p-2 font-weight-light">
+                            @foreach ($about as $us)
+                            <h3> <label class="text-primary"><b>{{$us->name}}</label></h3>
+                            <p>{{$us->paragraph}} </p>
+                            @endforeach
                         </div>
+                        <ul class="font-weight-light">
+                            @foreach ($contants as $contant)
+                            <span><i class="fa-solid fa-location-dot"></i>&nbsp;{{$contant->location}}</span>
+                            <br>
+                            <span><i class="fa-solid fa-phone-volume"></i>&nbsp;{{$contant->phone}}</span>
+                            <br>
+                            <span><a href="#"><i class="fa-sharp fa-solid fa-envelopes-bulk"></i>
+                                    {{$contant->email}}</a></span>
+                            @endforeach
+
+                        </ul>
+
                     </div>
                     <div class="col-12 col-sm-12 col-md-6 col-lg-4 float-left">
-                        <div class="adi-footercolumn adi-widget widget_nav_menu adi-widget" id="">
+                        <div class="adi-footercolumn adi-widget widget_nav_menu adi-widget">
                             <div>
                                 <h3>Quick Links</h3>
                             </div>
@@ -165,11 +166,14 @@
                                 <ul id="menu-footer-top">
                                     <a href="{{route('/')}}"><i class="fa-solid fa-house"></i><label>Home</label></a>
                                     <br>
-                                    <a href="{{route('about')}}"><i class="fa-sharp fa-solid fa-code"></i><label>About Us</label></a>
+                                    <a href="{{route('about')}}"><i class="fa-sharp fa-solid fa-code"></i><label>About
+                                            Us</label></a>
                                     <br>
-                                    <a href="{{route('contant')}}"><i class="fa-solid fa-phone-volume"></i><label>Contact Us</label></a>
+                                    <a href="{{route('contant')}}"><i
+                                            class="fa-solid fa-phone-volume"></i><label>Contact Us</label></a>
                                     <br>
-                                    <a href="{{route('login')}}"><i class="fa-sharp fa-solid fa-eye"></i><label>Show all</label></a>
+                                    <a href="{{route('register')}}"><i class="fa-sharp fa-solid fa-eye"></i><label>Show
+                                            all</label></a>
                                 </ul>
                             </div>
                         </div>
@@ -182,17 +186,14 @@
                             <div>
 
                                 <ul>
-                                    <span> <a href=""><i
-                                                class="fa-brands fa-square-whatsapp"></i><label>WhatsApp<label></a></span>
+                                    @foreach ($footers as $footer)
+                                    <span> <a href="{{$footer->link}}"><img src="{{$footer->icon}}"  alt="footer icon"
+                                                class="rounded float-left" style="width: 20px ; height:20px">
+                                            <label> {{$footer->name}}<label></a></span>
                                     <br>
-                                    <span><a href=""><i
-                                                class="fa-brands fa-square-facebook"></i><label>Facebook<label></a></span>
-                                    <br>
-                                    <span><a href=""><i class="fa-brands fa-instagram"></i><label>
-                                                Instagram</label></a></span>
-                                    <br>
-                                    <span> <a href=""><i class="fa-brands fa-twitter"></i><label>
-                                                Twitter</label></a></span>
+
+                                    @endforeach
+
 
                                 </ul>
                             </div>

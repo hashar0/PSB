@@ -27,8 +27,11 @@ class ProfileController extends Controller
         ,'categories.name as category_name',
         'sub.name as sub_category_name')
         ->get();
+        $about=DB::table('abouts')->get();
+        $contants=DB::table('contants')->get();
+        $footers=DB::table('footers')->get();
        // $products=DB::table('products')->get();
-        return view('home.profile',compact('products'));
+        return view('home.profile',compact('products','about','contants','footers'));
   }
 
   //profile user data

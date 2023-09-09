@@ -31,8 +31,11 @@ class ListingController extends Controller
     ->leftJoin('prices','products.price_id','=','prices.id')
     ->leftJoin('types','products.type_id','=','types.id')
     ->get();
+    $about=DB::table('abouts')->get();
+       $contants=DB::table('contants')->get();
+       $footers=DB::table('footers')->get();
    // return $products;
-        return view('home.listing',compact('data','category','country','state','city','category','sub_categories','price','types'));
+        return view('home.listing',compact('footers','contants','about','data','category','country','state','city','category','sub_categories','price','types'));
     }
     // detail listing
     public function detail($id)
@@ -76,8 +79,11 @@ class ListingController extends Controller
        ->where('products.subcat_id', $product->subcat_id)
        ->where('products.id','!=',$id)
        ->get();
+       $about=DB::table('abouts')->get();
+       $contants=DB::table('contants')->get();
+       $footers=DB::table('footers')->get();
        // return $related;
-         return view('home.detail',compact('product','related'));
+         return view('home.detail',compact('product','related','about','footers','contants','about'));
     }
 
 

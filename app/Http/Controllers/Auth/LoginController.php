@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -34,7 +35,16 @@ class LoginController extends Controller
      * @return void
      */
     public function __construct()
+
     {
+
         $this->middleware('guest')->except('logout');
+    }
+    public function showLoginForm()
+    {
+    $about = DB::table('abouts')->get();
+    $contants = DB::table('contants')->get();
+    $footers=DB::table('footers')->get(); // Replace with your actual about information
+    return view('auth.login', compact('about','contants','footers'));
     }
 }

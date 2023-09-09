@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class RegisterController extends Controller
 {
@@ -39,6 +40,13 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+    public function showRegisterForm()
+    {
+        $about= DB::table('abouts')->get();
+        $contants = DB::table('contants')->get();
+        $footers = DB::table('footers')->get();
+        return view('auth.register',compact('about','contants','footers'));
     }
 
     /**
@@ -84,4 +92,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+
+
 }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 class HomeController extends Controller
 {
 //home page data
@@ -21,6 +21,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
 
 
 
