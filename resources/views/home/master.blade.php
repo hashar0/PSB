@@ -188,7 +188,7 @@
                                 <ul>
                                     @foreach ($footers as $footer)
                                     <span> <a href="{{$footer->link}}"><img src="{{$footer->icon}}"  alt="footer icon"
-                                                class="rounded float-left" style="width: 20px ; height:20px">
+                                                class="rounded float-left" style="width: 25px ; height:25px">
                                             <label> {{$footer->name}}<label></a></span>
                                     <br>
 

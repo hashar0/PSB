@@ -32,8 +32,8 @@ class ListingController extends Controller
     ->leftJoin('types','products.type_id','=','types.id')
     ->get();
     $about=DB::table('abouts')->get();
-       $contants=DB::table('contants')->get();
-       $footers=DB::table('footers')->get();
+    $contants=DB::table('contants')->get();
+    $footers=DB::table('footers')->get();
    // return $products;
         return view('home.listing',compact('footers','contants','about','data','category','country','state','city','category','sub_categories','price','types'));
     }

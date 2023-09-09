@@ -13,7 +13,7 @@ class Sub_CategoryController extends Controller
     public function index(Request $request )
     {
         //return $request;
-        $sub_categories=DB::table('sub_categories')
+        $sub_category=DB::table('sub_categories')
         ->leftJoin('categories', 'sub_categories.category_id', '=', 'categories.id')
         ->select('sub_categories.*','categories.name as category_name')
         ->get();
@@ -21,7 +21,7 @@ class Sub_CategoryController extends Controller
 
 
 
-        return view('admin..sub_category.sub_index', compact('sub_categories',));
+        return view('admin..sub_category.sub_index', compact('sub_category',));
     }
 
 
@@ -33,10 +33,10 @@ class Sub_CategoryController extends Controller
     {
 
         $category=Category::get();
-        $sub_categories=new SubCategory;
+        $sub_category=new SubCategory;
        //$sub_categories=DB::table('sub_categories')->get();
 
-        return view('admin.sub_category.sub_create',compact('category','sub_categories'));
+        return view('admin.sub_category.sub_create',compact('category','sub_category'));
     }
     public function store(Request $request)
     {
@@ -81,11 +81,11 @@ class Sub_CategoryController extends Controller
     }
     public function update(Request  $request,$id){
 
-    $Category=SubCategory::find($id);
+    $sub_category=SubCategory::find($id);
 
     $data=$request->all();
-    $Category->update($data);
-    return redirect()->route('sub_cat.index',compact('Category'));
+    $sub_category->update($data);
+    return redirect()->route('sub_cat.index',compact('sub_category'));
 
 
 
@@ -93,10 +93,10 @@ class Sub_CategoryController extends Controller
 
     public function delete(Request $request,$id){
 
-    $Category=SubCategory::find($id);
+    $sub_category=SubCategory::find($id);
 
     //$data=$request->all();
-    $Category->delete();
+    $sub_category->delete();
     return redirect()->route('sub_cat.index');
 
     }

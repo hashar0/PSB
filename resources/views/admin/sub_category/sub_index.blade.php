@@ -28,7 +28,7 @@
                             </thead>
                             <tbody>
 
-                                @foreach ($sub_categories as $key=> $sub_category)
+                                @foreach ($sub_category as $key=> $sub_category)
                                 <tr>
                                     <td>{{ ++$key}}</td>
 
