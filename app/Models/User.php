@@ -52,4 +52,7 @@ class User extends Authenticatable
     {
         return $this->role === 'admin'; // Assuming 'role' is a field in your users table
     }
+
+
+
 }

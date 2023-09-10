@@ -96,7 +96,7 @@
     {{-- category and sub_category --}}
     <div class="form-group">
         <label for="">Choose Category</label>
-        <select name="category" id="sub_category_name" class="form-control @error('category') is-invalid @enderror"
+        <select name="category" id="sub_categories_name" class="form-control @error('category') is-invalid @enderror"
             required>
             <option value="">select Category</option>
             @foreach ($category as $category )
@@ -116,12 +116,12 @@
 
     <div class="form-group">
         <label for="">Choose Sub-Category</label>
-        <select name="subcategory" id="sub_category" class="form-control @error('subcategory') is-invalid @enderror"
+        <select name="sub_categories" id="sub_categories" class="form-control @error('sub_categories') is-invalid @enderror"
             required>
             <option value="">select</option>
         </select>
 
-        @error('subcategory')
+        @error('sub_categories')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </span>
@@ -283,22 +283,22 @@
             });
         });
         //category
-        $('#sub_category_name').on('change', function () {
+        $('#sub_categories_name').on('change', function () {
             let id = $(this).val();
-            $('#sub_category').empty();
-            $('#sub_category').append(`<option value="0" disabled selected>Processing...</option>`);
+            $('#sub_categories').empty();
+            $('#sub_categories').append(`<option value="0" disabled selected>Processing...</option>`);
             $.ajax({
                 type: 'GET',
                 url: '/adminv2/sub_categories/GetSubCatAgainstMainCatEdit/' + id,
                 success: function (response) {
                     var response = JSON.parse(response);
                     console.log(response);
-                    $('#sub_category').empty();
-                    $('#sub_category').append(
+                    $('#sub_categories').empty();
+                    $('#sub_categories').append(
                         `<option value="0" disabled selected>Select Sub Category*</option>`
                     );
                     response.forEach(element => {
-                        $('#sub_category').append(
+                        $('#sub_categories').append(
                             `<option value="${element['id']}">${element['name']}</option>`
                         );
                     });

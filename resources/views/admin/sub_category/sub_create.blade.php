@@ -36,7 +36,7 @@
             <select class="form-control" name="category_id" class="form-select" id="inlineFormSelectPref">
                 @foreach ($category as $category )
 
-                <option {{$sub_category->category_id==$category->id?'selected':''}} value="{{$category->id}}">
+                <option {{$sub_categories->category_id==$category->id?'selected':''}} value="{{$category->id}}">
                     {{$category->name}}</option>
 
                 @endforeach
