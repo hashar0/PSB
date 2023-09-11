@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\WishlistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,8 +44,9 @@ Route::prefix('/')->group(function(){
     Route::get('/details/{id}',[ListingController::class,'detail']);
     // Route::post('/profile.update',[ProfileController::class,'update'])->name('profile.update');
     // Route::get('/task',[FrontController::class,'task'])->name('/task');
-});
 
+});
+Route::post('/add-to-wishlist',[WishlistController::class,'add']);
 Route::middleware(['auth'])->group(function (){
 
     Route::prefix('/profile')->group(function(){
@@ -57,7 +59,12 @@ Route::middleware(['auth'])->group(function (){
 
         Route::post('/update',[ProfileController::class,'update'])->name('profile.update');
 
+
+
     });
+    // wishlist
+Route::get('/wishlist',[WishlistController::class,'index']);
+
     // countries
 Route::get('/create',[ListingController::class,'country']);
 Route::post('/fetch-states/{id}',[ListingController::class,'fetchStates']);

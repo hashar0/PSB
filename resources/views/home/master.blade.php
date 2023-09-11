@@ -32,7 +32,9 @@
     <script src="{{asset('owl_carousal/js/owl.carousel.min.js')}}"></script>
     {{-- country --}}
     <meta name="_token" content="{{ csrf_token() }}">
-
+    {{-- files of navbar minimiam --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     {{-- icon --}}
     <style>
         .custom-spacing {
@@ -41,6 +43,7 @@
         }
 
     </style>
+
 </head>
 <title>Pets Stock Bazaar</title>
 </head>
@@ -60,12 +63,18 @@
                         <a class="nav-link" href="/"><i class="fa-solid fa-house"></i> Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about"><i class="fa-sharp fa-solid fa-code"></i> About Us</a>
+                        <a class="nav-link" href="about"><i class="fa-solid fa-address-card"></i> About Us</a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="contant"><i class="fa-solid fa-phone-volume"></i> Contant Us</a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="wishlist"><i class="fa fa-heart"
+                                style="font-size:18px; color: red;"></i> Wishlist</a>
+                    </li>
+
 
                     <!-- Authentication Links -->
                     @guest
@@ -99,10 +108,11 @@
 
                     </a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{route('profile')}}">My Profile</a>
+                        <a class="dropdown-item" href="{{route('profile')}}"><i class="fa-solid fa-user"></i>My
+                            Profile</a>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();"><i
-                                class="ti-power-off text-primary"></i>
+                                class="fa-solid fa-right-from-bracket"></i>
                             {{ __('Logout') }}
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -187,7 +197,7 @@
 
                                 <ul>
                                     @foreach ($footers as $footer)
-                                    <span> <a href="{{$footer->link}}"><img src="{{$footer->icon}}"  alt="footer icon"
+                                    <span> <a href="{{$footer->link}}"><img src="{{$footer->icon}}" alt="footer icon"
                                                 class="rounded float-left" style="width: 25px ; height:25px">
                                             <label> {{$footer->name}}<label></a></span>
                                     <br>
@@ -204,6 +214,8 @@
         </div>
 
     </footer>
+
+
 </body>
 
 </html>
