@@ -341,12 +341,7 @@
                                 <span class="menu-title">Street</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route ('price.index')}}">
-                                <i class="icon-columns menu-icon"></i>
-                                <span class="menu-title">Price</span>
-                            </a>
-                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="{{route ('type.index')}}">
                                 <i class="icon-columns menu-icon"></i>

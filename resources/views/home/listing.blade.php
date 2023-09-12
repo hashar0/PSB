@@ -49,30 +49,11 @@
                 placeholder="Enter the Age" required>
         </div>
     </div>
-    {{-- <p class="card-description">
+    <p class="card-description">
         Add Price
     </p>
     <div class="form-group">
-        <input class="form-control"  type="number" name="price" id="price" value="{{old('price')}}" placeholder="Enter
-    the Price">
-    </div> --}}
-    <div class="form-group">
-        <label for="">Choose Price</label>
-        <select name="price" id="price" class="form-control @error('price') is-invalid @enderror" required>
-            <option value="">Select Price</option>
-            @foreach ($price as $pri )
-
-            <option value="{{ $pri->id }}">{{ $pri->price }}</option>
-            @endforeach
-
-        </select>
-
-        @error('pri')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
-
+        <input class="form-control"  type="number" name="price" id="price" value="{{old('price')}}" placeholder="Enter the Price">
     </div>
 
     <div class="form-group">

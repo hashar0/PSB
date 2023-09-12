@@ -220,17 +220,7 @@ Route::middleware(['auth'])->group(function (){
         // Route::get('/delete/{id}',[HeaderController::class,'delete'])->name('head.delete');
     });
 
-    //price
-    Route::prefix('price')->group(function(){
 
-        Route::get('/',[PriceController::class,'index'])->name('price.index');
-
-        Route::get('/create',[PriceController::class,'create'])->name('price.create');
-
-        Route::post('/store',[PriceController::class,'store'])->name('price.store');
-
-        Route::get('/delete/{id}',[PriceController::class,'delete'])->name('price.delete');
-    });
 //type
     Route::prefix('type')->group(function(){
 

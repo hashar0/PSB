@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('image');
             $table->integer('age');
             $table->longText('description');
-            $table->integer('price');
             $table->string('type');
         });
     }
