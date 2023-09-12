@@ -72,7 +72,9 @@
 
                     <li class="nav-item">
                         <a class="nav-link" href="wishlist"><i class="fa fa-heart"
-                                style="font-size:18px; color: red;"></i> Wishlist</a>
+                                style="font-size:18px; color: red;"></i> Wishlist
+
+                            </a>
                     </li>
 
 

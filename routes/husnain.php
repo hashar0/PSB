@@ -46,7 +46,9 @@ Route::prefix('/')->group(function(){
     // Route::get('/task',[FrontController::class,'task'])->name('/task');
 
 });
-Route::post('/add-to-wishlist',[WishlistController::class,'add']);
+Route::post('/wishlist/add/{product}', [WishlistController::class, 'addToWishlist'])->name('wishlist.add');
+
+
 Route::middleware(['auth'])->group(function (){
 
     Route::prefix('/profile')->group(function(){
@@ -63,7 +65,8 @@ Route::middleware(['auth'])->group(function (){
 
     });
     // wishlist
-Route::get('/wishlist',[WishlistController::class,'index']);
+Route::get('/wishlist', [WishlistController::class, 'viewWishlist'])->name('wishlist.view');
+
 
     // countries
 Route::get('/create',[ListingController::class,'country']);

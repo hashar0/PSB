@@ -139,15 +139,7 @@
                                         {{$product->name}}</h5>
 
                                 </div>
-                                <div class="col-lg-2 col-sm-3 col-md-2 col-2">
-                                    <form action="" method="POST">
-                                        <input type="hidden" name="_token" value="HKyQhvtxEHWiqQ7X1tWj0Rhi37gi5tHu6Wkb0n2W">
-                                        <button type="submit" data-toggle="tooltip" data-placement="right"
-                                            title="Add To Favourites" class="mt-1 float-end btn btn-sm btn-white"><i
-                                                class="fa fa-heart" style="font-size:18px; color: red;"></i></button>
 
-                                    </form>
-                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-10 col-sm-6 col-6">

@@ -37,12 +37,10 @@ public function create()
 }
  public function store(Request $request )
 {
-
     //save in url
     // $name=strtolower($request->name);
     // $url=str_replace('','-',$name);
     // $url=$url.'-t'.time().'-r'.rand();
-
 
     $imagePath = null;
             // single image on product

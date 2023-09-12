@@ -52,7 +52,7 @@ public function index()
    $categories = DB::table('categories')
    ->select('categories.image as category_image','categories.name as category_name')
    ->get();
- //return $contants;
+ //return $products;
   return view('home.home',compact('sub_category','sliders','products','header','categories','city','about','contants','footers'));
 
 }

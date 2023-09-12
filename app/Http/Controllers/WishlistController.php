@@ -8,39 +8,42 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class WishlistController extends Controller
 {
-    public function index(){
+    public function viewWishlist(){
+
         $about=DB::table('abouts')->get();
         $contants=DB::table('contants')->get();
         $footers=DB::table('footers')->get();
 
-        $wishlist=Wishlist::where('user_id' , Auth::id())->get();
 
-        return view('home.wishlist',compact('about','contants','footers','wishlist'));
+        if (auth()->check()) {
+
+            $wishlist = Wishlist::where('user_id', auth()->id())->with('product')
+            ->get();
+
+
+           // return $wishlist;
+            return view('home.wishlist', compact('about','contants','footers','wishlist'));
+        }
+
+       return redirect()->route('login')->with('error', 'You must be logged in to view your wishlist.');
+
     }
 
-    public function add(Request $request)
-
+    public function addToWishlist(Product $product)
     {
-        if(Auth::check())
-        {
-            $product_id = $request->input('product_id');
-             if(Product::find($product_id))
-             {
-                $wish = new Wishlist();
-                $wish->product_id= $product_id;
-                $wish->user_id=Auth::id();
-                $wish->save();
-                return response()->json(['message'=>'Product Added to Wishlist']);
-            }
-            else{
-                return response()->json(['message'=>'Product doesnot exit']);
-            }
-        }
-        else
-        {
-            return response()->json(['message'=>'login to Continue']);
 
+        {
+           if (auth()->check()) {
+                $wishlist = new Wishlist([
+                    'user_id' => auth()->id(),
+                    'product_id' => $product->id,
+                ]);
+                $wishlist->save();
+
+                return redirect()->back()->with('success', 'Product added to wishlist.');
+            }
+
+            return redirect()->back()->with('error', 'You must be logged in to add to the wishlist.');
         }
-return $request;
     }
 }

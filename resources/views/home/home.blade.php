@@ -122,15 +122,15 @@
 
                     </div>
                     <div class="col-lg-2 col-sm-3 col-md-2 col-2">
+                        {{-- wishlist --}}
 
-                        {{-- <form action="{{url('/add-to-wishlist')}}" method="post"> --}}
-                            <input type="hidden" id="addtowishlis" name="_token" value="HKyQhvtxEHWiqQ7X1tWj0Rhi37gi5tHu6Wkb0n2W">
+                        <form method="POST" action="{{ route('wishlist.add', $product) }}">
+                            @csrf
                             <button type="submit" data-toggle="tooltip" data-placement="right" title="Add To Favourites"
-                                class="mt-1 float-end btn btn-sm addtowishlist btn-white"><i class="fa fa-heart"
+                                class="mt-1 float-end btn btn-sm btn-white"><i class="fa fa-heart"
                                     style="font-size:18px; color: red;"></i>
                             </button>
-
-                        {{-- </form> --}}
+                        </form>
                     </div>
                 </div>
                 <div class="row">
@@ -358,25 +358,6 @@
                     items: 1
                 }
             }
-        });
-    })
-
-    $(document).ready(function () {
-        $('.addtowishlist').click(function (e) {
-            e.preventDefault();
-            var product_id = $(this).closest('.product_data').find('.product_id').val();
-
-            $.ajax({
-                method: "post",
-                url: "/add-to-wishlist",
-                data: {
-                    'product_id': product_id,
-
-                },
-                success: function (response) {
-                    swal(response.message);
-                }
-            })
         });
     })
 
