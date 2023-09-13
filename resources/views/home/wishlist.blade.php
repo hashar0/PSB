@@ -35,21 +35,26 @@
 
                         <div class="row">
                             <div class="col-lg-10 col-sm-9 col-md-10 col-10 mt-1">
-                                <h5 class="fw-bold" data-toggle="tooltip" data-placement="right" title="Name">
+                                <h5 class="fw-bold text-primary" data-toggle="tooltip" data-placement="right" title="Name">
                                     {{$item->product->name}}</h5>
                             </div>
 
 
                         </div>
                         <div class="row">
-                            <div class="col-lg-10 col-sm-6 col-6">
+                            <div class="col-lg-6 col-sm-9 col-md-10 col-10 ">
+                                <h5 class="text-danger" data-toggle="tooltip" data-placement="right" title="Name">
+                                    Price</h5>
+
+                            </div>
+                            <div class="col-lg-6 ">
                                 <h6 data-toggle="tooltip" data-placement="right" title="" class="text-dark">
-                                    {{$item->product->price_id}}</h6>
+                                    {{$item->product->price}}</h6>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-6 col-sm-9 col-md-10 col-10 ">
-                                <h5 class="" data-toggle="tooltip" data-placement="right" title="Name">
+                                <h5 class="text-danger" data-toggle="tooltip" data-placement="right" title="Name">
                                     Age</h5>
 
                             </div>
@@ -59,13 +64,14 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        {{-- <div class="row">
 
                             <div class="col-lg-10 col-12 col-md-12 col-sm-12">
                                 <p data-toggle="tooltip" data-placement="right" title="location">
-                                    {{$item->product->country_name}}{{$item->product->city_name}}</p>
+                                    {{$item->product->country_name}},{{$item->product->state_name}},{{$item->product->city_name}}
+                                </p>
                             </div>
-                        </div>
+                        </div> --}}
 
                     </a>
 

@@ -17,10 +17,10 @@ class ListingController extends Controller
        $category=DB::table('categories')->get();
        $sub_categories=DB::table('sub_categories')->get();
        $data['country']=Country::get(['name','id']);
-       $price=DB::table('prices')->get();
+
        $types=DB::table('types')->get();
 
-    $products = Product::select('products.*', 'users.name as user_name','countries.name as country_name', 'states.name as state_name', 'cities.name as city_name', 'streets.name as street_name','categories.name as category_name','prices.price as price_name')
+    $products = Product::select('products.*', 'users.name as user_name','countries.name as country_name', 'states.name as state_name', 'cities.name as city_name', 'streets.name as street_name','categories.name as category_name')
     ->leftJoin('countries', 'products.country_id', '=', 'countries.id')
     ->leftJoin('states', 'products.state_id', '=', 'states.id')
     ->leftJoin('cities', 'products.city_id', '=', 'cities.id')
@@ -28,14 +28,14 @@ class ListingController extends Controller
     ->leftJoin('users', 'products.user_id', '=', 'users.id')
     ->leftJoin('categories','products.cat_id','=','categories.id')
     ->leftJoin('sub_categories','products.subcat_id','=','sub_categories.id')
-    ->leftJoin('prices','products.price_id','=','prices.id')
+
     ->leftJoin('types','products.type_id','=','types.id')
     ->get();
     $about=DB::table('abouts')->get();
     $contants=DB::table('contants')->get();
     $footers=DB::table('footers')->get();
    // return $products;
-        return view('home.listing',compact('footers','contants','about','data','category','country','state','city','category','sub_categories','price','types'));
+        return view('home.listing',compact('footers','contants','about','data','category','country','state','city','category','sub_categories','types'));
     }
     // detail listing
     public function detail($id)
@@ -49,14 +49,13 @@ class ListingController extends Controller
        // ->where('products.user_id',Auth::id())
        //->where('product_images','image_path')
          ->join('states', 'products.state_id', '=', 'states.id')
-        ->join('cities', 'products.city_id', '=', 'cities.id')
+         ->join('cities', 'products.city_id', '=', 'cities.id')
          ->join('streets', 'products.street_id', '=', 'streets.id')
          ->join('users','products.user_id','=','users.id')
          ->join('categories','products.cat_id','=','categories.id')
-        ->leftjoin('sub_categories as sub','products.subcat_id','=','sub.id')
-         ->leftjoin('prices','products.price_id','=','prices.id')
+         ->leftjoin('sub_categories as sub','products.subcat_id','=','sub.id')
          ->leftjoin('types','products.type_id','=','types.id')
-        ->select('products.*','types.types as types_name','prices.price as price_name','countries.name as country_name', 'states.name as state_name', 'cities.name as city_name', 'streets.name as street_name','users.name as user_name','users.profile_image as user_image'
+        ->select('products.*','types.types as types_name','countries.name as country_name', 'states.name as state_name', 'cities.name as city_name', 'streets.name as street_name','users.name as user_name','users.profile_image as user_image'
         ,'categories.name as category_name',
         'sub.name as sub_category_name')
         ->where('products.id', $id)
@@ -71,9 +70,9 @@ class ListingController extends Controller
        ->join('users','products.user_id','=','users.id')
        ->join('categories','products.cat_id','=','categories.id')
        ->leftjoin('sub_categories as sub','products.subcat_id','=','sub.id')
-       ->leftjoin('prices','products.price_id','=','prices.id')
+
        ->leftjoin('types','products.type_id','=','types.id')
-       ->select('products.*','types.types as types_name','prices.price as price_name','countries.name as country_name', 'states.name as state_name', 'cities.name as city_name', 'streets.name as street_name','users.name as user_name','users.profile_image as user_image'
+       ->select('products.*','types.types as types_name','countries.name as country_name', 'states.name as state_name', 'cities.name as city_name', 'streets.name as street_name','users.name as user_name','users.profile_image as user_image'
        ,'categories.name as category_name',
        'sub.name as sub_category_name',)
        ->where('products.subcat_id', $product->subcat_id)
@@ -111,7 +110,6 @@ class ListingController extends Controller
             'state_id'=> $request->state,
             'city_id'=> $request->city,
             'street_id'=> $request->street,
-            'price_id' => $request->price,
             'type_id'=> $request->type,
             'cat_id'=>$request->category,
             'subcat_id'=>$request->subcategory,

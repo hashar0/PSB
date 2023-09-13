@@ -110,7 +110,7 @@
     </div>
 
 
-    {{-- country state and cite street --}}
+
     <p class="card-description">
         Add Country
     </p>
@@ -268,15 +268,16 @@
             let id = $(this).val();
             $('#sub_categories').empty();
             $('#sub_categories').append(`<option value="0" disabled selected>Processing...</option>`);
+
             $.ajax({
                 type: 'GET',
-                url: '/adminv2/sub_categories/GetSubCatAgainstMainCatEdit/' + id,
+                url: '/admin/sub_categories/GetSubCatAgainstMainCatEdit/' + id,
                 success: function (response) {
                     var response = JSON.parse(response);
                     console.log(response);
                     $('#sub_categories').empty();
                     $('#sub_categories').append(
-                        `<option value="0" disabled selected>Select Sub Category*</option>`
+                        `<option value="0" disabled selected>Select Sub Categories*</option>`
                     );
                     response.forEach(element => {
                         $('#sub_categories').append(
@@ -286,7 +287,9 @@
                 }
             });
         });
-    });
+    })
+
+
 
 </script>
 

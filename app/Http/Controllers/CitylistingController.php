@@ -10,9 +10,10 @@ class CitylistingController extends Controller
     public function city_listing(Request $request,$id){
 
         $listings=DB::table('products')
-       ->join('prices','products.price_id','=','prices.id')
+        ->join('states', 'products.state_id', '=', 'states.id')
+        ->join('cities', 'products.city_id', '=', 'cities.id')
        ->join('countries', 'products.country_id', '=', 'countries.id')
-        ->select('products.*','prices.price as price_name'
+        ->select('products.*','states.name as state_name', 'cities.name as city_name'
         ,'countries.name as country_name',)
 
        ->where('city_id',$id)

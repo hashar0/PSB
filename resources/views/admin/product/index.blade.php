@@ -58,7 +58,7 @@
                                     <td>{{$product->city_name}}</td>
                                     <td>{{$product->street_name}}</td>
                                     <td>{{$product->description}}</td>
-                                    <td>{{$product->price_name}}</td>
+                                    <td>{{$product->price}}</td>
                                     <td>{{$product->types_name}}</td>
 
                                     <td>

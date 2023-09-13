@@ -61,7 +61,7 @@
 <div class="col-12 col-md-12 ">
     <div class=" card container shadow">
         <div class="owl-carousel owl-theme " id="slider1">
-            @foreach ($sub_category as $sub_category)
+            @foreach ($sub_categories as $sub_category)
             <div class="card container" style="height: 9.3rem">
                 <div class="item">
                     <img src="{{ $sub_category->image}}" height="120px" width="120px">
@@ -134,14 +134,25 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-10 col-sm-6 col-6">
-                        <h6 data-toggle="tooltip" data-placement="right" title="" class="text-dark">
-                            {{$product->price_name}}</h6>
+                    <div class="col-lg-6 col-sm-9 col-md-10 col-10 ">
+
+                        <h5 class="text-dark" data-toggle="tooltip" data-placement="right" title="Name"><i
+                                class="fa-solid fa-tag"></i><span class="text-danger"> Price</span></h5>
+                    </div>
+                    <div class="col-lg-6 ">
+                        <h6 data-toggle="tooltip" data-placement="right" title="" name="price" class="text-dark">
+                            {{$product->price}}</h6>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-lg-6 col-sm-9 col-md-10 col-10 ">
-                        <h5 class="" data-toggle="tooltip" data-placement="right" title="Name">
+                        <h5 class="text-danger" data-toggle="tooltip" data-placement="right" title="Name"><svg
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+                                <path
+                                    d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0Zm2 4a2 2 0 1 0-2.95 1.76 1.87 1.87 0 0 0-.32.24H3.75a.75.75 0 0 0 0 1.5h2.363l-.607 5.67a.75.75 0 1 0 1.49.16l.25-2.33h1.508l.25 2.33a.75.75 0 0 0 1.492-.16L9.888 7.5h2.362a.75.75 0 0 0 0-1.5H9.27a1.98 1.98 0 0 0-.32-.24A2 2 0 0 0 10 4Z">
+                                </path>
+                            </svg>
                             Age</h5>
 
                     </div>
@@ -154,7 +165,12 @@
                 <div class="row">
 
                     <div class="col-lg-10 col-12 col-md-12 col-sm-12">
-                        <p data-toggle="tooltip" data-placement="right" title="location">
+                        <p data-toggle="tooltip" data-placement="right" title="location "><svg
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+                                <path
+                                    d="m12.596 11.596-3.535 3.536a1.5 1.5 0 0 1-2.122 0l-3.535-3.536a6.5 6.5 0 1 1 9.192-9.193 6.5 6.5 0 0 1 0 9.193Zm-1.06-8.132v-.001a5 5 0 1 0-7.072 7.072L8 14.07l3.536-3.534a5 5 0 0 0 0-7.072ZM8 9a2 2 0 1 1-.001-3.999A2 2 0 0 1 8 9Z">
+                                </path>
+                            </svg>
                             {{$product->country_name}},{{$product->state_name}},{{$product->city_name}}</p>
                     </div>
                 </div>
@@ -362,8 +378,5 @@
     })
 
 </script>
-<script>
 
-
-</script>
 @endsection

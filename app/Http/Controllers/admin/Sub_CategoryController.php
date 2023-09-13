@@ -22,7 +22,7 @@ class Sub_CategoryController extends Controller
     }
 
 
-  public function GetSubCatAgainstMainCatEdit($id){
+      public function GetSubCatAgainstMainCatEdit($id){
         echo json_encode(DB::table('sub_categories')->where('category_id', $id)->get());
     }
 

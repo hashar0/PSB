@@ -16,12 +16,11 @@ class WishlistController extends Controller
 
 
         if (auth()->check()) {
-
             $wishlist = Wishlist::where('user_id', auth()->id())->with('product')
             ->get();
 
 
-           // return $wishlist;
+           //return $wishlist;
             return view('home.wishlist', compact('about','contants','footers','wishlist'));
         }
 
@@ -39,7 +38,6 @@ class WishlistController extends Controller
                     'product_id' => $product->id,
                 ]);
                 $wishlist->save();
-
                 return redirect()->back()->with('success', 'Product added to wishlist.');
             }
 

@@ -14,7 +14,7 @@ class SubCategory extends Model
 
     public function getCategoryNameAttribute()
     {
-      $cat=Category::find($this->category_id);
+      $cat=Category::find($this->categories_id);
       return $cat->name;
     }
 }

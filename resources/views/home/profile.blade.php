@@ -105,9 +105,14 @@
 
                 </div>
                 <div class="row">
-                    <div class="col-lg-10 col-sm-6 col-6">
+                    <div class="col-lg-6 col-sm-9 col-md-10 col-10 ">
+                        <h5 class="" data-toggle="tooltip" data-placement="right" title="Name">
+                            Price</h5>
+
+                    </div>
+                    <div class="col-lg-6 ">
                         <h6 data-toggle="tooltip" data-placement="right" title="" class="text-dark">
-                            {{$product->price_name}}</h6>
+                            {{$product->price}}month</h6>
                     </div>
                 </div>
                 <div class="row">

@@ -43,8 +43,7 @@
                         <h6>Product Name:</h6>
                         <span class="text-muted p-5">{{$product->name}}</span>
                         <h6>Product Price:</h6>
-                        <span class="text-muted p-5">{{$product->price_name}}</span>
-
+                        <span class="text-muted p-5">{{$product->price}}</span>
 
                     </div>
 
