@@ -27,6 +27,7 @@ Route::get('/', function () {
 
 });
 
+Route::get('/filter',[FrontController::class,'filter'])->name('filter');
 
 
 //auth
@@ -44,7 +45,7 @@ Route::prefix('/')->group(function(){
     Route::get('/details/{id}',[ListingController::class,'detail']);
     // Route::post('/profile.update',[ProfileController::class,'update'])->name('profile.update');
     // Route::get('/task',[FrontController::class,'task'])->name('/task');
-
+    Route::get('/filter',[FrontController::class,'filter'])->name('/filter');
 });
 Route::post('/wishlist/add/{product}', [WishlistController::class, 'addToWishlist'])->name('wishlist.add');
 

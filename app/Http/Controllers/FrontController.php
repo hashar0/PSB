@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Support\Facades\DB;
 use App\Models\Product;
+use App\Models\SubCategory;
+use App\Models\Country;
+use App\Models\City;
+use Illuminate\Http\Request;
 
 
 class FrontController extends Controller
@@ -74,6 +78,51 @@ public function index()
     }
 
 
+    public function filter(Request $request)
+    {
+
+        $categories = DB::table('categories')->get();
+        $subcategories = DB::table('sub_categories')->get();
+        $countries = DB::table('countries')
+        ->get();
+        $cities = DB::table('cities')->get();
+        $states = DB::table('states')->get();
+        $streets = DB::table('streets')->get();
+        $about = DB::table('abouts')->get();
+        $contants = DB::table('contants')->get();
+        $footers =DB::table('footers')->get();
+
+
+        $query = Product::query();
+
+        if ($request->has('categories')) {
+            $query->where('category_id', $request->input('category'));
+
+        }
+
+        if ($request->has('sub_categories')) {
+            $query->where('sub_categories_id', $request->input('sub_categories'));
+        }
+        if ($request->has('states')) {
+            $query->where('state_id', $request->input('state'));
+        }
+        if ($request->has('street')) {
+            $query->where('street_id', $request->input('street'));
+        }
+
+        if ($request->has('city')) {
+            $query->where('city_id', $request->input('city'));
+        }
+
+        if ($request->has('product_name')) {
+            $query->where('name', 'like', '%' . $request->input('product_name') . '%');
+        }
+
+        $products = $query->get();
+
+      //return $request;
+        return view('home.filter', compact('categories', 'products','subcategories', 'streets','states', 'cities', 'products','about','contants','footers'));
+    }
 
 
     // public function profile()

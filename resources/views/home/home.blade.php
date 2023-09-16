@@ -17,7 +17,10 @@
                             @endforeach
                         </div>
                         {{-- Search button --}}
-                        <a class="btn btn-danger btn-lg" href="">Get Search</a> &emsp;&emsp;
+
+                             <a class="btn btn-danger btn-lg" href="">Get Search</a>
+
+
 
                     </div>
                     {{-- card  --}}
@@ -29,7 +32,7 @@
                             <div class="row">
 
                                 <div class="col-lg-12">
-                                    <form action="">
+                                    <form action="{{route('/filter')}}" method="get">
                                         <input type="search" name="search" class="form-control"
                                             placeholder="SEARCH HERE...." name="" id="">
                                     </form>
