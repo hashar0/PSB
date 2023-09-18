@@ -18,7 +18,7 @@
                         </div>
                         {{-- Search button --}}
 
-                             <a class="btn btn-danger btn-lg" href="">Get Search</a>
+                        <a class="btn btn-danger btn-lg" href="{{route('/filter')}}">Get Search</a>
 
 
 
@@ -35,22 +35,23 @@
                                     <form action="{{route('/filter')}}" method="get">
                                         <input type="search" name="search" class="form-control"
                                             placeholder="SEARCH HERE...." name="" id="">
+
+
+                                        <select name="" class="form-control mt-3" id="">
+                                            <option value="">Select a category</option>
+                                            @foreach ($categories as $category)
+                                            <option value="">{{$category->category_name}}</option>
+                                            @endforeach
+                                        </select>
+                                        <div class="col-lg-3 mt-2">
+                                            <a class="btn btn-danger" type="search" href="{{route('/filter')}}">Search </a>
+                                        </div>
                                     </form>
                                 </div>
 
 
-                                <div class="col-lg-12">
 
-                                    <select name="" class="form-control mt-3" id="">
-                                        <option value="">Select a category</option>
-                                        @foreach ($categories as $category)
-                                        <option value="">{{$category->category_name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="col-lg-3 mt-3">
-                                    <a class="btn btn-danger" type="search" href="">Search </a>
-                                </div>
+
                             </div>
                         </div>
                     </div>
