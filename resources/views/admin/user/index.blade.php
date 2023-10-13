@@ -38,10 +38,11 @@
                                     <td>{{$user->gender}}</td>
                                     <td>{{$user->phone}}</td>
                                     <td>{{$user->address}}</td>
+
                                     {{-- <td>@if (auth()->user()->isAdmin())
-                                        <a href="">Admin Dashboard</a>
+                                        <a href="">Admin</a>
                                         @else
-                                        <a href="">User Dashboard</a>
+                                        <a href="">User</a>
                                         @endif</td> --}}
                                 </tr>
                                 @endforeach

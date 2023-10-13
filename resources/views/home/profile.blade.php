@@ -70,16 +70,16 @@
                             <label for="text">Address:</label>
                             <textarea type="address" name="address" id="address" class="form-control"
                                 value="{{ Auth::user()->address }}" cols="3" rows="5" required
-                                placeholder="Enter the Address"></textarea>
-                        </div> --}}
-                    </div>
-                    <div class="m-4">
-                        <button type="submit" id="btn" class="btn btn-primary">Save</button>
-                    </div>
+                        placeholder="Enter the Address"></textarea>
+                    </div> --}}
+                </div>
+                <div class="m-4">
+                    <button type="submit" id="btn" class="btn btn-primary">Save</button>
                 </div>
             </div>
         </div>
-    </form>
+</div>
+</form>
 </div>
 
 {{-- listing list --}}

@@ -19,7 +19,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="/adminv2/css/vertical-layout-light/style.css">
     <!-- endinject -->
-    <link rel="shortcut icon" href="/adminv2/images/favicon.png" />
+    <link rel="shortcut icon" href="/assets/image/PSB.png" />
     {{-- icon --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     {{-- country --}}
@@ -38,7 +38,7 @@
                         alt="logo" />--}}
                 </a>
                 {{-- merge the logo --}}
-                <a class="navbar-brand brand-logo-mini" href="index"><img src="/adminv2/images/logo-mini.svg"
+                <a class="navbar-brand brand-logo-mini" href="{{route('dashboard')}}"><img src="/assets/image/PSB.png"
                         alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-right">

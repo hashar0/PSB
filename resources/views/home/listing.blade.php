@@ -49,12 +49,7 @@
                 placeholder="Enter the Age" required>
         </div>
     </div>
-    <p class="card-description">
-        Add Price
-    </p>
-    <div class="form-group">
-        <input class="form-control"  type="number" name="price" id="price" value="{{old('price')}}" placeholder="Enter the Price">
-    </div>
+
 
     <div class="form-group">
         <label for="">Choose Type</label>
@@ -73,6 +68,16 @@
         @enderror
 
     </div>
+    <p class="card-description">
+        Add Price
+    </p>
+
+    <div class="form-group">
+        <input class="form-control" type="number" name="price" id="price" value="{{old('price')}}"
+            placeholder="Enter the Price">
+    </div>
+
+
 
     {{-- category and sub_category --}}
     <div class="form-group">
@@ -97,8 +102,8 @@
 
     <div class="form-group">
         <label for="">Choose Sub-Category</label>
-        <select name="sub_categories" id="sub_categories" class="form-control @error('sub_categories') is-invalid @enderror"
-            required>
+        <select name="sub_categories" id="sub_categories"
+            class="form-control @error('sub_categories') is-invalid @enderror" required>
             <option value="">select</option>
         </select>
 
@@ -288,8 +293,6 @@
             });
         });
     })
-
-
 
 </script>
 
