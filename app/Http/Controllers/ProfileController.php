@@ -1,11 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\{Country,Product,ProductImage};
 use App\Models\User;
-use App\Models\Product;
 use Dotenv\Validator;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -38,6 +36,7 @@ class ProfileController extends Controller
 
     public function update(Request $req)
      {
+   // user update
       $user_id = Auth::user()->id;
       $user = User ::find($user_id);
       $user ->name = $req->input('name');
@@ -62,6 +61,7 @@ class ProfileController extends Controller
         $user->profile_image = $filename;
       }
       $user->update();
+    //   listing update
 
       return redirect()->back()->with('success', 'Profile updated successfully.');
     }

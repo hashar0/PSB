@@ -13,8 +13,8 @@
         <div class="col-12">
             <div class="card my-4">
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                    <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                        <h6 class="text-white text-capitalize ps-3">&nbsp Pottery Create</h6>
+                    <div class="bg-gradient-primary shadow-primary border-radius-lg p-4">
+                        <h4 class="text-white text-capitalize">City Detail</h4>
                     </div>
                 </div>
                 <div class="card-body px-0 pb-2">

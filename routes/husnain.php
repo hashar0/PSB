@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\UpdateController;
 use App\Http\Controllers\WishlistController;
 
 /*
@@ -62,7 +63,11 @@ Route::middleware(['auth'])->group(function (){
 
         Route::post('/update',[ProfileController::class,'update'])->name('profile.update');
 
+        Route::get('/edit/{id}',[UpdateController::class,'edit'])->name('edit.profile');
 
+        Route::get('/delete/{id}',[UpdateController::class,'delete'])->name('del.profile');
+
+        Route::put('/update/{id}',[UpdateController::class,'update'])->name('lis.update');
 
     });
     // wishlist

@@ -60,6 +60,4 @@ class SliderController extends Controller
         return redirect()->route('slider.index');
 
         }
-
-
 }
