@@ -6,7 +6,7 @@
             <div class="card my-4">
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                     <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                        <h6 class="text-white text-capitalize ps-4 m-2 "> Create Slider</h6>
+                        <h6 class="text-white text-capitalize ps-4 m-2 ">Create Slider</h6>
                     </div>
                 </div>
                 <div class="card-body px-0 pb-2">
@@ -31,7 +31,7 @@
                                                 style="width: 300px ; height:200px"></td>
                                     </div>
                                    <td>
-                                    <a class="btn btn-danger" href="{{route('slider.delete',$slider->id)}}"><i class="fa fa-trash-o" aria-hidden="true"></i> </a></td>
+                                    <a class="btn btn-danger" href="{{route('slider.delete',$slider->id)}}"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
 
                                 </tr>
                                 @endforeach

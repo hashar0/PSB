@@ -5,11 +5,11 @@
 
     <h5>Heading</h5>
     <div class="m-2">
-        <input class="form-control" type="text" name="heading"  value="{{isset($header)?$header->heading:''}}"  placeholder="Enter the heading">
+        <input class="form-control" type="text" name="heading"  value="{{$header->heading}}"  placeholder="Enter the heading">
     </div>
     <h5> Add Paragraph</h5>
     <div class="m-2">
-        <textarea class="form-control" name="paragraph"  rows="6" value="{{isset($header)?$header->paragraph:''}}"  cols="40" width="700px" placeholder="Enter your paragraph here"></textarea>
+        <textarea class="form-control" name="paragraph"  rows="6" value="{{$header->paragraph}}"  cols="40" width="700px" placeholder="Enter your paragraph here"></textarea>
 
 
     </div>

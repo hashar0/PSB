@@ -2,7 +2,7 @@
 @section('content')
 <div class="col-md-12 bg-dark">
     <div class="card-header p-4 text-center text-white">
-        <h2>Detail</h2>
+        <h2>Details</h2>
     </div>
 </div>
 {{--image detail --}}
@@ -12,7 +12,7 @@
             <div id="image-slider" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{{$product->image}}" class="d-block w-100 h-90" alt="">
+                        <img src="{{$product->image}}" height="400px" width="900px" alt="">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#image-slider" role="button" data-bs-slide="prev">
@@ -43,7 +43,7 @@
                         <h6>Product Name:</h6>
                         <span class="text-muted p-5">{{$product->name}}</span>
                         <h6>Product Price:</h6>
-                        <span class="text-muted p-5">{{$product->price}}</span>
+                        <span class="text-muted p-5">Rs:  {{$product->price}}</span>
 
                     </div>
 

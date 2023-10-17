@@ -201,6 +201,7 @@ Route::middleware(['auth'])->group(function (){
         Route::get('/delete/{id}',[SliderController::class,'delete'])->name('slider.delete');
 
 
+
     });
 
     //header data

@@ -68,7 +68,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="contant"><i class="fa-solid fa-phone-volume"></i> Contant Us</a>
+                        <a class="nav-link" href="contant"><i class="fa-solid fa-phone-volume"></i> Contact Us</a>
                     </li>
 
                     <li class="nav-item">

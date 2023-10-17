@@ -51,6 +51,8 @@ class SliderController extends Controller
 
 
     }
+
+
     public function delete($id){
 
         $sliders=Slider::find($id);

@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     {{-- country --}}
     <meta name="_token" content="{{ csrf_token() }}">
+    {{-- fount --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -274,37 +276,27 @@
             <!-- Main Content -->
 
 
-            <nav class=" sidebar ">
+            <nav class="sidebar">
                 <div class="position-sticky">
                     <ul class="nav flex-column">
 
                         <li class="nav-item">
                             <a class="nav-link active" href="{{route('dashboard')}}">
                                 <i class="icon-grid menu-icon"></i>
-                                <span class="menu-title">Dashboard</span>
+                                <span class="menu-title ">Dashboard</span>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item ">
                             <a class="nav-link" href="{{route('head.index')}}">
-                                <i class="icon-grid menu-icon"></i>
-                                <span class="menu-title">Header</span>
+                                <i class="fa-solid fa-house menu-icon"></i>
+                                <span class="menu-title ">Header</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route ('slider.index')}}">
-                                <i class="icon-columns menu-icon"></i>
-                                <span class="menu-title">Slider</span>
-                            </a>
-                        </li>
-
-
-
                         <li class="nav-item">
                             <a class="nav-link" href="{{route ('cat.index')}}">
-                                <i class="icon-columns menu-icon"></i>
+                                <i class="fa-solid fa-calendar-days menu-icon"></i>
                                 <span class="menu-title">Category</span>
                             </a>
-
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('sub_cat.index')}}">
                                 <i class="icon-paper menu-icon"></i>
@@ -313,65 +305,76 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('prdct.index')}}">
-                                <i class="icon-paper menu-icon"></i>
+                                <i class="fa-brands fa-product-hunt menu-icon"></i>
                                 <span class="menu-title">Product</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route ('cout.index')}}">
-                                <i class="icon-bar-graph menu-icon"></i>
-                                <span class="menu-title">Country</span>
+                            <a class="nav-link" href="{{route ('slider.index')}}">
+                                <i class="fa-solid fa-image menu-icon"></i>
+                                <span class="menu-title">Slider</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('about.index')}}">
+                                <i class="fa-solid fa-address-card menu-icon"></i>
+                                <span class="menu-title">About us</span>
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{route('contant.index')}}">
+                                <i class="fa-solid fa-phone-volume menu-icon"></i>
+                                <span class="menu-title">Contant us </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('footer.index')}}">
+                                <i class="fa-solid fa-hourglass-end menu-icon"></i>
+                                <span class="menu-title">Footer</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('users')}}">
+                                <i class="fa-solid fa-user menu-icon"></i>
+                                <span class="menu-title">User</span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route ('cout.index')}}">
+                                <i class="fa-solid fa-location-dot menu-icon"></i>
+                                <span class="menu-title">Country</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link" href="{{route('sa.index')}}">
-                                <i class="icon-grid menu-icon"></i>
+                                <i class="fa-solid fa-flag-usa menu-icon"></i>
                                 <span class="menu-title">State</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('sta.index')}}">
-                                <i class="icon-contract menu-icon"></i>
+                                <i class="fa-solid fa-city menu-icon"></i>
                                 <span class="menu-title">City</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('st.index')}}">
-                                <i class="icon-grid menu-icon"></i>
+                                <i class="fa-solid fa-archway menu-icon"></i>
                                 <span class="menu-title">Street</span>
                             </a>
                         </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{route ('type.index')}}">
-                                <i class="icon-columns menu-icon"></i>
+                                <i class="fa-solid fa-hurricane menu-icon"></i>
                                 <span class="menu-title">Type</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('users')}}">
-                                <i class="icon-layout menu-icon"></i>
-                                <span class="menu-title">User</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('about.index')}}">
-                                <i class="icon-layout menu-icon"></i>
-                                <span class="menu-title">About us </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('contant.index')}}">
-                                <i class="icon-layout menu-icon"></i>
-                                <span class="menu-title">Contant us </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('footer.index')}}">
-                                <i class="icon-layout menu-icon"></i>
-                                <span class="menu-title">Footer</span>
-                            </a>
-                        </li>
+
 
 
                     </ul>
