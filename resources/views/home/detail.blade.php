@@ -14,6 +14,11 @@
                     <div class="carousel-item active">
                         <img src="{{$product->image}}" height="400px" width="900px" alt="">
                     </div>
+                    @foreach ($product_images as $product_image)
+                    <div class="carousel-item">
+                        <img src="{{$product_image->image_path}}" height="400px" width="900px" alt="">
+                    </div>
+                    @endforeach
                 </div>
                 <a class="carousel-control-prev" href="#image-slider" role="button" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -43,7 +48,7 @@
                         <h6>Product Name:</h6>
                         <span class="text-muted p-5">{{$product->name}}</span>
                         <h6>Product Price:</h6>
-                        <span class="text-muted p-5">Rs:  {{$product->price}}</span>
+                        <span class="text-muted p-5">Rs: {{$product->price}}</span>
 
                     </div>
 
@@ -62,7 +67,7 @@
             </div>
             <div class="col-lg-7 col-6"></div>
             <div class="col-lg-2 col-2">
-                <span class="float-end badge bg-success">{{$product->created_at}}</span></div>
+                <span class="float-end badge bg-success"></span></div>
         </div>
 
         <div class="row">
@@ -89,8 +94,6 @@
 </div>
 
 
-
-
 <div class="col-lg-8 p-4">
     <div class="card  p-4 shadow">
         <div class="row">
@@ -99,7 +102,7 @@
             </div>
             <div class="col-lg-7 col-6"></div>
             <div class="col-lg-2 col-2">
-                <span class="float-end badge bg-success">{{$product->created_at}}</span></div>
+                <span class="float-end badge bg-success"></span></div>
         </div>
 
         <div class="row">
@@ -161,7 +164,8 @@
                                 <div class="row">
                                     <div class="col-lg-12 col-12 col-md-12 col-sm-12">
                                         <p data-toggle="tooltip" data-placement="right" title="location">
-                                            {{$product->country_name}},{{$product->state_name}},{{$product->city_name}}</p>
+                                            {{$product->country_name}},{{$product->state_name}},{{$product->city_name}}
+                                        </p>
                                     </div>
                                 </div>
                             </div>

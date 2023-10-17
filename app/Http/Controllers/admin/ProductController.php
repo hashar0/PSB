@@ -62,12 +62,14 @@ public function create()
      // dd($request->all());
      //multi_image
        foreach ($request->file('images') as $image) {
-        $path = $image->store('/uploads/multi_image/');
-        ProductImage::create([
-            'product_id' => $product->id,
-            'image_path' => $path,
+        $mimageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('/uploads/multi_image/'), $mimageName);
+            $path = '/public/uploads/multi_image/' . $mimageName;
+            ProductImage::create([
+                'product_id' => $product->id,
+                'image_path' => $path,
 
-        ]);
+            ]);
         }
  return redirect()->route('prdct.index')->with('message','Product add successfully');
 }

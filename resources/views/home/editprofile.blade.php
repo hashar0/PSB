@@ -1,6 +1,6 @@
 @extends('home.master')
 @section('content')
-<form method="post" action="{{ route('profile', $products->id)}}" enctype="multipart/form-data">
+<form method="post" action="{{ route('lis.update', $products->id)}}" enctype="multipart/form-data">
     @csrf
     @method('PUT')
 
@@ -26,7 +26,7 @@
     </p>
     <div>
         <div class="form-group">
-            <input class="form-control" type="file" id="image" name="image" required>
+            <input class="form-control" type="file" id="image" name="image" >
         </div>
 
     </div>
@@ -35,7 +35,7 @@
     </p>
     <div>
         <div class="form-group">
-            <input class="form-control" type="file" name="images[]" multiple required>
+            <input class="form-control" type="file" name="images[]" multiple >
         </div>
 
     </div>
@@ -45,17 +45,17 @@
     <div>
         <div class="form-group">
             <input class="form-control" type="number" id="age" name="age" value="{{ $products->age}}"
-                placeholder="Enter the Age" required>
+                placeholder="Enter the Age" >
         </div>
     </div>
 
 
     <div class="form-group">
         <label for="">Choose Type</label>
-        <select name="type" value="type" id="type_id" class="form-control @error('type') is-invalid @enderror" required>
+        <select name="type_id" id="type_id" class="form-control @error('types') is-invalid @enderror" >
             <option value="">Select Type</option>
             @foreach ($types as $type )
-            <option value="{{ $type->id }}">{{ $type->types }}</option>
+            <option {{$products->type_id==$type->id?'selected':'' }}  value="{{ $type->id }}">{{ $type->types }}</option>
             @endforeach
 
         </select>
@@ -81,12 +81,12 @@
     {{-- category and sub_category --}}
     <div class="form-group">
         <label for="">Choose Category</label>
-        <select name="category" id="sub_categories_name" class="form-control @error('category') is-invalid @enderror"
-            required>
+        <select name="cat_id" id="sub_categories_name" class="form-control @error('category') is-invalid @enderror"
+            >
             <option value="">select Category</option>
             @foreach ($category as $category )
 
-            <option value="{{ $category->id }}">{{ $category->name }}</option>
+            <option {{$products->cat_id==$category->id?'selected':'' }} value="{{ $category->id }}">{{ $category->name }}</option>
     @endforeach
 
     </select>
@@ -101,8 +101,11 @@
 
     <div class="form-group">
         <label for="">Choose Sub-Category</label>
-        <select name="sub_categories" id="sub_categories"
-            class="form-control @error('sub_categories') is-invalid @enderror" required>
+        <select name="subcat_id" id="sub_categories"
+            class="form-control @error('sub_categories') is-invalid @enderror">
+            @if ($products->subcat_id !=null)
+            <option value="{{$products->subcat_id}}">{{$products->sub_category_name}}</option>
+            @endif
             <option value="">select</option>
         </select>
 
@@ -115,16 +118,16 @@
 
 
 
-    {{-- <p class="card-description">
+    <p class="card-description">
         Add Country
     </p>
 
     <div class="form-group">
-        <select id="country" name="country" required class="form-control  ">
+        <select id="country" name="country_id" required class="form-control  ">
             <option value="" selected>Choose country</option>
-            @if(!empty($country))
-            @foreach($country as $data)
-            <option value="{{ $data->id }} ">{{ $data->name }}</option>
+            @if(!empty($data['country']))
+            @foreach($data['country'] as $country)
+            <option {{$products->country_id==$country->id?'selected':''}} value="{{ $country->id }} ">{{ $country->name }}</option>
             @endforeach
             @endif
         </select>
@@ -135,8 +138,9 @@
     </p>
 
     <div class="form-group">
-        <select id="state" name="state" required class="form-control">
-            <option value="" selected>Choose State</option>
+        <select id="state" name="state_id" required class="form-control">
+            <option value="{{ $products->state_id }} ">{{ $products->state_name }}</option>
+            <option value="" >Choose State</option>
 
         </select>
     </div>
@@ -146,7 +150,8 @@
     </p>
     <div class="form-group">
         <select id="city" name="city" required class="form-control">
-            <option value="" selected>Choose City</option>
+            <option value="{{ $products->city_id }} ">{{ $products->city_name }}</option>
+            <option value="">Choose City</option>
 
         </select>
     </div>
@@ -155,11 +160,12 @@
         Add Street
     </p>
     <div class="form-group">
-        <select id="street" required name="street" class="form-control">
-            <option value="" selected>Choose Street</option>
+        <select id="street" required name="street_id" class="form-control">
+            <option value="{{ $products->street_id }} ">{{ $products->street_name }}</option>
+            <option value="" >Choose Street</option>
 
         </select>
-    </div> --}}
+    </div>
 
     <br>
     <p class="card-description">
@@ -167,8 +173,7 @@
     </p>
     <div>
         <div class="form-group">
-            <textarea class="form-control" id="description" name="description"
-                required></textarea>
+        <textarea class="form-control"  value="" id="description" name="description">{{$products->description}}</textarea>
         </div>
 
     </div>

@@ -46,7 +46,9 @@ Route::middleware(['auth'])->group(function (){
     Route::get('/dashboard',[AdminController::class,'index'])->name('dashboard');
 
     Route::get('/user',[AdminController::class,'user'])->name('users');
+
 //categories
+
     Route::prefix('categories')->group(function(){
         Route::get('/',[CategoryController::class,'index'])->name('cat.index');
 
@@ -59,7 +61,6 @@ Route::middleware(['auth'])->group(function (){
         Route::post('/update/{id}',[CategoryController::class,'update'])->name('cat.update');
 
         Route::get('/delete/{id}',[CategoryController::class,'delete'])->name('cat.delete');
-
 
     });
 //sub_categories

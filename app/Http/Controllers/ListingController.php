@@ -78,11 +78,12 @@ class ListingController extends Controller
        ->where('products.subcat_id', $product->subcat_id)
        ->where('products.id','!=',$id)
        ->get();
+       $product_images=DB::table('product_images')->where('product_id',$id)->get();
        $about=DB::table('abouts')->get();
        $contants=DB::table('contants')->get();
        $footers=DB::table('footers')->get();
        // return $related;
-         return view('home.detail',compact('product','related','about','footers','contants','about'));
+         return view('home.detail',compact('product_images','product','related','about','footers','contants','about'));
     }
 
 
