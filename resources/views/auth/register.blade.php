@@ -24,6 +24,21 @@
                             </span>
                             @enderror
                         </div>
+                        {{-- mother _name --}}
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="mother_name">{{ __('Mother_Name:')}}</label>
+                                <input id="mother_name" type="text"
+                                    class="form-control @error('mother_name') is-invalid @enderror" name="mother_name"
+                                    value="{{ old('mother_name') }}" required autocomplete="mother_name" autofocus>
+
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
                         {{-- last_name --}}
                         <div class="form-group">
                             <label for="last_name">{{ __('Last Name:')}}</label>
