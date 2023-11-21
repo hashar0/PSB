@@ -17,11 +17,7 @@
                             @endforeach
                         </div>
                         {{-- Search button --}}
-
                         <a class="btn btn-danger btn-lg" href="{{route('/filter')}}">Get Search</a>
-
-
-
                     </div>
                     {{-- card  --}}
                     <div class="col-lg-6 ">
