@@ -24,7 +24,7 @@ class ProductController extends Controller
         ->leftjoin('sub_categories as sub','products.subcat_id','=','sub.id')
         ->leftjoin('types','products.type_id','=','types.id')
         ->select('products.*','types.types as types_name','countries.name as country_name', 'states.name as state_name', 'cities.name as city_name', 'streets.name as street_name','users.name as user_name'
-        ,'cat.name as category_name','sub.name as name')
+        ,'cat.name as category_name','sub.name as sub_categories_name')
         ->get();
     //    return $products;
     // $sub=SubCategory::get();

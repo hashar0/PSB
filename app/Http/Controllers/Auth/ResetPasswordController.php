@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use PDO;
 
@@ -31,4 +31,6 @@ class ResetPasswordController extends Controller
 
 
     protected $redirectTo = RouteServiceProvider::HOME;
+
+
 }
