@@ -52,7 +52,7 @@
 
                                     <td>{{$product->user_name }}</td>
                                     <td>{{$product->category_name}}</td>
-                                    <td>{{$product->sub_category_name}}</td>
+                                    <td>{{$product->sub_categories_name}}</td>
                                     <td>{{$product->country_name}}</td>
                                     <td>{{$product->state_name}}</td>
                                     <td>{{$product->city_name}}</td>

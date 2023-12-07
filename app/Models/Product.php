@@ -21,4 +21,16 @@ class Product extends Model
         return $this->hasMany(Wishlist::class, 'product_id');
     }
 
+    // protected $append = ['sub_category_name'];
+
+    // public function getSubCategoryNameAttribute(){
+
+    //     $sub=SubCategory::find($this->subcat_id);
+    //     if(!$sub)
+    //     {
+    //         return;
+    //     }
+    //     return $sub->sub_category_name;
+
+    // }
 }

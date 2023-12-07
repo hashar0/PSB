@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\ProductImage;
 use App\Models\Product;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 
 
@@ -19,15 +20,15 @@ class ProductController extends Controller
         ->join('cities', 'products.city_id', '=', 'cities.id')
         ->join('streets', 'products.street_id', '=', 'streets.id')
         ->join('users','products.user_id','=','users.id')
-        ->join('categories','products.cat_id','=','categories.id')
+        ->join('categories as cat','products.cat_id','=','cat.id')
         ->leftjoin('sub_categories as sub','products.subcat_id','=','sub.id')
         ->leftjoin('types','products.type_id','=','types.id')
         ->select('products.*','types.types as types_name','countries.name as country_name', 'states.name as state_name', 'cities.name as city_name', 'streets.name as street_name','users.name as user_name'
-        ,'categories.name as category_name',
-        'sub.name as sub_category_name')
+        ,'cat.name as category_name','sub.name as name')
         ->get();
-      // return $products;
-
+    //    return $products;
+    // $sub=SubCategory::get();
+    //  return $sub;
     return view ('admin..product.index',compact('products'));
 }
 public function create()

@@ -82,7 +82,7 @@ class ListingController extends Controller
        $about=DB::table('abouts')->get();
        $contants=DB::table('contants')->get();
        $footers=DB::table('footers')->get();
-       // return $related;
+    //    return $related;
          return view('home.detail',compact('product_images','product','related','about','footers','contants','about'));
     }
 
